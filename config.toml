@@ -1,3 +1,51 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://paveg.github.io/"
+languageCode = "ja-jp"
+title = "Techrude"
+weight = 1
+publishDir = "public"
+theme = "hugo-bootstrap-premium"
+hasCJKLanguage = true
+paginate = 5
+paginatePath = "page"
+
+[permalinks]
+	post = "/:year/:month/:day/:filename/"
+	code = "/:filename/"
+
+[author]
+	name = "paveg"
+	email = "pavegy@gmail.com"
+
+[params.theme]
+	name = "yeti"
+
+[params]
+	BrandImage = "/logo.png"
+	brand = "paveg blog"
+	topline = "paveg's tech & life blog"
+	footline = "Copyright&copy; <a href='/about/'>paveg</a>"
+	showRightSidebar = true
+	highlight = "default"
+	twitter  = "cuz_r"
+	github   = "paveg"
+
+[[menu.main]]
+	name = "Home"
+	identifier = "home"
+	url = "/"
+	weight = -200
+	pre = "<i class='fa fa-home'></i>"
+
+[[menu.main]]
+	name = "Archives"
+	identifier = "archives"
+	url = "/post/"
+	weight = -180
+	pre = "<i class='fa fa-archive'></i>"
+
+[[menu.main]]
+	name = "About"
+	identifier = ""
+	url = "/about/"
+	weight = -100
+	pre = "<i class='fa fa-info-circle'></i>"
