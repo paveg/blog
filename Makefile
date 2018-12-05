@@ -5,6 +5,6 @@ THEMES := hugo-bootstrap-premium
 build:
 	hugo -t $(THEMES)
 
-deploy:
+old.deploy:
 	./deploy.sh
 
