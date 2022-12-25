@@ -1,6 +1,6 @@
 import { Title } from '@mantine/core';
+import { NextPage } from 'next';
 import React from 'react';
-import type { NextPage } from 'next';
 
 const PrivacyPolicy: NextPage = () => {
   return <Title>プライバシーポリシー</Title>;

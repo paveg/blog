@@ -1,8 +1,8 @@
+import { NextPage } from 'next';
 import React from 'react';
 import { ArticleCard } from '../components/articleCard';
 import { cmsClient } from '../lib/microcms';
 import { Blog } from '../types/blog';
-import type { NextPage } from 'next';
 
 type Props = {
   blogs: Blog[];

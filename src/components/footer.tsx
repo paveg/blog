@@ -36,11 +36,9 @@ interface FooterProps {
 export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
   const { classes } = useStyles();
   const items = links.map((link) => (
-    <Link href={link.link} key={link.label} passHref>
-      <Anchor color='dimmed' key={link.label} size='sm'>
-        {link.label}
-      </Anchor>
-    </Link>
+    <Anchor color='dimmed' component={Link} href={link.link} key={link.label} size='sm'>
+      {link.label}
+    </Anchor>
   ));
 
   return (
