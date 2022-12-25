@@ -1,26 +1,26 @@
-import type { NextPage } from 'next';
-import Link from 'next/link';
-
+import React from 'react';
+import { ArticleCard } from '../components/articleCard';
 import { cmsClient } from '../lib/microcms';
 import { Blog } from '../types/blog';
-import { ArticleCard } from '../components/articleCard';
+import type { NextPage } from 'next';
 
-const Home: NextPage = (blog) => {
-  const blogs: Blog[] = blog.blogs;
+type Props = {
+  blogs: Blog[];
+};
+
+const Home: NextPage<Props> = ({ blogs }: Props) => {
   return (
-    <div>
-      <ul>
-        {blogs.map((item: Blog) => (
-          <ArticleCard
-            title={item.title}
-            date={item.publishedAt}
-            category={item.category.name}
-            image={item.eyecatch.url}
-            key={item.id}
-          />
-        ))}
-      </ul>
-    </div>
+    <>
+      {blogs.map((item: Blog) => (
+        <ArticleCard
+          category={item.category.name}
+          date={item.publishedAt}
+          image={item.eyecatch.url}
+          key={item.id}
+          title={item.title}
+        />
+      ))}
+    </>
   );
 };
 
@@ -34,4 +34,5 @@ export const getStaticProps = async () => {
   };
 };
 
+// eslint-disable-next-line import/no-default-export
 export default Home;

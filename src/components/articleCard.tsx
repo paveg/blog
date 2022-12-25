@@ -1,4 +1,4 @@
-import { createStyles, Card, Image, Avatar, Text, Group } from '@mantine/core';
+import { createStyles, Card, Image, Text, Group } from '@mantine/core';
 import React, { FC } from 'react';
 
 const useStyles = createStyles((theme) => ({
@@ -29,21 +29,21 @@ export const ArticleCard: FC<ArticleCardProps> = ({
   category,
   title,
   date
-}: ArticleCardVerticalProps) => {
+}: ArticleCardProps) => {
   const { classes } = useStyles();
   return (
-    <Card withBorder radius='md' p={0} className={classes.card}>
+    <Card className={classes.card} p={0} radius='md' withBorder>
       <Group noWrap spacing={0}>
-        <Image src={image} height={140} width={140} />
+        <Image height={140} src={image} width={140} />
         <div className={classes.body}>
-          <Text transform='uppercase' color='dimmed' weight={700} size='xs'>
+          <Text color='dimmed' size='xs' transform='uppercase' weight={700}>
             {category}
           </Text>
-          <Text className={classes.title} mt='xs' mb='md'>
+          <Text className={classes.title} mb='md' mt='xs'>
             {title}
           </Text>
           <Group noWrap spacing='xs'>
-            <Text size='xs' color='dimmed'>
+            <Text color='dimmed' size='xs'>
               {date}
             </Text>
           </Group>
