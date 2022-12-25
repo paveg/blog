@@ -1,5 +1,5 @@
 import { createStyles, Card, Image, Avatar, Text, Group } from '@mantine/core';
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 const useStyles = createStyles((theme) => ({
   card: {
