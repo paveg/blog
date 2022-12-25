@@ -1,0 +1,6 @@
+.eslintrc.cjs
+**/node_modules/**
+**/build/**
+**/dist/**
+**/.git/**
+**/public/**
