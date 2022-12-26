@@ -5,22 +5,25 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import rehypeParse from 'rehype-parse';
 import rehypeRemark from 'rehype-remark';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
 import remarkStringify from 'remark-stringify';
 import { unified } from 'unified';
+import m2h from 'zenn-markdown-html';
 import { Mdx } from '../../components/markdown/mdx';
 import { cmsClient } from '../../lib/microcms';
 import { Article as ArticleType } from '../../types/article';
 
 type Props = {
   data: ArticleType;
-  body: string;
+  content: string;
 };
 
 interface Params extends ParsedUrlQuery {
   id: string;
 }
 
-const Article: NextPage<Props> = ({ data, body }: Props) => {
+const Article: NextPage<Props> = ({ data, content }: Props) => {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -33,7 +36,7 @@ const Article: NextPage<Props> = ({ data, body }: Props) => {
   return (
     <Container>
       <Title order={1}>{data.title}</Title>
-      <Mdx markdown={body} />
+      <Mdx content={content} />
     </Container>
   );
 };
@@ -56,16 +59,23 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       notFound: true
     };
   }
+
+  // TODO: Table of contents
+  // TODO: Use next/link
   const markdown = await unified()
-    .use(rehypeParse)
+    .use(rehypeParse, {
+      fragment: true
+    })
+    .use(rehypeSlug)
     .use(rehypeRemark)
+    .use(remarkGfm)
     .use(remarkStringify)
-    .process(data.content);
+    .process(String(data.content));
 
   return {
     props: {
       data,
-      body: markdown.value as string
+      content: m2h(markdown.value as string)
     }
   };
 };

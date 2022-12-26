@@ -35,11 +35,11 @@
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-markdown": "^8.0.4",
     "rehype-parse": "^8.0.4",
     "rehype-remark": "^9.1.2",
+    "rehype-slug": "^5.1.0",
+    "remark-gfm": "^3.0.1",
     "remark-stringify": "^10.0.2",
-    "turndown": "^7.1.1",
     "unified": "^10.1.2",
     "zenn-content-css": "^0.1.134",
     "zenn-markdown-html": "^0.1.134"
