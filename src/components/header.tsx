@@ -11,6 +11,7 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 
 const HEADER_HEIGHT = 60;
@@ -80,14 +81,14 @@ const useStyles = createStyles((theme) => ({
       borderRadius: 0,
       padding: theme.spacing.md
     }
-  }
+  },
 
-  // linkActive: {
-  //   '&, &:hover': {
-  //     backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
-  //     color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color
-  //   }
-  // }
+  linkActive: {
+    '&, &:hover': {
+      backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
+      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color
+    }
+  }
 }));
 
 interface HeaderProps {
@@ -95,12 +96,13 @@ interface HeaderProps {
 }
 
 export const Header: FC<HeaderProps> = ({ links }: HeaderProps) => {
+  const router = useRouter();
   const { classes, cx } = useStyles();
   const [opened, { toggle, close }] = useDisclosure(false);
 
   const items = links.map((link) => (
     <Anchor
-      className={cx(classes.link)}
+      className={cx(classes.link, { [classes.linkActive]: router.asPath === link.link })}
       component={Link}
       href={link.link}
       key={link.label}
@@ -113,7 +115,7 @@ export const Header: FC<HeaderProps> = ({ links }: HeaderProps) => {
   return (
     <MantineHeader className={classes.root} height={HEADER_HEIGHT} mb={40}>
       <Container className={classes.header}>
-        <Text fw={700} size='lg'>
+        <Text component={Link} fw={700} href='/' rel='home' size='lg'>
           フナイログ
         </Text>
         <Group>
