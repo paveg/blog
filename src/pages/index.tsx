@@ -2,19 +2,20 @@ import { NextPage } from 'next';
 import React from 'react';
 import { ArticleCard } from '../components/articleCard';
 import { cmsClient } from '../lib/microcms';
-import { Blog } from '../types/blog';
+import { Article } from '../types/article';
 
 type Props = {
-  blogs: Blog[];
+  articles: Article[];
 };
 
-const Home: NextPage<Props> = ({ blogs }: Props) => {
+const Home: NextPage<Props> = ({ articles }: Props) => {
   return (
     <>
-      {blogs.map((item: Blog) => (
+      {articles.map((item: Article) => (
         <ArticleCard
           category={item.category.name}
           date={item.publishedAt}
+          id={item.id}
           image={item.eyecatch.url}
           key={item.id}
           title={item.title}
@@ -29,7 +30,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      blogs: data.contents
+      articles: data.contents
     }
   };
 };

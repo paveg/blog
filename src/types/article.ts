@@ -1,6 +1,6 @@
 import { Category } from './category';
 
-export type Blog = {
+export type Article = {
   id: string;
   category: Category;
   eyecatch: EyeCatch;

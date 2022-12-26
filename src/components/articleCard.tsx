@@ -1,4 +1,5 @@
 import { createStyles, Card, Image, Text, Group } from '@mantine/core';
+import Link from 'next/link';
 import React, { FC } from 'react';
 
 const useStyles = createStyles((theme) => ({
@@ -18,6 +19,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface ArticleCardProps {
+  id: string;
   image: string;
   category: string;
   title: string;
@@ -25,6 +27,7 @@ interface ArticleCardProps {
 }
 
 export const ArticleCard: FC<ArticleCardProps> = ({
+  id,
   image,
   category,
   title,
@@ -32,7 +35,14 @@ export const ArticleCard: FC<ArticleCardProps> = ({
 }: ArticleCardProps) => {
   const { classes } = useStyles();
   return (
-    <Card className={classes.card} p={0} radius='md' withBorder>
+    <Card
+      className={classes.card}
+      component={Link}
+      href={`/articles/${id}`}
+      p={0}
+      radius='md'
+      withBorder
+    >
       <Group noWrap spacing={0}>
         <Image height={140} src={image} width={140} />
         <div className={classes.body}>
