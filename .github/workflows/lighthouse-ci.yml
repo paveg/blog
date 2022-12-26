@@ -1,0 +1,20 @@
+name: lighthouce-ci
+on: deployment_status
+
+jobs:
+  lhci:
+    if: |
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment_status.environment == 'Preview'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: run Lighthouse CI
+        run: |
+          npx -p @lhci/cli lhci collect --url ${{ github.event.deployment_status.target_url }}
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
