@@ -111,10 +111,11 @@ export const Header: FC<HeaderProps> = ({ links }: HeaderProps) => {
   ));
 
   return (
-    <MantineHeader className={classes.root} height={HEADER_HEIGHT} mb={60}>
+    <MantineHeader className={classes.root} height={HEADER_HEIGHT} mb={40}>
       <Container className={classes.header}>
-        <Burger className={classes.burger} onClick={toggle} opened={opened} size='sm' />
-        <Text fw={700}>フナイログ</Text>
+        <Text fw={700} size='lg'>
+          フナイログ
+        </Text>
         <Group>
           <Group className={classes.links} spacing={5}>
             {items}
@@ -128,6 +129,7 @@ export const Header: FC<HeaderProps> = ({ links }: HeaderProps) => {
             />
             */}
         </Group>
+        <Burger className={classes.burger} onClick={toggle} opened={opened} size='sm' />
         <Transition duration={200} mounted={opened} transition='pop-top-right'>
           {(styles) => (
             <Paper className={classes.dropdown} style={styles} withBorder>

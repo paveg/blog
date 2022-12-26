@@ -18,8 +18,16 @@ const Home: NextPage<Props> = ({ articles }: Props) => {
           新着記事
         </Title>
       </Center>
-      <Group mb={40}>
-        <SimpleGrid cols={3}>
+      <Group mb={20} position='center'>
+        <SimpleGrid
+          breakpoints={[
+            { maxWidth: 980, cols: 3, spacing: 'md' },
+            { maxWidth: 820, cols: 2, spacing: 'sm' },
+            { maxWidth: 600, cols: 1, spacing: 'xs' }
+          ]}
+          cols={3}
+          verticalSpacing='xs'
+        >
           {newerArticles.map((item: Article) => (
             <ArticleCard
               category={item.category?.name}
@@ -37,8 +45,16 @@ const Home: NextPage<Props> = ({ articles }: Props) => {
           記事一覧
         </Title>
       </Center>
-      <Group mb={40}>
-        <SimpleGrid cols={3}>
+      <Group mb={20} position='center'>
+        <SimpleGrid
+          breakpoints={[
+            { maxWidth: 980, cols: 3, spacing: 'md' },
+            { maxWidth: 820, cols: 2, spacing: 'sm' },
+            { maxWidth: 600, cols: 1, spacing: 'xs' }
+          ]}
+          cols={3}
+          verticalSpacing='xs'
+        >
           {articles.map((item: Article) => (
             <ArticleCard
               category={item.category?.name}
