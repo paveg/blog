@@ -15,6 +15,6 @@ jobs:
 
       - name: run Lighthouse CI
         run: |
-          npx -p @lhci/cli lhci collect --url ${{ github.event.deployment_status.target_url }}
+          npx -p @lhci/cli lhci autorun --collect.url=${{ github.event.deployment_status.target_url }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
