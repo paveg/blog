@@ -35,7 +35,9 @@ const Article: NextPage<Props> = ({ data, content }: Props) => {
 
   return (
     <Container>
-      <Title order={1}>{data.title}</Title>
+      <Title order={1} size='h2'>
+        {data.title}
+      </Title>
       <Mdx content={content} />
     </Container>
   );

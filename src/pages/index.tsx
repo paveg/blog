@@ -1,3 +1,4 @@
+import { Center, Group, SimpleGrid, Title } from '@mantine/core';
 import { NextPage } from 'next';
 import React from 'react';
 import { ArticleCard } from '../components/articleCard';
@@ -9,18 +10,47 @@ type Props = {
 };
 
 const Home: NextPage<Props> = ({ articles }: Props) => {
+  const newerArticles = articles.slice(0, 3);
   return (
     <>
-      {articles.map((item: Article) => (
-        <ArticleCard
-          category={item.category.name}
-          date={item.publishedAt}
-          id={item.id}
-          image={item.eyecatch.url}
-          key={item.id}
-          title={item.title}
-        />
-      ))}
+      <Center mb={10}>
+        <Title order={2} size='h3'>
+          新着記事
+        </Title>
+      </Center>
+      <Group mb={40}>
+        <SimpleGrid cols={3}>
+          {newerArticles.map((item: Article) => (
+            <ArticleCard
+              category={item.category?.name}
+              date={item.publishedAt}
+              id={item.id}
+              image={item.eyecatch?.url}
+              key={item.id}
+              title={item.title}
+            />
+          ))}
+        </SimpleGrid>
+      </Group>
+      <Center mb={10}>
+        <Title order={2} size='h3'>
+          記事一覧
+        </Title>
+      </Center>
+      <Group mb={40}>
+        <SimpleGrid cols={3}>
+          {articles.map((item: Article) => (
+            <ArticleCard
+              category={item.category?.name}
+              date={item.publishedAt}
+              id={item.id}
+              image={item.eyecatch?.url}
+              key={item.id}
+              title={item.title}
+            />
+          ))}
+        </SimpleGrid>
+      </Group>
     </>
   );
 };

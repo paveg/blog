@@ -20,11 +20,15 @@ const useStyles = createStyles((theme) => ({
 
 interface ArticleCardProps {
   id: string;
-  image: string;
-  category: string;
+  image?: string;
+  category?: string;
   title: string;
   date: string;
 }
+
+// TODO: replace
+const DEFAULT_EYECATCH =
+  'https://images.microcms-assets.io/assets/3ab7834809eb4654a5239e79fba895de/74e5c9a9c80b48ce9c96362cbedcf2ef/blog-template.png';
 
 export const ArticleCard: FC<ArticleCardProps> = ({
   id,
@@ -34,6 +38,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({
   date
 }: ArticleCardProps) => {
   const { classes } = useStyles();
+  const d = new Date(date).toDateString();
   return (
     <Card
       className={classes.card}
@@ -44,17 +49,19 @@ export const ArticleCard: FC<ArticleCardProps> = ({
       withBorder
     >
       <Group noWrap spacing={0}>
-        <Image height={140} src={image} width={140} />
+        <Image height={140} src={image ? image : DEFAULT_EYECATCH} width={140} />
         <div className={classes.body}>
-          <Text color='dimmed' size='xs' transform='uppercase' weight={700}>
-            {category}
-          </Text>
+          {category && (
+            <Text color='dimmed' size='xs' transform='uppercase' weight={700}>
+              {category}
+            </Text>
+          )}
           <Text className={classes.title} mb='md' mt='xs'>
             {title}
           </Text>
           <Group noWrap spacing='xs'>
             <Text color='dimmed' size='xs'>
-              {date}
+              {d}
             </Text>
           </Group>
         </div>
