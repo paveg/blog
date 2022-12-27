@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://blog-pavegy.vercel.app',
+  siteUrl: 'https://www.funailog.com',
   generateRobotsTxt: true,
   sitemapSize: 7000,
   outDir: './out'

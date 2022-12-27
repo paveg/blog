@@ -6,15 +6,35 @@ import Head from 'next/head';
 import React from 'react';
 import { Layout } from '@/components/layout';
 import { siteMetadata } from '@/config/siteMetadata';
+import { usePageView } from '@/hooks/usePageView';
+import { GA_ID } from '@/lib/gtag';
 
 // eslint-disable-next-line import/no-default-export
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
+  usePageView();
 
   return (
     <>
       <Head>
         <meta content='minimum-scale=1, initial-scale=1, width=device-width' name='viewport' />
+        {GA_ID && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                   window.dataLayer = window.dataLayer || [];
+                   function gtag(){dataLayer.push(arguments);}
+                   gtag('js', new Date());
+                   gtag('config', '${GA_ID}', {
+                     page_path: window.location.pathname,
+                   });`
+              }}
+              id='gtag-init'
+            />
+          </>
+        )}
       </Head>
       <DefaultSeo
         defaultTitle='フナイログ'
