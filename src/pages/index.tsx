@@ -1,9 +1,9 @@
 import { Center, Group, Paper, SimpleGrid, Title } from '@mantine/core';
 import { NextPage } from 'next';
 import React from 'react';
-import { ArticleCard } from '../components/articleCard';
-import { cmsClient } from '../lib/microcms';
-import { Article } from '../types/article';
+import { ArticleCard } from '@/components/articleCard';
+import { cmsClient } from '@/lib/microcms';
+import { Article } from '@/types/article';
 
 type Props = {
   articles: Article[];

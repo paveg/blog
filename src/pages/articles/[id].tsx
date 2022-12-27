@@ -10,9 +10,11 @@ import remarkGfm from 'remark-gfm';
 import remarkStringify from 'remark-stringify';
 import { unified } from 'unified';
 import m2h from 'zenn-markdown-html';
-import { Mdx } from '../../components/markdown/mdx';
-import { cmsClient } from '../../lib/microcms';
-import { Article as ArticleType } from '../../types/article';
+import { Mdx } from '@/components/markdown/mdx';
+import { ArticleSeo } from '@/components/seo';
+import { siteMetadata } from '@/config/siteMetadata';
+import { cmsClient } from '@/lib/microcms';
+import { Article as ArticleType } from '@/types/article';
 
 type Props = {
   data: ArticleType;
@@ -34,19 +36,28 @@ const Article: NextPage<Props> = ({ data, content }: Props) => {
   }
 
   return (
-    <Container>
-      {data.category && (
-        <>
-          <Badge mb={10} radius='lg' variant='dot'>
-            {data.category.name}
-          </Badge>
-        </>
-      )}
-      <Title align='center' order={1} size='h2'>
-        {data.title}
-      </Title>
-      <Mdx content={content} />
-    </Container>
+    <>
+      <ArticleSeo
+        modifiedAt={data.revisedAt}
+        publishedAt={data.publishedAt}
+        summary={''}
+        title={data.title}
+        url={`${siteMetadata.url}/articles/${data.id}`}
+      />
+      <Container>
+        {data.category && (
+          <>
+            <Badge mb={10} radius='lg' variant='dot'>
+              {data.category.name}
+            </Badge>
+          </>
+        )}
+        <Title align='center' order={1} size='h2'>
+          {data.title}
+        </Title>
+        <Mdx content={content} />
+      </Container>
+    </>
   );
 };
 

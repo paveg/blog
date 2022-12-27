@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build && next export && next-sitemap --config next-sitemap.config.js",
     "start": "next start",
     "lint": "eslint --cache --ext .ts,.tsx --quiet src",
     "lint:fix": "eslint --fix --cache --ext .ts,.tsx --quiet src",
@@ -33,6 +33,8 @@
     "@tabler/icons": "^1.118.0",
     "microcms-js-sdk": "^2.3.2",
     "next": "latest",
+    "next-seo": "^5.15.0",
+    "next-sitemap": "^3.1.43",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rehype-parse": "^8.0.4",
