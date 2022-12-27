@@ -1,6 +1,6 @@
 export const siteMetadata = {
   email: 'pavegy+work@gmail.com',
-  url: 'https://blog-pavegy.vercel.app',
+  url: 'https://www.funailog.com',
   github: 'https://github.com/paveg',
   title: 'フナイログ',
   author: 'フナイ',
