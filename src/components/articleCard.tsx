@@ -49,7 +49,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({
       withBorder
     >
       <Group noWrap spacing={0}>
-        <Image height={140} src={image ? image : DEFAULT_EYECATCH} width={140} />
+        <Image height={160} src={image ? image : DEFAULT_EYECATCH} width={140} />
         <div className={classes.body}>
           {category && (
             <Text color='dimmed' size='xs' transform='uppercase' weight={700}>

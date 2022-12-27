@@ -1,5 +1,5 @@
 import { ParsedUrlQuery } from 'querystring';
-import { Container, Title } from '@mantine/core';
+import { Badge, Container, Loader, Title } from '@mantine/core';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -30,12 +30,19 @@ const Article: NextPage<Props> = ({ data, content }: Props) => {
     {
       /* TODO: Prepare fallback component*/
     }
-    return <>Loading...</>;
+    return <Loader>Loading...</Loader>;
   }
 
   return (
     <Container>
-      <Title order={1} size='h2'>
+      {data.category && (
+        <>
+          <Badge mb={10} radius='lg' variant='dot'>
+            {data.category.name}
+          </Badge>
+        </>
+      )}
+      <Title align='center' order={1} size='h2'>
         {data.title}
       </Title>
       <Mdx content={content} />
