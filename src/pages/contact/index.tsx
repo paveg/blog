@@ -1,7 +1,7 @@
 import { Group, Title, Center } from '@mantine/core';
 import { NextPage } from 'next';
 import React from 'react';
-import { ContactForm } from '../../components/contactForm';
+import { ContactForm } from '@/components/contactForm';
 
 const Contact: NextPage = () => {
   return (
