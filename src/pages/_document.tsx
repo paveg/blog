@@ -11,7 +11,18 @@ export default class _Document extends Document {
   render() {
     return (
       <Html lang='ja'>
-        <Head />
+        <Head>
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              `
+            }}
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
