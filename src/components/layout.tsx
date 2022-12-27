@@ -6,18 +6,15 @@ import { Header } from './header';
 export const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   const headerLinks = [
     {
-      link: '/',
-      label: 'ホーム'
-    },
-    {
       link: '/about-funailog',
       label: 'フナイログについて'
-    }
+    },
+    { link: '/contact', label: 'お問い合わせ' }
   ];
   const footerLinks = [
     {
-      link: '/',
-      label: 'ホーム'
+      link: '/about-funailog',
+      label: 'フナイログについて'
     },
     {
       link: '/privacy-policy',
