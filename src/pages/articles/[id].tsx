@@ -1,6 +1,8 @@
 import { ParsedUrlQuery } from 'querystring';
-import { Badge, Container, Loader, Title } from '@mantine/core';
+import { Badge, Button, Container, Divider, Group, Loader, Title } from '@mantine/core';
+import { IconChevronLeft, IconChevronRight } from '@tabler/icons';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import rehypeParse from 'rehype-parse';
@@ -19,13 +21,15 @@ import { Article as ArticleType } from '@/types/article';
 type Props = {
   data: ArticleType;
   content: string;
+  prevEntry: ArticleType;
+  nextEntry: ArticleType;
 };
 
 interface Params extends ParsedUrlQuery {
   id: string;
 }
 
-const Article: NextPage<Props> = ({ data, content }: Props) => {
+const Article: NextPage<Props> = ({ data, content, prevEntry, nextEntry }: Props) => {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -56,6 +60,33 @@ const Article: NextPage<Props> = ({ data, content }: Props) => {
           {data.title}
         </Title>
         <Mdx content={content} />
+        <Divider mb={40} mt={40} />
+        <Group position='center'>
+          <Button.Group>
+            {prevEntry?.id && (
+              <Button
+                component={Link}
+                href={`/articles/${prevEntry?.id}`}
+                leftIcon={<IconChevronLeft />}
+                type='button'
+                variant='light'
+              >
+                前の記事
+              </Button>
+            )}
+            {nextEntry?.id && (
+              <Button
+                component={Link}
+                href={`/articles/${nextEntry?.id}`}
+                rightIcon={<IconChevronRight />}
+                type='button'
+                variant='light'
+              >
+                次の記事
+              </Button>
+            )}
+          </Button.Group>
+        </Group>
       </Container>
     </>
   );
@@ -74,11 +105,34 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     })
     .catch((err) => console.error(err));
 
+  const fields = 'id,title,image,publishedAt';
+  const prev = await cmsClient.get({
+    endpoint: 'articles',
+    queries: {
+      limit: 1,
+      orders: '-publishedAt',
+      fields,
+      filters: `publishedAt[less_than]${data.publishedAt}`
+    }
+  });
+  const next = await cmsClient.get({
+    endpoint: 'articles',
+    queries: {
+      limit: 1,
+      orders: '-publishedAt',
+      fields,
+      filters: `publishedAt[greater_than]${data.publishedAt}`
+    }
+  });
+
   if (!data) {
     return {
       notFound: true
     };
   }
+
+  const prevEntry = prev.contents[0] || {};
+  const nextEntry = next.contents[0] || {};
 
   // TODO: Table of contents
   // TODO: Use next/link
@@ -95,7 +149,9 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   return {
     props: {
       data,
-      content: m2h(markdown.value as string)
+      content: m2h(markdown.value as string),
+      prevEntry,
+      nextEntry
     }
   };
 };
