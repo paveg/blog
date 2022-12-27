@@ -69,7 +69,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 
   const data = await cmsClient
     .get({
-      endpoint: 'blogs',
+      endpoint: 'articles',
       contentId: String(id)
     })
     .catch((err) => console.error(err));
@@ -102,7 +102,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const data = await cmsClient.get({
-    endpoint: 'blogs',
+    endpoint: 'articles',
     queries: { limit: 9999 }
   });
   const paths = data.contents.map((content: ArticleType) => `/articles/${content.id}`);

@@ -76,7 +76,7 @@ const Home: NextPage<Props> = ({ articles }: Props) => {
 };
 
 export const getStaticProps = async () => {
-  const data = await cmsClient.get({ endpoint: 'blogs' });
+  const data = await cmsClient.get({ endpoint: 'articles' });
 
   return {
     props: {
