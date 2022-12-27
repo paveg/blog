@@ -6,7 +6,7 @@ import { ContactForm } from '../../components/contactForm';
 const Contact: NextPage = () => {
   return (
     <>
-      <Group mb={40} position='center'>
+      <Group mb={20} position='center'>
         <Title order={1} size='h2'>
           お問い合わせ
         </Title>
