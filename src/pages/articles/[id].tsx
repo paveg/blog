@@ -70,9 +70,11 @@ const Article: NextPage<Props> = ({ data, content, prevEntry, nextEntry }: Props
           <Button.Group>
             {prevEntry?.id && (
               <Button
+                compact
                 component={Link}
                 href={`/articles/${prevEntry?.id}`}
                 leftIcon={<IconChevronLeft />}
+                mr={nextEntry?.id ? 10 : 0}
                 type='button'
                 variant='light'
               >
@@ -81,6 +83,7 @@ const Article: NextPage<Props> = ({ data, content, prevEntry, nextEntry }: Props
             )}
             {nextEntry?.id && (
               <Button
+                compact
                 component={Link}
                 href={`/articles/${nextEntry?.id}`}
                 rightIcon={<IconChevronRight />}

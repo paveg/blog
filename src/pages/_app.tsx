@@ -3,18 +3,43 @@ import { MantineProvider } from '@mantine/core';
 import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import Script from 'next/script';
 import React from 'react';
 import { Layout } from '@/components/layout';
 import { siteMetadata } from '@/config/siteMetadata';
+import { usePageView } from '@/hooks/usePageView';
+import { GA_ID } from '@/lib/gtag';
 
 // eslint-disable-next-line import/no-default-export
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
+  usePageView();
 
   return (
     <>
       <Head>
         <meta content='minimum-scale=1, initial-scale=1, width=device-width' name='viewport' />
+        {GA_ID && (
+          <>
+            <Script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy='afterInteractive'
+            />
+            <Script
+              dangerouslySetInnerHTML={{
+                __html: `
+                   window.dataLayer = window.dataLayer || [];
+                   function gtag(){dataLayer.push(arguments);}
+                   gtag('js', new Date());
+                   gtag('config', '${GA_ID}', {
+                     page_path: window.location.pathname,
+                   });`
+              }}
+              id='gtag-init'
+            />
+          </>
+        )}
       </Head>
       <DefaultSeo
         defaultTitle='フナイログ'

@@ -47,6 +47,7 @@
     "zenn-markdown-html": "^0.1.134"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.12",
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
