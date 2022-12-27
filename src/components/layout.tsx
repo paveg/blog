@@ -4,6 +4,16 @@ import { Footer } from './footer';
 import { Header } from './header';
 
 export const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+  const headerLinks = [
+    {
+      link: '/',
+      label: 'ホーム'
+    },
+    {
+      link: '/about-funailog',
+      label: 'フナイログについて'
+    }
+  ];
   const footerLinks = [
     {
       link: '/',
@@ -16,7 +26,7 @@ export const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   ];
   return (
     <>
-      <Header links={footerLinks} />
+      <Header links={headerLinks} />
       <main>
         <Container>{children}</Container>
       </main>

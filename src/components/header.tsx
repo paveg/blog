@@ -100,6 +100,7 @@ export const Header: FC<HeaderProps> = ({ links }: HeaderProps) => {
   const { classes, cx } = useStyles();
   const [opened, { toggle, close }] = useDisclosure(false);
 
+  console.info(router.asPath);
   const items = links.map((link) => (
     <Anchor
       className={cx(classes.link, { [classes.linkActive]: router.asPath === link.link })}
