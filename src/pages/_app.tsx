@@ -3,7 +3,6 @@ import { MantineProvider } from '@mantine/core';
 import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import Script from 'next/script';
 import React from 'react';
 import { Layout } from '@/components/layout';
 import { siteMetadata } from '@/config/siteMetadata';
@@ -21,12 +20,8 @@ export default function App(props: AppProps) {
         <meta content='minimum-scale=1, initial-scale=1, width=device-width' name='viewport' />
         {GA_ID && (
           <>
-            <Script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy='afterInteractive'
-            />
-            <Script
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+            <script
               dangerouslySetInnerHTML={{
                 __html: `
                    window.dataLayer = window.dataLayer || [];
