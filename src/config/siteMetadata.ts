@@ -3,6 +3,5 @@ export const siteMetadata = {
   url: 'https://www.funailog.com',
   github: 'https://github.com/paveg',
   title: 'フナイログ',
-  author: 'フナイ',
-  gaTrackingId: ''
+  author: 'フナイ'
 };
