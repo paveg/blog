@@ -1,5 +1,5 @@
 import { ParsedUrlQuery } from 'querystring';
-import { Badge, Button, Container, Divider, Group, Loader, Title } from '@mantine/core';
+import { Badge, Button, Container, Divider, Group, Loader, Text, Title, Box } from '@mantine/core';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
 import Link from 'next/link';
@@ -56,9 +56,14 @@ const Article: NextPage<Props> = ({ data, content, prevEntry, nextEntry }: Props
             </Badge>
           </>
         )}
-        <Title align='center' order={1} size='h2'>
-          {data.title}
-        </Title>
+        <Box mb={20}>
+          <Text align='center' color='dimmed' mb={5}>
+            {new Date(data.publishedAt).toLocaleDateString()}
+          </Text>
+          <Title align='center' order={1} size='h2'>
+            {data.title}
+          </Title>
+        </Box>
         <Mdx content={content} />
         <Divider mb={40} mt={40} />
         <Group position='center'>
@@ -119,7 +124,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     endpoint: 'articles',
     queries: {
       limit: 1,
-      orders: '-publishedAt',
+      orders: 'publishedAt',
       fields,
       filters: `publishedAt[greater_than]${data.publishedAt}`
     }
