@@ -1,4 +1,4 @@
-import { createStyles, Container, Group, Anchor } from '@mantine/core';
+import { createStyles, Container, Group, Anchor, Text } from '@mantine/core';
 import Link from 'next/link';
 import React, { FC } from 'react';
 
@@ -46,6 +46,9 @@ export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
       <Container className={classes.inner}>
         <Group className={classes.links}>{items}</Group>
       </Container>
+      <Text align='center' color='dimmed' size='xs'>
+        Copyright © Ryota Ikezawa All Rights Reserved.
+      </Text>
     </div>
   );
 };

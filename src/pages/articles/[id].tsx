@@ -63,7 +63,6 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
           <Image
             alt='eyecatch'
             height={article.eyecatch.height}
-            layout='responsive'
             src={article.eyecatch.url}
             width={article.eyecatch.width}
           />
