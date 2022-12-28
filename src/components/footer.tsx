@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
+    marginTop: 100,
     borderTop: `1px solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
     }`
@@ -46,7 +46,7 @@ export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
       <Container className={classes.inner}>
         <Group className={classes.links}>{items}</Group>
       </Container>
-      <Text align='center' color='dimmed' size='xs'>
+      <Text align='center' color='dimmed' mb={20} size='xs'>
         Copyright © Ryota Ikezawa All Rights Reserved.
       </Text>
     </div>
