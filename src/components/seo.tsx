@@ -1,6 +1,8 @@
 import { NextSeo, ArticleJsonLd } from 'next-seo';
+import { OpenGraphMedia } from 'next-seo/lib/types';
 import React, { FC } from 'react';
 import { siteMetadata } from '@/config/siteMetadata';
+import { Image } from '@/types/image';
 
 type PageSeoProps = {
   title: string;
@@ -25,10 +27,11 @@ export const PageSeo: FC<PageSeoProps> = ({ title, description, url }: PageSeoPr
 
 type ArticleSeoProps = {
   title: string;
-  summary: string;
+  summary?: string;
   url: string;
   publishedAt: string;
   modifiedAt: string;
+  image?: Image;
 };
 
 export const ArticleSeo: FC<ArticleSeoProps> = ({
@@ -36,16 +39,19 @@ export const ArticleSeo: FC<ArticleSeoProps> = ({
   summary,
   url,
   publishedAt,
-  modifiedAt
+  modifiedAt,
+  image
 }: ArticleSeoProps) => {
-  // TODO: Add images
   const publishedTime = new Date(publishedAt).toISOString();
   const modifiedTime = new Date(modifiedAt || publishedAt).toISOString();
+  const openGraphImages: ReadonlyArray<OpenGraphMedia> = image
+    ? [{ url: image.url, width: image.width, height: image.height, type: 'image/png' }]
+    : [{ url: siteMetadata.openGraph.defaultUrl }];
   return (
     <>
       <NextSeo
         canonical={url}
-        description={summary}
+        description={summary || siteMetadata.description}
         openGraph={{
           type: 'article',
           article: {
@@ -54,7 +60,8 @@ export const ArticleSeo: FC<ArticleSeoProps> = ({
           },
           url,
           title,
-          description: summary
+          description: summary || siteMetadata.description,
+          images: openGraphImages
         }}
         title={`${title} | ${siteMetadata.title}`}
       />
@@ -62,8 +69,8 @@ export const ArticleSeo: FC<ArticleSeoProps> = ({
         authorName={siteMetadata.author}
         dateModified={modifiedTime}
         datePublished={publishedTime}
-        description={summary}
-        images={[]}
+        description={summary || siteMetadata.description}
+        images={image ? [image.url] : [siteMetadata.openGraph.defaultUrl]}
         publisherName={siteMetadata.author}
         title={title}
         url={url}

@@ -1,4 +1,5 @@
 import { Category } from './category';
+import { Image } from './image';
 
 export type Article = {
   id: string;
@@ -11,8 +12,4 @@ export type Article = {
   revisedAt: string;
 };
 
-type EyeCatch = {
-  url: string;
-  height: number;
-  width: number;
-};
+export type EyeCatch = Omit<Image, 'alt' | 'type'>;

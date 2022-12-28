@@ -54,18 +54,20 @@ export default function App(props: AppProps) {
         <meta content='minimum-scale=1, initial-scale=1, width=device-width' name='viewport' />
       </Head>
       <DefaultSeo
-        defaultTitle='フナイログ'
-        description='PC、スマホ、ゲーミングデバイスなどガジェットモノや、便利な生活アイテム、車のコトまでをお届けするレビューブログです。'
+        defaultTitle={siteMetadata.title}
+        description={siteMetadata.description}
         openGraph={{
           type: 'website',
           title: siteMetadata.title,
           site_name: siteMetadata.title,
           url: siteMetadata.url,
-          images: []
+          images: [
+            { url: siteMetadata.openGraph.defaultUrl, width: 1200, height: 630, type: 'image/png' }
+          ]
         }}
         twitter={{
-          handle: '@paveg_',
-          site: '@site',
+          handle: siteMetadata.social.twitter.handle,
+          site: siteMetadata.social.twitter.site,
           cardType: 'summary_large_image'
         }}
       />

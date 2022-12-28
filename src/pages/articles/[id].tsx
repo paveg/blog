@@ -37,9 +37,9 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
   return (
     <>
       <ArticleSeo
+        image={article.eyecatch}
         modifiedAt={article.revisedAt}
         publishedAt={article.publishedAt}
-        summary={''}
         title={article.title}
         url={`${siteMetadata.url}/articles/${article.id}`}
       />
@@ -55,20 +55,20 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
           <Text align='center' color='dimmed' mb={5}>
             {new Date(article.publishedAt).toLocaleDateString()}
           </Text>
-          <Title align='center' order={1} size='h2'>
+          <Title align='center' mb={20} order={1} size='h2'>
             {article.title}
           </Title>
+          {article.eyecatch && (
+            <Image
+              alt='eyecatch'
+              height={article.eyecatch.height}
+              src={article.eyecatch.url}
+              width={article.eyecatch.width}
+            />
+          )}
         </Box>
-        {article.eyecatch && (
-          <Image
-            alt='eyecatch'
-            height={article.eyecatch.height}
-            src={article.eyecatch.url}
-            width={article.eyecatch.width}
-          />
-        )}
         <Mdx content={mdSource} />
-        <Divider mb={40} mt={40} />
+        <Divider mb={20} mt={40} />
         <Group position='center'>
           <Button.Group>
             {prevEntry?.id && (
