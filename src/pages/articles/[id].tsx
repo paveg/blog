@@ -2,15 +2,10 @@ import { ParsedUrlQuery } from 'querystring';
 import { Badge, Button, Container, Divider, Group, Loader, Text, Title, Box } from '@mantine/core';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import rehypeParse from 'rehype-parse';
-import rehypeRemark from 'rehype-remark';
-import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
-import remarkStringify from 'remark-stringify';
-import { unified } from 'unified';
 import m2h from 'zenn-markdown-html';
 import { Mdx } from '@/components/markdown/mdx';
 import { ArticleSeo } from '@/components/seo';
@@ -64,6 +59,15 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
             {article.title}
           </Title>
         </Box>
+        {article.eyecatch && (
+          <Image
+            alt='eyecatch'
+            height={article.eyecatch.height}
+            layout='responsive'
+            src={article.eyecatch.url}
+            width={article.eyecatch.width}
+          />
+        )}
         <Mdx content={mdSource} />
         <Divider mb={40} mt={40} />
         <Group position='center'>
@@ -142,18 +146,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const prevEntry = prev.contents[0] || {};
   const nextEntry = next.contents[0] || {};
 
-  // TODO: Table of contents
-  // TODO: Use next/link
-  const md = await unified()
-    .use(rehypeParse, {
-      fragment: true
-    })
-    .use(rehypeSlug)
-    .use(rehypeRemark)
-    .use(remarkGfm)
-    .use(remarkStringify)
-    .process(String(article.content));
-  const mdSource = m2h(md.value as string);
+  const mdSource = m2h(article);
 
   return {
     props: {
