@@ -31,6 +31,13 @@ export default function App(props: AppProps) {
 
   return (
     <>
+      <Script
+        data-pin-hover='true'
+        data-pin-tall='true'
+        id='pinterest-init'
+        src='//assets.pinterest.com/js/pinit.js'
+        strategy='lazyOnload'
+      />
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
