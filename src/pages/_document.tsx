@@ -12,6 +12,7 @@ export default class _Document extends Document {
     return (
       <Html lang='ja'>
         <Head>
+          <script src='https://embed.zenn.studio/js/listen-embed-event.js' />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             dangerouslySetInnerHTML={{
