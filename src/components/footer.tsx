@@ -1,5 +1,10 @@
 import { createStyles, Container, Group, Anchor, Text } from '@mantine/core';
-import { IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from '@tabler/icons';
+import {
+  IconBrandGithub,
+  IconBrandInstagram,
+  IconBrandTwitter,
+  IconBrandYoutube
+} from '@tabler/icons';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { CustomActionIcon } from '@/components/parts/customActionIcon';
@@ -61,11 +66,16 @@ export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
             href={siteMetadata.social.youtube.url}
             size='lg'
           />
-
           <CustomActionIcon
             Icon={<IconBrandInstagram size={18} stroke={1.5} />}
             external
             href={siteMetadata.social.instagram.url}
+            size='lg'
+          />
+          <CustomActionIcon
+            Icon={<IconBrandGithub size={18} stroke={1.5} />}
+            external
+            href={siteMetadata.repositoryUrl}
             size='lg'
           />
         </Group>

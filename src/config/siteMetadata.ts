@@ -4,6 +4,7 @@ export const siteMetadata = {
   email: 'pavegy+work@gmail.com',
   url: 'https://www.funailog.com',
   github: 'https://github.com/paveg',
+  repositoryUrl: 'https://github.com/paveg/blog',
   title: 'フナイログ',
   author: 'フナイ',
   social: {
