@@ -1,5 +1,6 @@
 import '@/styles/globals.css';
 import { MantineProvider } from '@mantine/core';
+import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -79,6 +80,7 @@ export default function App(props: AppProps) {
       >
         <Layout>
           <Component {...pageProps} />
+          <Analytics />
         </Layout>
       </MantineProvider>
     </>
