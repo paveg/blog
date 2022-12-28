@@ -1,6 +1,9 @@
 import { createStyles, Container, Group, Anchor, Text } from '@mantine/core';
+import { IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from '@tabler/icons';
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { CustomActionIcon } from '@/components/parts/customActionIcon';
+import { siteMetadata } from '@/config/siteMetadata';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -36,7 +39,7 @@ interface FooterProps {
 export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
   const { classes } = useStyles();
   const items = links.map((link) => (
-    <Anchor color='dimmed' component={Link} href={link.link} key={link.label} size='sm'>
+    <Anchor color='dimmed' component={Link} href={link.link} key={link.label} size='xs'>
       {link.label}
     </Anchor>
   ));
@@ -45,9 +48,30 @@ export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
     <div className={classes.footer}>
       <Container className={classes.inner}>
         <Group className={classes.links}>{items}</Group>
+        <Group className={classes.links} noWrap position='right' spacing={0}>
+          <CustomActionIcon
+            Icon={<IconBrandTwitter size={18} stroke={1.5} />}
+            external
+            href={siteMetadata.social.twitter.url}
+            size='lg'
+          />
+          <CustomActionIcon
+            Icon={<IconBrandYoutube size={18} stroke={1.5} />}
+            external
+            href={siteMetadata.social.youtube.url}
+            size='lg'
+          />
+
+          <CustomActionIcon
+            Icon={<IconBrandInstagram size={18} stroke={1.5} />}
+            external
+            href={siteMetadata.social.instagram.url}
+            size='lg'
+          />
+        </Group>
       </Container>
       <Text align='center' color='dimmed' mb={20} size='xs'>
-        Copyright © Ryota Ikezawa All Rights Reserved.
+        © フナイログ All Rights Reserved.
       </Text>
     </div>
   );

@@ -7,7 +7,14 @@ export const siteMetadata = {
   title: 'フナイログ',
   author: 'フナイ',
   social: {
+    instagram: {
+      url: 'https://www.instagram.com/_pavlog/'
+    },
+    youtube: {
+      url: 'https://www.youtube.com/channel/UCOzQFkpb0_XvHnC-wPh_h0g'
+    },
     twitter: {
+      url: 'https://twitter.com/paveg_',
       handle: '@paveg_',
       site: '@paveg_'
     }

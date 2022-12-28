@@ -68,7 +68,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
           )}
         </Box>
         <Mdx content={mdSource} />
-        <Divider mb={20} mt={40} />
+        <Divider mb={20} mt={40} variant='dashed' />
         <Group position='center'>
           <Button.Group>
             {prevEntry?.id && (
