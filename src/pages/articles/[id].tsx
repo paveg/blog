@@ -146,7 +146,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const prevEntry = prev.contents[0] || {};
   const nextEntry = next.contents[0] || {};
 
-  const mdSource = m2h(article);
+  const mdSource = m2h(String(article.content));
 
   return {
     props: {
