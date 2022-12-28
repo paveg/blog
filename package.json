@@ -45,6 +45,7 @@
     "remark-stringify": "^10.0.2",
     "unified": "^10.1.2",
     "zenn-content-css": "^0.1.134",
+    "zenn-embed-elements": "^0.1.134",
     "zenn-markdown-html": "^0.1.134"
   },
   "devDependencies": {

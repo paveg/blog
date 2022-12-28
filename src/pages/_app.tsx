@@ -17,6 +17,7 @@ export default function App(props: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
+    import('zenn-embed-elements');
     const handleRouteChange = (url: string) => {
       gtag.pageview(url);
     };

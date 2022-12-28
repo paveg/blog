@@ -1542,6 +1542,7 @@ __metadata:
     typescript: "*"
     unified: ^10.1.2
     zenn-content-css: ^0.1.134
+    zenn-embed-elements: ^0.1.134
     zenn-markdown-html: ^0.1.134
   languageName: unknown
   linkType: soft
@@ -8330,6 +8331,13 @@ __metadata:
   version: 0.1.134
   resolution: "zenn-content-css@npm:0.1.134"
   checksum: c8b1b4388aba236ef22b9beb79439aaae403a86acf1940d1b6f047b53d1f4d2eef9008208915162d2a3e02f7ea817c86cf816fa426b0a0e4955a66007387cfcb
+  languageName: node
+  linkType: hard
+
+"zenn-embed-elements@npm:^0.1.134":
+  version: 0.1.134
+  resolution: "zenn-embed-elements@npm:0.1.134"
+  checksum: 5c4c6c04976ce9828cc86d490e31283c9f0c2e3995f5411d3df46f39b805371bd7d1e0e7f89e83f1dd1489ac54f2b9145f2aad3b49e77d2bade6b8defff35f55
   languageName: node
   linkType: hard
 
