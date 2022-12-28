@@ -19,8 +19,8 @@ import { cmsClient } from '@/lib/microcms';
 import { Article as ArticleType } from '@/types/article';
 
 type Props = {
-  data: ArticleType;
-  content: string;
+  article: ArticleType;
+  mdSource: string;
   prevEntry: ArticleType;
   nextEntry: ArticleType;
 };
@@ -29,7 +29,7 @@ interface Params extends ParsedUrlQuery {
   id: string;
 }
 
-const Article: NextPage<Props> = ({ data, content, prevEntry, nextEntry }: Props) => {
+const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: Props) => {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -42,29 +42,29 @@ const Article: NextPage<Props> = ({ data, content, prevEntry, nextEntry }: Props
   return (
     <>
       <ArticleSeo
-        modifiedAt={data.revisedAt}
-        publishedAt={data.publishedAt}
+        modifiedAt={article.revisedAt}
+        publishedAt={article.publishedAt}
         summary={''}
-        title={data.title}
-        url={`${siteMetadata.url}/articles/${data.id}`}
+        title={article.title}
+        url={`${siteMetadata.url}/articles/${article.id}`}
       />
       <Container>
-        {data.category && (
+        {article.category && (
           <>
             <Badge mb={10} radius='lg' variant='dot'>
-              {data.category.name}
+              {article.category.name}
             </Badge>
           </>
         )}
         <Box mb={20}>
           <Text align='center' color='dimmed' mb={5}>
-            {new Date(data.publishedAt).toLocaleDateString()}
+            {new Date(article.publishedAt).toLocaleDateString()}
           </Text>
           <Title align='center' order={1} size='h2'>
-            {data.title}
+            {article.title}
           </Title>
         </Box>
-        <Mdx content={content} />
+        <Mdx content={mdSource} />
         <Divider mb={40} mt={40} />
         <Group position='center'>
           <Button.Group>
@@ -106,7 +106,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   if (!params?.id) throw new Error('params id not found');
   const id = params?.id;
 
-  const data = await cmsClient
+  const article = await cmsClient
     .get({
       endpoint: 'articles',
       contentId: String(id)
@@ -120,7 +120,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       limit: 1,
       orders: '-publishedAt',
       fields,
-      filters: `publishedAt[less_than]${data.publishedAt}`
+      filters: `publishedAt[less_than]${article.publishedAt}`
     }
   });
   const next = await cmsClient.get({
@@ -129,11 +129,11 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       limit: 1,
       orders: 'publishedAt',
       fields,
-      filters: `publishedAt[greater_than]${data.publishedAt}`
+      filters: `publishedAt[greater_than]${article.publishedAt}`
     }
   });
 
-  if (!data) {
+  if (!article) {
     return {
       notFound: true
     };
@@ -144,7 +144,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 
   // TODO: Table of contents
   // TODO: Use next/link
-  const markdown = await unified()
+  const md = await unified()
     .use(rehypeParse, {
       fragment: true
     })
@@ -152,12 +152,13 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     .use(rehypeRemark)
     .use(remarkGfm)
     .use(remarkStringify)
-    .process(String(data.content));
+    .process(String(article.content));
+  const mdSource = m2h(md.value as string);
 
   return {
     props: {
-      data,
-      content: m2h(markdown.value as string),
+      article,
+      mdSource,
       prevEntry,
       nextEntry
     }
