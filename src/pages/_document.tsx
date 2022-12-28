@@ -12,6 +12,7 @@ export default class _Document extends Document {
     return (
       <Html lang='ja'>
         <Head>
+          <script async data-pin-hover='true' defer src='//assets.pinterest.com/js/pinit.js' />
           <script src='https://embed.zenn.studio/js/listen-embed-event.js' />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
