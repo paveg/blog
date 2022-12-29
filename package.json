@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && next-export-optimize-images && next-sitemap --config next-sitemap.config.js",
+    "build": "next build && next-export-optimize-images",
+    "postbuild": "next-sitemap --config next-sitemap.config.js",
     "start": "next start",
     "lint": "eslint --cache --ext .ts,.tsx --quiet src",
     "lint:fix": "eslint --fix --cache --ext .ts,.tsx --quiet src",
