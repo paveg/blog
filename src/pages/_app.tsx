@@ -36,7 +36,6 @@ export default function App(props: AppProps) {
         data-pin-tall='true'
         id='pinterest-init'
         src='//assets.pinterest.com/js/pinit.js'
-        strategy='lazyOnload'
       />
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script

@@ -1,12 +1,11 @@
 import { ParsedUrlQuery } from 'querystring';
-import { Badge, Button, Container, Divider, Group, Loader, Text, Title, Box } from '@mantine/core';
-import { IconChevronLeft, IconChevronRight } from '@tabler/icons';
+import { Badge, Container, Divider, Group, Loader, Text, Title, Box } from '@mantine/core';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import m2h from 'zenn-markdown-html';
+import { SideArticleButton } from '@/components/article/sideArticleButton';
 import { Mdx } from '@/components/markdown/mdx';
 import { ArticleSeo } from '@/components/seo';
 import { siteMetadata } from '@/config/siteMetadata';
@@ -28,11 +27,10 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
   const router = useRouter();
 
   if (router.isFallback) {
-    {
-      /* TODO: Prepare fallback component*/
-    }
-    return <Loader>Loading...</Loader>;
+    return <Loader />;
   }
+
+  const date = new Date(article.publishedAt).toLocaleDateString();
 
   return (
     <>
@@ -53,7 +51,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
         )}
         <Box mb={20}>
           <Text align='center' color='dimmed' mb={5}>
-            {new Date(article.publishedAt).toLocaleDateString()}
+            {date}
           </Text>
           <Title align='center' mb={20} order={1} size='h2'>
             {article.title}
@@ -70,33 +68,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
         <Mdx content={mdSource} />
         <Divider mb={20} mt={40} variant='dashed' />
         <Group position='center'>
-          <Button.Group>
-            {prevEntry?.id && (
-              <Button
-                compact
-                component={Link}
-                href={`/articles/${prevEntry?.id}`}
-                leftIcon={<IconChevronLeft />}
-                mr={nextEntry?.id ? 10 : 0}
-                type='button'
-                variant='light'
-              >
-                前の記事
-              </Button>
-            )}
-            {nextEntry?.id && (
-              <Button
-                compact
-                component={Link}
-                href={`/articles/${nextEntry?.id}`}
-                rightIcon={<IconChevronRight />}
-                type='button'
-                variant='light'
-              >
-                次の記事
-              </Button>
-            )}
-          </Button.Group>
+          <SideArticleButton nextEntry={nextEntry} prevEntry={prevEntry} />
         </Group>
       </Container>
     </>
