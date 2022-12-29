@@ -1,6 +1,7 @@
 import { ParsedUrlQuery } from 'querystring';
 import { Alert, Badge, Box, Container, Loader, Title } from '@mantine/core';
 import { IconAlertCircle } from '@tabler/icons';
+import { NextPage, GetStaticPaths, GetStaticPropsContext, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
 import m2h from 'zenn-markdown-html';
@@ -54,26 +55,32 @@ const Preview: NextPage<Props> = ({ article, mdSource }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const data = await cmsClient.get({
-    endpoint: 'articles',
-    queries: { limit: 10 }
-  });
-  const paths = data.contents.map((content: ArticleType) => `/articles/preview/${content.id}`);
-
-  return { paths, fallback: true };
+  return {
+    fallback: 'blocking',
+    paths: []
+  };
 };
 
-export const getStaticProps = async (context) => {
-  if (!context.params?.id) throw new Error('params id not found');
-  const id = context.params?.id;
-  const draftKey = context.previewData?.draftKey;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const checkDraftKey = (item: any): item is { draftKey: string } =>
+  !!(item?.draftKey && typeof item.draftKey === 'string');
+
+export const getStaticProps: GetStaticProps<Props> = async ({
+  params,
+  previewData
+}: GetStaticPropsContext) => {
+  if (!params?.id) throw new Error('params id not found');
+  if (!previewData) throw new Error('previewData not found');
+
+  const id = params?.id;
+  const draftData = checkDraftKey(previewData) ? { draftKey: previewData?.draftKey } : {};
 
   const article = await cmsClient
     .get({
       endpoint: 'articles',
       contentId: String(id),
       queries: {
-        draftKey: draftKey
+        draftKey: draftData.draftKey
       }
     })
     .catch((err) => console.error(err));
@@ -84,7 +91,7 @@ export const getStaticProps = async (context) => {
       article: article,
       mdSource: mdSource
     },
-    revalidate: 2
+    revalidate: 5
   };
 };
 
