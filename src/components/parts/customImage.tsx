@@ -15,5 +15,9 @@ export const CustomImage: FC<Props> = (props: Props) => {
     return `${src}?auto=format&fit=max&w=${width}`;
   };
 
-  return <Image alt={alt || ''} height={height} loader={microCMSLoader} src={src} width={width} />;
+  return (
+    <figure style={{ position: 'relative', height: 'clamp(150px,26vw,200px)' }}>
+      <Image alt={alt || ''} height={height} loader={microCMSLoader} src={src} width={width} />
+    </figure>
+  );
 };
