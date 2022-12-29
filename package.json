@@ -33,6 +33,8 @@
     "@mantine/prism": "^5.9.5",
     "@tabler/icons": "^1.118.0",
     "@vercel/analytics": "^0.1.6",
+    "date-fns": "^2.29.3",
+    "date-fns-tz": "^1.3.7",
     "microcms-js-sdk": "^2.3.2",
     "next": "latest",
     "next-seo": "^5.15.0",

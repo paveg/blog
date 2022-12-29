@@ -1,6 +1,7 @@
 import { createStyles, Card, Image, Text, Group } from '@mantine/core';
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { FormattedDate } from '@/lib/date';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -38,7 +39,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({
   date
 }: ArticleCardProps) => {
   const { classes } = useStyles();
-  const d = new Date(date).toDateString();
+  const d = FormattedDate(date);
   return (
     <Card
       className={classes.card}
