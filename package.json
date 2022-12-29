@@ -39,6 +39,7 @@
     "next": "latest",
     "next-seo": "^5.15.0",
     "next-sitemap": "^3.1.43",
+    "nookies": "^2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "zenn-content-css": "^0.1.134",
