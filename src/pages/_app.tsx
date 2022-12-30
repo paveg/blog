@@ -12,6 +12,7 @@ import { Layout } from '@/components/layout';
 import { siteMetadata } from '@/config/siteMetadata';
 import * as gtag from '@/lib/gtag';
 import * as gtm from '@/lib/gtm';
+
 // eslint-disable-next-line import/no-default-export
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
