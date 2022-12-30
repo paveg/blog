@@ -7,9 +7,11 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 import React, { useEffect } from 'react';
+import { GoogleTagManager, GoogleTagManagerId } from '@/components/google/googleTagManager';
 import { Layout } from '@/components/layout';
 import { siteMetadata } from '@/config/siteMetadata';
 import * as gtag from '@/lib/gtag';
+import * as gtm from '@/lib/gtm';
 
 // eslint-disable-next-line import/no-default-export
 export default function App(props: AppProps) {
@@ -31,6 +33,7 @@ export default function App(props: AppProps) {
 
   return (
     <>
+      <GoogleTagManager googleTagManagerId={gtm.GOOGLE_TAG_MANAGER_ID as GoogleTagManagerId} />
       <Script
         data-pin-hover='true'
         data-pin-tall='true'
