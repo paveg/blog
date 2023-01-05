@@ -8,7 +8,9 @@ import m2h from 'zenn-markdown-html';
 import { SideArticleButton } from '@/components/article/sideArticleButton';
 import { Mdx } from '@/components/markdown/mdx';
 import { ArticleSeo } from '@/components/seo';
+import { ShareButtons } from '@/components/shareButtons';
 import { siteMetadata } from '@/config/siteMetadata';
+import { FormattedDate } from '@/lib/date';
 import { cmsClient } from '@/lib/microcms';
 import { Article as ArticleType } from '@/types/article';
 
@@ -30,7 +32,8 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
     return <Loader />;
   }
 
-  const date = new Date(article.publishedAt).toLocaleDateString();
+  const date = FormattedDate(article.publishedAt);
+  const articleUrl = `${siteMetadata.url}/articles/${article.id}`;
 
   return (
     <>
@@ -39,7 +42,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
         modifiedAt={article.revisedAt}
         publishedAt={article.publishedAt}
         title={article.title}
-        url={`${siteMetadata.url}/articles/${article.id}`}
+        url={articleUrl}
       />
       <Container>
         {article.category && (
@@ -67,6 +70,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
         </Box>
         <Mdx content={mdSource} />
         <Divider mb={20} mt={40} variant='dashed' />
+        <ShareButtons articleTitle={article.title} articleUrl={articleUrl} centered />
         <Group position='center'>
           <SideArticleButton nextEntry={nextEntry} prevEntry={prevEntry} />
         </Group>
