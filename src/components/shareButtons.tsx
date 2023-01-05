@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const ShareButtons: FC<Props> = ({ centered, articleTitle, articleUrl }) => {
-  const shares: FC = (
+  const shares = (
     <Group>
       <TwitterShareButton
         hashtags={[siteMetadata.title]}
