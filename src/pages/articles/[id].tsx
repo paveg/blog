@@ -1,11 +1,12 @@
 import { ParsedUrlQuery } from 'querystring';
-import { Badge, Container, Divider, Group, Loader, Text, Title, Box } from '@mantine/core';
+import { Container, Divider, Group, Loader, Text, Title, Box } from '@mantine/core';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 import m2h from 'zenn-markdown-html';
 import { SideArticleButton } from '@/components/article/sideArticleButton';
+import { CategoryBadge } from '@/components/category/badge';
 import { Mdx } from '@/components/markdown/mdx';
 import { ArticleSeo } from '@/components/seo';
 import { ShareButtons } from '@/components/shareButtons';
@@ -45,15 +46,9 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
         url={articleUrl}
       />
       <Container>
-        {article.category && (
-          <>
-            <Badge mb={10} radius='lg' variant='dot'>
-              {article.category.name}
-            </Badge>
-          </>
-        )}
+        <CategoryBadge category={article.category} />
         <Box mb={20}>
-          <Text align='center' color='dimmed' mb={5}>
+          <Text align='center' color='gray' mb={5}>
             {date}
           </Text>
           <Title align='center' mb={20} order={1} size='h2'>
