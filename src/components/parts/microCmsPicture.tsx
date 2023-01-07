@@ -55,7 +55,7 @@ export const getSources = ({
 
   if (artDirevtives !== undefined) {
     if (!Array.isArray(artDirevtives)) {
-      throw Error('`artDirevtives`には配列を指定してください。');
+      throw Error('Please specify Array to `artDirevtives`');
     }
 
     const artDirectivesSources = artDirevtives.map(({ src, media, width, height }) => [
