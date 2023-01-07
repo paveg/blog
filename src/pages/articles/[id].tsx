@@ -59,6 +59,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
               alt='eyecatch'
               height={article.eyecatch.height ?? 0}
               src={article.eyecatch.url}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
               width={article.eyecatch.width ?? 0}
             />
           )}

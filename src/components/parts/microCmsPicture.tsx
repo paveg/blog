@@ -117,13 +117,8 @@ const loader = ({ src, width, quality, format }: ImageLoaderProps & { format?: s
   params.set('fit', params.get('fit') || 'max');
   params.set('w', params.get('w') || width.toString());
 
-  if (quality) {
-    params.set('q', quality.toString());
-  }
-
-  if (format) {
-    params.set('fm', format);
-  }
+  if (quality) params.set('q', quality.toString());
+  if (format) params.set('fm', format);
 
   return url.href;
 };
