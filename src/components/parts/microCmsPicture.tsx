@@ -39,7 +39,7 @@ export const getSources = ({
   artDirevtives,
   preloadFormat
 }: GetSourcesArgs): GetSourcesResult => {
-  const getFotmatParam = (format: string): string => format.replace(/^image\//, '');
+  const getFormatParam = (format: string): string => format.replace(/^image\//, '');
   const getSrcSet = (src: string, format?: string): string =>
     deviceSizes
       .map(
@@ -48,7 +48,7 @@ export const getSources = ({
             src,
             width: deviceSize,
             quality,
-            format: format !== undefined ? getFotmatParam(format) : undefined
+            format: format !== undefined ? getFormatParam(format) : undefined
           })} ${deviceSize}w`
       )
       .join(', ');
@@ -76,12 +76,12 @@ export const getSources = ({
     }));
 
     const artDirectivesPreloadLinks = artDirevtives.map(({ src, media }) => ({
-      srcSet: getSrcSet(src, getFotmatParam(preloadFormat)),
+      srcSet: getSrcSet(src, getFormatParam(preloadFormat)),
       type: preloadFormat,
       media
     }));
     const defaultPreloadLink = {
-      srcSet: getSrcSet(src, getFotmatParam(preloadFormat)),
+      srcSet: getSrcSet(src, getFormatParam(preloadFormat)),
       type: preloadFormat,
       media: 'not all and ' + artDirectivesPreloadLinks.at(-1)?.media
     };
@@ -99,7 +99,7 @@ export const getSources = ({
     })),
     preloadLinks: [
       {
-        srcSet: getSrcSet(src, getFotmatParam(preloadFormat)),
+        srcSet: getSrcSet(src, getFormatParam(preloadFormat)),
         type: preloadFormat
       }
     ]
