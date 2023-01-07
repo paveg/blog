@@ -1,9 +1,10 @@
-import { Badge, MantineColor } from '@mantine/core';
+import { Badge, MantineColor, Text } from '@mantine/core';
 import React, { FC } from 'react';
 import { Category, Categories } from '@/types/category';
 
 type Props = {
   category?: Category;
+  small?: boolean;
 };
 
 const CategoryColors = (categoryId: Categories): MantineColor => {
@@ -30,7 +31,9 @@ export const CategoryBadge: FC<Props> = ({ category }: Props) => {
   return (
     <>
       <Badge color={color} mb={10} radius='lg' variant='dot'>
-        {category.name}
+        <Text color='gray' size='xs' weight={100}>
+          {category.name}
+        </Text>
       </Badge>
     </>
   );

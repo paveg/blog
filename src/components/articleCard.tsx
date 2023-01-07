@@ -2,6 +2,8 @@ import { createStyles, Card, Image, Text, Group } from '@mantine/core';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { FormattedDate } from '@/lib/date';
+import { Category } from '@/types/category';
+import { CategoryBadge } from './category/badge';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -22,7 +24,7 @@ const useStyles = createStyles((theme) => ({
 interface ArticleCardProps {
   id: string;
   image?: string;
-  category?: string;
+  category?: Category;
   title: string;
   date: string;
 }
@@ -40,6 +42,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({
 }: ArticleCardProps) => {
   const { classes } = useStyles();
   const d = FormattedDate(date);
+  console.info(category);
   return (
     <Card
       className={classes.card}
@@ -50,18 +53,22 @@ export const ArticleCard: FC<ArticleCardProps> = ({
       withBorder
     >
       <Group noWrap spacing={0}>
-        <Image height={160} src={image ? image : DEFAULT_EYECATCH} width={140} />
+        <Group>
+          <Image
+            alt='eyecatch'
+            fit='cover'
+            height={200}
+            src={image ? image : DEFAULT_EYECATCH}
+            width={140}
+          />
+        </Group>
         <div className={classes.body}>
-          {category && (
-            <Text color='dimmed' size='xs' transform='uppercase' weight={700}>
-              {category}
-            </Text>
-          )}
+          <CategoryBadge category={category} />
           <Text className={classes.title} mb='md' mt='xs'>
             {title}
           </Text>
           <Group noWrap spacing='xs'>
-            <Text color='dimmed' size='xs'>
+            <Text color='gray' size='xs'>
               {d}
             </Text>
           </Group>

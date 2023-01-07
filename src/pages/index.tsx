@@ -31,7 +31,7 @@ const Home: NextPage<Props> = ({ articles }: Props) => {
           >
             {newerArticles.map((item: Article) => (
               <ArticleCard
-                category={item.category?.name}
+                category={item.category}
                 date={item.publishedAt}
                 id={item.id}
                 image={item.eyecatch?.url}
@@ -60,7 +60,7 @@ const Home: NextPage<Props> = ({ articles }: Props) => {
           >
             {articles.map((item: Article) => (
               <ArticleCard
-                category={item.category?.name}
+                category={item.category}
                 date={item.publishedAt}
                 id={item.id}
                 image={item.eyecatch?.url}
