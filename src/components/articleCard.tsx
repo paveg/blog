@@ -1,9 +1,10 @@
-import { createStyles, Card, Image, Text, Group } from '@mantine/core';
+import { createStyles, Card, Text, Group } from '@mantine/core';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { FormattedDate } from '@/lib/date';
 import { Category } from '@/types/category';
 import { CategoryBadge } from './category/badge';
+import { MicroCMSPicture } from './parts/microCmsPicture';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -42,7 +43,6 @@ export const ArticleCard: FC<ArticleCardProps> = ({
 }: ArticleCardProps) => {
   const { classes } = useStyles();
   const d = FormattedDate(date);
-  console.info(category);
   return (
     <Card
       className={classes.card}
@@ -54,9 +54,9 @@ export const ArticleCard: FC<ArticleCardProps> = ({
     >
       <Group noWrap spacing={0}>
         <Group>
-          <Image
+          <MicroCMSPicture
             alt='eyecatch'
-            fit='cover'
+            className='overflow-clip object-cover'
             height={200}
             src={image ? image : DEFAULT_EYECATCH}
             width={140}
