@@ -57,9 +57,9 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
           {article.eyecatch && (
             <MicroCMSPicture
               alt='eyecatch'
-              height={article.eyecatch.height}
+              height={article.eyecatch.height ?? 0}
               src={article.eyecatch.url}
-              width={article.eyecatch.width}
+              width={article.eyecatch.width ?? 0}
             />
           )}
         </Box>
