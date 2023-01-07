@@ -1,13 +1,13 @@
 import { ParsedUrlQuery } from 'querystring';
 import { Container, Divider, Group, Loader, Text, Title, Box } from '@mantine/core';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 import m2h from 'zenn-markdown-html';
 import { SideArticleButton } from '@/components/article/sideArticleButton';
 import { CategoryBadge } from '@/components/category/badge';
 import { Mdx } from '@/components/markdown/mdx';
+import { MicroCMSPicture } from '@/components/parts/microCmsPicture';
 import { ArticleSeo } from '@/components/seo';
 import { ShareButtons } from '@/components/shareButtons';
 import { siteMetadata } from '@/config/siteMetadata';
@@ -55,7 +55,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
             {article.title}
           </Title>
           {article.eyecatch && (
-            <Image
+            <MicroCMSPicture
               alt='eyecatch'
               height={article.eyecatch.height}
               src={article.eyecatch.url}
