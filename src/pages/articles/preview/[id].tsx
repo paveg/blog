@@ -1,10 +1,11 @@
 import { ParsedUrlQuery } from 'querystring';
-import { Alert, Badge, Box, Container, Loader, Title } from '@mantine/core';
+import { Alert, Box, Container, Loader, Title } from '@mantine/core';
 import { IconAlertCircle } from '@tabler/icons';
 import { NextPage, GetStaticPaths, GetStaticPropsContext, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
 import m2h from 'zenn-markdown-html';
+import { CategoryBadge } from '@/components/category/badge';
 import { Mdx } from '@/components/markdown/mdx';
 import { cmsClient } from '@/lib/microcms';
 import { Article as ArticleType } from '@/types/article';
@@ -28,11 +29,7 @@ const Preview: NextPage<Props> = ({ article, mdSource }: Props) => {
   return (
     <>
       <Container>
-        {article.category && (
-          <Badge mb={10} radius='lg' variant='dot'>
-            {article.category.name}
-          </Badge>
-        )}
+        <CategoryBadge category={article.category} />
         <Box mb={20}>
           <Alert
             color='red'

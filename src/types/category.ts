@@ -1,7 +1,9 @@
 export type Category = {
-  id: string;
+  id: Categories;
   name: string;
   publishedAt: string;
   updatedAt: string;
   revisedAt: string;
 };
+
+export type Categories = 'technology' | 'gadget' | 'travel' | 'updates' | 'cars-and-motorcycles';
