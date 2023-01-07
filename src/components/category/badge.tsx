@@ -1,6 +1,6 @@
 import { Badge, MantineColor } from '@mantine/core';
 import React, { FC } from 'react';
-import { Category } from '@/types/category';
+import { Category, Categories } from '@/types/category';
 
 type Props = {
   category?: Category;
@@ -19,7 +19,7 @@ const CategoryColors = (categoryId: Categories): MantineColor => {
     case 'cars-and-motorcycles':
       return 'cyan';
     default:
-      'default';
+      return 'blue';
   }
 };
 
