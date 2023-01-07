@@ -1,13 +1,12 @@
 import { GetServerSideProps } from 'next';
 import React from 'react';
 import { siteMetadata } from '@/config/siteMetadata';
-import { FormattedISODate } from '@/lib/date';
+import { FormattedISODate, FormattedTodayISODate } from '@/lib/date';
 import { cmsClient } from '@/lib/microcms';
 import { Article } from '@/types/article';
 
 const generateSiteMap = (articles: Article[]) => {
-  const current = Date.now();
-  const today = FormattedISODate(Date(current));
+  const today = FormattedTodayISODate();
   return `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- I manually set the some URLs I know already -->

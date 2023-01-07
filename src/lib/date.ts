@@ -9,3 +9,8 @@ export const FormattedISODate = (date: string): string => {
   const d = new Date(date);
   return utcToZonedTime(d, 'Asia/Tokyo').toISOString();
 };
+
+export const FormattedTodayISODate = (): string => {
+  const current = Date.now();
+  return utcToZonedTime(current, 'Asia/Tokyo').toISOString();
+};
