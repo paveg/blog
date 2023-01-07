@@ -2,5 +2,10 @@
 module.exports = {
   siteUrl: 'https://www.funailog.com',
   generateRobotsTxt: true,
-  sitemapSize: 7000,
-};
+  exclude: ['/sitemap.xml'],
+  robotsTxtOptions: [
+    additionalSitemaps:[
+      'https://www.funailog.com/sitemap.xml'
+    ]
+  ]
+}
