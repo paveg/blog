@@ -14,34 +14,29 @@ const generateSiteMap = (articles: Article[]) => {
       <loc>${siteMetadata.url}</loc>
       <changefreq>daily</changefreq>
       <lastmod>${today}</lastmod>
-      <priority>1.0</priority>
     </url>
     <url>
       <loc>${siteMetadata.url}/about-funailog</loc>
       <changefreq>daily</changefreq>
       <lastmod>${today}</lastmod>
-      <priority>1.0</priority>
     </url>
     <url>
       <loc>${siteMetadata.url}/contact</loc>
       <changefreq>daily</changefreq>
       <lastmod>${today}</lastmod>
-      <priority>1.0</priority>
     </url>
     <url>
       <loc>${siteMetadata.url}/privacy-policy</loc>
       <changefreq>daily</changefreq>
       <lastmod>${today}</lastmod>
-      <priority>1.0</priority>
     </url>
     ${articles
       .map((article) => {
         return `
     <url>
       <loc>${siteMetadata.url}/articles/${article.id}</loc>
-      <changefreq>weekly</changefreq>
+      <changefreq>daily</changefreq>
       <lastmod>${FormattedISODate(article.revisedAt)}</lastmod>
-      <priority>0.7</priority>
     </url>`;
       })
       .join('')}
