@@ -48,7 +48,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
       <Container>
         <CategoryBadge category={article.category} />
         <Box mb={20}>
-          <Text align='center' color='gray' mb={5}>
+          <Text align='center' color='gray.7' mb={5}>
             {date}
           </Text>
           <Title align='center' mb={20} order={1} size='h2'>

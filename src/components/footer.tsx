@@ -44,7 +44,7 @@ interface FooterProps {
 export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
   const { classes } = useStyles();
   const items = links.map((link) => (
-    <Anchor color='dimmed' component={Link} href={link.link} key={link.label} size='xs'>
+    <Anchor color='gray.7' component={Link} href={link.link} key={link.label} size='xs'>
       {link.label}
     </Anchor>
   ));
@@ -56,31 +56,35 @@ export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
         <Group className={classes.links} noWrap position='right' spacing={0}>
           <CustomActionIcon
             Icon={<IconBrandTwitter size={18} stroke={1.5} />}
+            alt='Twitterへのリンクボタン'
             external
             href={siteMetadata.social.twitter.url}
             size='lg'
           />
           <CustomActionIcon
             Icon={<IconBrandYoutube size={18} stroke={1.5} />}
+            alt='YouTubeへのリンクボタン'
             external
             href={siteMetadata.social.youtube.url}
             size='lg'
           />
           <CustomActionIcon
             Icon={<IconBrandInstagram size={18} stroke={1.5} />}
+            alt='Instagramへのリンクボタン'
             external
             href={siteMetadata.social.instagram.url}
             size='lg'
           />
           <CustomActionIcon
             Icon={<IconBrandGithub size={18} stroke={1.5} />}
+            alt='GitHubへのリンクボタン'
             external
             href={siteMetadata.repositoryUrl}
             size='lg'
           />
         </Group>
       </Container>
-      <Text align='center' color='dimmed' mb={20} size='xs'>
+      <Text align='center' color='gray.7' mb={20} size='xs'>
         © フナイログ All Rights Reserved.
       </Text>
     </div>

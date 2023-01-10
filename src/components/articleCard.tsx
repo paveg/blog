@@ -68,7 +68,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({
             {title}
           </Text>
           <Group noWrap spacing='xs'>
-            <Text color='gray' size='xs'>
+            <Text color='gray.7' size='xs'>
               {d}
             </Text>
           </Group>

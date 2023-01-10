@@ -31,7 +31,7 @@ export const CategoryBadge: FC<Props> = ({ category }: Props) => {
   return (
     <>
       <Badge color={color} mb={10} radius='lg' variant='dot'>
-        <Text color='gray' size='xs' weight={100}>
+        <Text color='gray.7' size='xs' weight={100}>
           {category.name}
         </Text>
       </Badge>
