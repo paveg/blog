@@ -12,7 +12,6 @@ type Props = {
 export const CustomActionIcon: FC<Props> = ({ alt, href, Icon, external, size }: Props) => {
   return (
     <ActionIcon
-      alt={alt}
       aria-label={alt}
       component={Link}
       href={href}
