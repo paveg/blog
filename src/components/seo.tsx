@@ -2,6 +2,7 @@ import { NextSeo, ArticleJsonLd } from 'next-seo';
 import { OpenGraphMedia } from 'next-seo/lib/types';
 import React, { FC } from 'react';
 import { siteMetadata } from '@/config/siteMetadata';
+import { FormattedISODate } from '@/lib/date';
 import { Image } from '@/types/image';
 
 type PageSeoProps = {
@@ -42,8 +43,8 @@ export const ArticleSeo: FC<ArticleSeoProps> = ({
   modifiedAt,
   image
 }: ArticleSeoProps) => {
-  const publishedTime = new Date(publishedAt).toISOString();
-  const modifiedTime = new Date(modifiedAt || publishedAt).toISOString();
+  const publishedTime = FormattedISODate(publishedAt);
+  const modifiedTime = FormattedISODate(modifiedAt || publishedAt);
   const openGraphImages: ReadonlyArray<OpenGraphMedia> = image
     ? [{ url: image.url, width: image.width, height: image.height, type: 'image/png' }]
     : [{ url: siteMetadata.openGraph.defaultUrl }];
