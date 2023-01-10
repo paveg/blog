@@ -4,7 +4,11 @@ module.exports = {
       version: 'detect'
     },
     'import/resolver': {
-      typescript: {}
+      typescript: {},
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        paths: ['./src']
+      }
     }
   },
   env: {

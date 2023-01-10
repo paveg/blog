@@ -1,8 +1,0 @@
-User-agent: *
-Host: https://www.funailog.com
-Sitemap: https://www.funailog.com/sitemap.xml
-
-Allow: /
-
-Disallow: /preview/
-Disallow: /api/
