@@ -42,6 +42,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
         image={article.eyecatch}
         modifiedAt={article.revisedAt}
         publishedAt={article.publishedAt}
+        summary={article.summary}
         title={article.title}
         url={articleUrl}
       />

@@ -5,7 +5,7 @@ export type Article = {
   id: string;
   category: Category;
   eyecatch: EyeCatch;
-  summary: string;
+  summary?: string;
   title: string;
   content: string; // markdown content
   publishedAt: string;
