@@ -7,12 +7,14 @@ import {
   Transition,
   Anchor,
   Text,
+  Title,
   Burger
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
+import { siteMetadata } from '../config/siteMetadata';
 
 const HEADER_HEIGHT = 60;
 
@@ -115,9 +117,22 @@ export const Header: FC<HeaderProps> = ({ links }: HeaderProps) => {
   return (
     <MantineHeader className={classes.root} height={HEADER_HEIGHT} mb={40}>
       <Container className={classes.header}>
-        <Text component={Link} fw={700} href='/' rel='home' size='lg'>
-          フナイログ
-        </Text>
+        {router.asPath === '/' ? (
+          <Text
+            component={Title}
+            fw={700}
+            size='lg'
+            style={{
+              pointerEvents: 'none'
+            }}
+          >
+            {siteMetadata.title}
+          </Text>
+        ) : (
+          <Text component={Link} fw={700} href='/' rel='home' size='lg'>
+            {siteMetadata.title}
+          </Text>
+        )}
         <Group>
           <Group className={classes.links} spacing={5}>
             {items}
