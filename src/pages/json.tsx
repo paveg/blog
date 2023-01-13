@@ -2,18 +2,18 @@ import { GetServerSidePropsContext } from 'next';
 import { generateRssFeed } from '@/lib/feed';
 
 export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => {
-  const xml = await generateRssFeed('atom');
+  const xml = await generateRssFeed('json');
 
   res.statusCode = 200;
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Continue to cache in 24 hours
-  res.setHeader('Content-Type', 'text/xml; charset=utf-8');
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
   res.end(xml);
 
   return {
     props: {}
   };
 };
-const Atom = () => null;
+const Json = () => null;
 
 // eslint-disable-next-line import/no-default-export
-export default Atom;
+export default Json;
