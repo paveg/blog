@@ -17,7 +17,7 @@ export const generateRssFeed = async (type: FeedType): Promise<string> => {
     title: 'フナイログ',
     copyright: 'All Rights Reserved 2023, フナイログ',
     description: siteMetadata.description,
-    id: siteMetadata.url,
+    id: `${siteMetadata.url}/`,
     link: siteMetadata.url,
     feedLinks: {
       rss: `${siteMetadata.url}/feed`,
