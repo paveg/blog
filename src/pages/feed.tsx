@@ -6,7 +6,7 @@ export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => 
 
   res.statusCode = 200;
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Continue to cache in 24 hours
-  res.setHeader('Content-Type', 'text/xml');
+  res.setHeader('Content-Type', 'text/xml; charset=utf-8');
   res.end(xml);
 
   return {

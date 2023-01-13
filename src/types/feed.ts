@@ -1,1 +1,1 @@
-export type FeedType = 'rss' | 'atom';
+export type FeedType = 'rss' | 'atom' | 'json';
