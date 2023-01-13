@@ -13,7 +13,7 @@ export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => 
     props: {}
   };
 };
-const Feed = () => null;
+const Json = () => null;
 
 // eslint-disable-next-line import/no-default-export
-export default Feed;
+export default Json;
