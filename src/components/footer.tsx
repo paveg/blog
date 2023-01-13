@@ -85,7 +85,7 @@ export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
         </Group>
       </Container>
       <Text align='center' color='gray.7' mb={20} size='xs'>
-        © フナイログ All Rights Reserved.
+        © 2023 フナイログ
       </Text>
     </div>
   );

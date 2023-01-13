@@ -1,11 +1,12 @@
 import { Feed, Author } from 'feed';
-import m2h from 'zenn-markdown-html';
+import { marked } from 'marked';
 import { siteMetadata } from '@/config/siteMetadata';
 import { Article } from '@/types/article';
+import { FeedType } from '@/types/feed';
 import { TimezonedDate } from './date';
 import { cmsClient } from './microcms';
 
-export const generateRssFeed = async (): Promise<string> => {
+export const generateRssFeed = async (type: FeedType): Promise<string> => {
   const author: Author = {
     name: siteMetadata.author as string,
     email: siteMetadata.email,
@@ -34,7 +35,7 @@ export const generateRssFeed = async (): Promise<string> => {
       title: article.title,
       id: `${siteMetadata.url}/articles/${article.id}`,
       link: `${siteMetadata.url}/articles/${article.id}`,
-      content: m2h(article.content),
+      content: marked(article.content),
       description: article.summary,
       author: [author],
       date: TimezonedDate(article.publishedAt),
@@ -42,5 +43,10 @@ export const generateRssFeed = async (): Promise<string> => {
     });
   });
 
-  return feed.rss2();
+  switch (type) {
+    case 'rss':
+      return feed.rss2();
+    case 'atom':
+      return feed.atom1();
+  }
 };

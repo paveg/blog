@@ -1472,6 +1472,7 @@ __metadata:
     gitmoji-cli: ^7.0.3
     husky: ^8.0.2
     lint-staged: ^13.1.0
+    marked: ^4.2.5
     microcms-js-sdk: ^2.3.2
     next: latest
     next-compose-plugins: ^2.2.1
@@ -4621,6 +4622,15 @@ __metadata:
   bin:
     markdown-it: bin/markdown-it.js
   checksum: 890555711c1c00fa03b936ca2b213001a3b9b37dea140d8445ae4130ce16628392aad24b12e2a0a9935336ca5951f2957a38f4e5309a2e38eab44e25ff32a41e
+  languageName: node
+  linkType: hard
+
+"marked@npm:^4.2.5":
+  version: 4.2.5
+  resolution: "marked@npm:4.2.5"
+  bin:
+    marked: bin/marked.js
+  checksum: dd7da20a3983c66b516463fad5dc8d15dc70e137d20b6dc491e134f671e84bd2ed5f859e2c35f21e56830a122e4356b9e574bcde49b72b7ad6bc121a215a1a98
   languageName: node
   linkType: hard
 
