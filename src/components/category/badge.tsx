@@ -1,4 +1,5 @@
-import { Badge, MantineColor, Text, useMantineColorScheme } from '@mantine/core';
+import { Badge, MantineColor } from '@mantine/core';
+import Link from 'next/link';
 import React, { FC } from 'react';
 import { Category, Categories } from '@/types/category';
 
@@ -6,6 +7,7 @@ type Props = {
   category?: Category;
   small?: boolean;
   bottomOffset?: boolean;
+  nonLink?: boolean;
 };
 
 const CategoryColors = (categoryId: Categories): MantineColor => {
@@ -25,25 +27,39 @@ const CategoryColors = (categoryId: Categories): MantineColor => {
   }
 };
 
-export const CategoryBadge: FC<Props> = ({ small, category, bottomOffset }: Props) => {
-  const { colorScheme } = useMantineColorScheme();
-
+export const CategoryBadge: FC<Props> = ({ nonLink, small, category, bottomOffset }: Props) => {
   if (!category) return null;
   const color = CategoryColors(category.id);
 
   return (
     <>
-      <Badge
-        color={color}
-        mb={bottomOffset ? 10 : 0}
-        radius='lg'
-        size={small ? 'sm' : 'md'}
-        variant='dot'
-      >
-        <Text color={colorScheme == 'light' ? 'gray.7' : 'gray.4'} size='xs' weight={100}>
+      {nonLink ? (
+        <Badge
+          color={color}
+          component={'div'}
+          mb={bottomOffset ? 10 : 0}
+          radius='lg'
+          size={small ? 'sm' : 'md'}
+          variant='dot'
+        >
           {category.name}
-        </Text>
-      </Badge>
+        </Badge>
+      ) : (
+        <Badge
+          color={color}
+          component={Link}
+          href={`/categories/${category.id}`}
+          mb={bottomOffset ? 10 : 0}
+          radius='lg'
+          size={small ? 'sm' : 'md'}
+          style={{
+            cursor: 'pointer'
+          }}
+          variant='dot'
+        >
+          {category.name}
+        </Badge>
+      )}
     </>
   );
 };

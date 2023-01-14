@@ -1,27 +1,12 @@
 import { Title, Group, Text, Flex, useMantineColorScheme } from '@mantine/core';
 import { NextPage } from 'next';
-import Link from 'next/link';
-import React, { FC } from 'react';
+import React from 'react';
+import { TextLink } from '@/components/parts/textLink';
 import { PageSeo } from '@/components/seo';
 
 const PrivacyPolicy: NextPage = () => {
   const { colorScheme } = useMantineColorScheme();
 
-  type TextLinkProps = { children: React.ReactNode; external?: boolean; href: string };
-
-  const TextLink: FC<TextLinkProps> = ({ external, href, children }: TextLinkProps) => {
-    return (
-      <Text
-        color='blue'
-        component={Link}
-        href={href}
-        rel={external ? 'noopener noreferrer' : ''}
-        target={external ? '_blank' : ''}
-      >
-        {children}
-      </Text>
-    );
-  };
   return (
     <>
       <PageSeo

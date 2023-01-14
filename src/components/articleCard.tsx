@@ -65,7 +65,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({
           />
         </Group>
         <div className={classes.body}>
-          <CategoryBadge category={category} />
+          {category && <CategoryBadge category={category} nonLink />}
           <Text className={classes.title} mb='md' mt='xs'>
             {title}
           </Text>

@@ -16,10 +16,13 @@ import { ArticleCard } from '@/components/articleCard';
 import { CategoryBadge } from '@/components/category/badge';
 import { FormattedDate } from '@/lib/date';
 import { cmsClient } from '@/lib/microcms';
+import { objGroupBy } from '@/lib/utils';
 import { Article } from '@/types/article';
+import { Category } from '@/types/category';
 
 type Props = {
   articles: Article[];
+  categories: Category[];
 };
 
 const useStyles = createStyles(() => ({
@@ -28,10 +31,11 @@ const useStyles = createStyles(() => ({
   }
 }));
 
-const Home: NextPage<Props> = ({ articles }: Props) => {
+const Home: NextPage<Props> = ({ articles, categories }: Props) => {
   const { classes } = useStyles();
   const { colorScheme } = useMantineColorScheme();
 
+  const groupedArticles = objGroupBy(articles, (article: Article) => article.category.id);
   const newerArticles = articles.slice(0, 3);
   return (
     <>
@@ -90,16 +94,43 @@ const Home: NextPage<Props> = ({ articles }: Props) => {
           ))}
         </List>
       </Paper>
+      <Paper mb={20} p='lg' radius='lg' shadow='lg'>
+        <Center mb={20}>
+          <Title order={2} size='h3'>
+            カテゴリ一覧
+          </Title>
+        </Center>
+        <List center listStyleType='none' size='sm' spacing='sm'>
+          {Object.keys(groupedArticles).map((category: string) => (
+            <List.Item key={category}>
+              <Text
+                className={classes.listText}
+                color={colorScheme === 'light' ? 'dark' : 'gray.4'}
+                component={Link}
+                href={`/categories/${category}`}
+                inline
+                size='sm'
+                weight={400}
+              >
+                {categories.find((cat: Category) => cat?.id === category)?.name} (
+                {groupedArticles[category].length})
+              </Text>
+            </List.Item>
+          ))}
+        </List>
+      </Paper>
     </>
   );
 };
 
 export const getStaticProps = async () => {
   const data = await cmsClient.get({ endpoint: 'articles' });
+  const categoryData = await cmsClient.get({ endpoint: 'categories' });
 
   return {
     props: {
-      articles: data.contents
+      articles: data.contents,
+      categories: categoryData.contents
     }
   };
 };
