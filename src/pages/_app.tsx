@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import { MantineProvider, ColorSchemeProvider } from '@mantine/core';
+import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
 import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
