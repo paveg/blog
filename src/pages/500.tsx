@@ -41,17 +41,19 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-const NotFoundTitle = () => {
+const ServerError: FC = () => {
   const { classes } = useStyles();
 
   return (
     <Container className={classes.root}>
-      <div className={classes.label}>404</div>
-      <Title className={classes.title}>You have found a secret place.</Title>
+      <div className={classes.label}>500</div>
+      <Title className={classes.title}>Something bad just happened...</Title>
       <Text align='center' className={classes.description} color='gray.7' size='lg'>
-        Unfortunately, this is only a 404 page.
+        Our servers could not handle your request.
         <br />
-        You may have mistyped the address, or the page has been moved to another URL.
+        Don&apos;t worry, our development team was already notified.
+        <br />
+        Try refreshing the page.
       </Text>
       <Group position='center'>
         <Button component={Link} href='/' size='md' variant='subtle'>
@@ -61,9 +63,10 @@ const NotFoundTitle = () => {
     </Container>
   );
 };
-const Custom404: NextPage = () => {
-  return <NotFoundTitle />;
+
+const Custom500: NextPage = () => {
+  return <ServerError />;
 };
 
 // eslint-disable-next-line import/no-default-export
-export default Custom404;
+export default Custom500;

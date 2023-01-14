@@ -1,17 +1,30 @@
 import '@/styles/globals.css';
+import Bugsnag from '@bugsnag/js';
+import BugsnagPluginReact from '@bugsnag/plugin-react';
 import { MantineProvider } from '@mantine/core';
 import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
+import getConfig from 'next/config';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 import React, { useEffect } from 'react';
+import { ErrorBoundary } from '@/components/errorBoundary';
 import { GoogleTagManager, GoogleTagManagerId } from '@/components/google/googleTagManager';
 import { Layout } from '@/components/layout';
 import { siteMetadata } from '@/config/siteMetadata';
 import * as gtag from '@/lib/gtag';
 import * as gtm from '@/lib/gtm';
+
+const { publicRuntimeConfig } = getConfig();
+
+Bugsnag.start({
+  apiKey: process.env.NEXT_PUBLIC_BUGSNAG_API_KEY,
+  appVersion: publicRuntimeConfig.version,
+  releaseStage: process.env.NEXT_PUBLIC_VERCEL_ENV ?? 'local',
+  plugins: [new BugsnagPluginReact()]
+});
 
 // eslint-disable-next-line import/no-default-export
 export default function App(props: AppProps) {
@@ -90,10 +103,12 @@ export default function App(props: AppProps) {
         withGlobalStyles
         withNormalizeCSS
       >
-        <Layout>
-          <Component {...pageProps} />
-          <Analytics />
-        </Layout>
+        <ErrorBoundary>
+          <Layout>
+            <Component {...pageProps} />
+            <Analytics />
+          </Layout>
+        </ErrorBoundary>
       </MantineProvider>
     </>
   );
