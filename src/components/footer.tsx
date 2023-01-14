@@ -85,7 +85,7 @@ export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
         </Group>
       </Container>
       <Text align='center' color='gray.7' mb={20} size='xs'>
-        © 2023 フナイログ
+        © 2022 フナイログ
       </Text>
     </div>
   );

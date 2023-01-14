@@ -1,27 +1,47 @@
-# Next.js + Tailwind CSS Example
+# blog
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This repository is my blog site made from [Next.js](https://nextjs.org/) and [microCMS](https://microcms.io/). And application is hosting from [Vercel](https://vercel.com/docs).
 
-## Deploy your own
+So, I mean operate serverless basically.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+At first, please access the [**フナイログ**](https://www.funailog.com/).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Technical staffs ([JamStack](https://jamstack.org/))
 
-## How to use
+- [Next.js](https://nextjs.org/) (React framework)
+- [Vercel](https://vercel.com/docs) (PaaS)
+- [microCMS](https://microcms.io/) (Headless CMS)
+- [Mantine](https://mantine.dev/) (React components library)
+- [Tailwind CSS](https://tailwindcss.com/) (CSS framework)
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+## Development
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+### Preparation
 
 ```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
+git clone https://github.com/paveg/blog
+cd blog
+
+npm install -g yarn
+yarn install
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### Environment
+
+```bash
+cp .env.sample .env
+# please, fill in `.env`
+```
+
+### Run server
+
+```bash
+yarn run dev
+# or
+npx vercel dev
+```
+
+## License
+
+Copyright © 2022 Ryota Ikezawa (@paveg)
+The source code is licensed [MIT](https://github.com/paveg/blog/blob/main/LICENSE).
