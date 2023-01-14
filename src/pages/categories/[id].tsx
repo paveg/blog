@@ -19,7 +19,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const data = await cmsClient.get({
+  const data = await cmsClient.getList({
     endpoint: 'categories',
     queries: { limit: 9999 }
   });

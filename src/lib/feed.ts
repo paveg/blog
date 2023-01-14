@@ -29,7 +29,7 @@ export const generateRssFeed = async (type: FeedType): Promise<string> => {
     author: author
   });
 
-  const data = await cmsClient.get({
+  const data = await cmsClient.getList({
     endpoint: 'articles',
     queries: { limit: 9999 }
   });

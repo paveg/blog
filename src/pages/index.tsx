@@ -124,8 +124,8 @@ const Home: NextPage<Props> = ({ articles, categories }: Props) => {
 };
 
 export const getStaticProps = async () => {
-  const data = await cmsClient.get({ endpoint: 'articles' });
-  const categoryData = await cmsClient.get({ endpoint: 'categories' });
+  const data = await cmsClient.getList({ endpoint: 'articles' });
+  const categoryData = await cmsClient.getList({ endpoint: 'categories' });
 
   return {
     props: {

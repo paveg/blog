@@ -100,7 +100,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     .catch((err) => console.error(err));
 
   const fields = 'id,title,image,publishedAt';
-  const prev = await cmsClient.get({
+  const prev = await cmsClient.getList({
     endpoint: 'articles',
     queries: {
       limit: 1,
@@ -109,7 +109,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       filters: `publishedAt[less_than]${article.publishedAt}`
     }
   });
-  const next = await cmsClient.get({
+  const next = await cmsClient.getList({
     endpoint: 'articles',
     queries: {
       limit: 1,
@@ -141,7 +141,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const data = await cmsClient.get({
+  const data = await cmsClient.getList({
     endpoint: 'articles',
     queries: { limit: 9999 }
   });
