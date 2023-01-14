@@ -20,7 +20,7 @@ module.exports = withPlugins([withBundleAnalyzer], {
   webpack: (config) => {
     if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
       config.plugins.push(
-        new BugSnagSourceMapUploadPlugin({
+        new BugsnagSourceMapUploaderPlugin({
           apiKey: process.env.NEXT_PUBLIC_BUGSNAG_API_KEY,
           appVersion: appVersion,
           overwrite: true,
