@@ -12,6 +12,7 @@ export const ColorSchemaToggle: FC<Props> = ({ position }: Props) => {
   return (
     <Group my='xl' position={position ? position : 'center'}>
       <ActionIcon
+        aria-label='Change color scheme.'
         onClick={() => toggleColorScheme()}
         size='md'
         sx={(theme) => ({
