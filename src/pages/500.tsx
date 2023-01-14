@@ -1,7 +1,7 @@
 import { createStyles, Title, Text, Button, Container, Group } from '@mantine/core';
 import { NextPage } from 'next';
 import Link from 'next/link';
-import React from 'react';
+import React, { FC } from 'react';
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -41,7 +41,7 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-const ServerError: FC = () => {
+export const ServerError: FC = () => {
   const { classes } = useStyles();
 
   return (
