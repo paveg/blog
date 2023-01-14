@@ -44,4 +44,5 @@ npx vercel dev
 ## License
 
 Copyright © 2022 Ryota Ikezawa (@paveg)
+
 The source code is licensed [MIT](https://github.com/paveg/blog/blob/main/LICENSE).
