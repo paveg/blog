@@ -2,7 +2,7 @@ import { Button, useMantineColorScheme } from '@mantine/core';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons';
 import Link from 'next/link';
 import React, { FC } from 'react';
-import { Article } from '../../types/article';
+import { Article } from '@/types/article';
 
 type Props = {
   prevEntry?: Article;
@@ -24,7 +24,7 @@ export const SideArticleButton: FC<Props> = ({ prevEntry, nextEntry }: Props) =>
           type='button'
           variant={colorScheme === 'light' ? 'light' : 'default'}
         >
-          {nextEntry?.title}
+          {nextEntry?.title || '前の記事'}
         </Button>
       )}
       {nextEntry?.id && (
@@ -36,7 +36,7 @@ export const SideArticleButton: FC<Props> = ({ prevEntry, nextEntry }: Props) =>
           type='button'
           variant={colorScheme === 'light' ? 'light' : 'default'}
         >
-          {prevEntry?.title}
+          {prevEntry?.title || '次の記事'}
         </Button>
       )}
     </Button.Group>

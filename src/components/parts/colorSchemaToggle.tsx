@@ -1,12 +1,16 @@
-import { useMantineColorScheme, ActionIcon, Group } from '@mantine/core';
+import { useMantineColorScheme, ActionIcon, Group, GroupPosition } from '@mantine/core';
 import { IconSun, IconMoonStars } from '@tabler/icons';
 import React, { FC } from 'react';
 
-export const ColorSchemaToggle: FC = () => {
+type Props = {
+  position?: GroupPosition;
+};
+
+export const ColorSchemaToggle: FC<Props> = ({ position }: Props) => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
-    <Group my='xl' position='center'>
+    <Group my='xl' position={position ? position : 'center'}>
       <ActionIcon
         onClick={() => toggleColorScheme()}
         size='md'

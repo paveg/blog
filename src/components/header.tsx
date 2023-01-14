@@ -60,7 +60,7 @@ const useStyles = createStyles((theme) => ({
     }
   },
 
-  burger: {
+  smallDevice: {
     [theme.fn.largerThan('sm')]: {
       display: 'none'
     }
@@ -148,7 +148,10 @@ export const Header: FC<HeaderProps> = ({ links }: HeaderProps) => {
             />
             */}
         </Group>
-        <Burger className={classes.burger} onClick={toggle} opened={opened} size='sm' />
+        <Group className={classes.smallDevice}>
+          <ColorSchemaToggle />
+          <Burger onClick={toggle} opened={opened} size='sm' />
+        </Group>
         <Transition duration={200} mounted={opened} transition='pop-top-right'>
           {(styles) => (
             <Paper className={classes.dropdown} style={styles} withBorder>
