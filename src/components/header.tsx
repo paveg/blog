@@ -150,7 +150,12 @@ export const Header: FC<HeaderProps> = ({ links }: HeaderProps) => {
         </Group>
         <Group className={classes.smallDevice}>
           <ColorSchemaToggle />
-          <Burger onClick={toggle} opened={opened} size='sm' />
+          <Burger
+            aria-label={`メニューを${opened ? '閉じる' : '開ける'}`}
+            onClick={toggle}
+            opened={opened}
+            size='sm'
+          />
         </Group>
         <Transition duration={200} mounted={opened} transition='pop-top-right'>
           {(styles) => (
