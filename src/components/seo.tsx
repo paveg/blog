@@ -1,5 +1,6 @@
 import { NextSeo, ArticleJsonLd } from 'next-seo';
 import { OpenGraphMedia } from 'next-seo/lib/types';
+import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 import { siteMetadata } from '@/config/siteMetadata';
 import { FormattedISODate } from '@/lib/date';
@@ -7,21 +8,25 @@ import { Image } from '@/types/image';
 
 type PageSeoProps = {
   title: string;
-  description: string;
-  url: string;
+  description?: string;
+  url?: string;
 };
 
 export const PageSeo: FC<PageSeoProps> = ({ title, description, url }: PageSeoProps) => {
+  const router = useRouter();
+  const seoUrl = url ? url : `${siteMetadata.url}${router.asPath}`;
+  const seoTitle = `${title} | ${siteMetadata.title}`;
+  const seoDescription = description ? description : siteMetadata.description;
   return (
     <NextSeo
-      canonical={url}
-      description={description}
+      canonical={`${seoUrl}/`}
+      description={seoDescription}
       openGraph={{
-        url,
-        title,
-        description
+        url: seoUrl,
+        title: seoTitle,
+        description: seoDescription
       }}
-      title={`${title} | ${siteMetadata.title}`}
+      title={seoTitle}
     />
   );
 };

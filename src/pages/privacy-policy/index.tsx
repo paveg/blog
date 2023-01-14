@@ -2,6 +2,7 @@ import { Title, Group, Text, Flex, useMantineColorScheme } from '@mantine/core';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { PageSeo } from '@/components/seo';
 
 const PrivacyPolicy: NextPage = () => {
   const { colorScheme } = useMantineColorScheme();
@@ -23,6 +24,10 @@ const PrivacyPolicy: NextPage = () => {
   };
   return (
     <>
+      <PageSeo
+        description='フナイログの「プライバシーポリシー」ページです。ここではブログにおけるアクセス情報の取り扱いなどについて記述しています。'
+        title='プライバシーポリシー'
+      />
       <Group mb={40} position='center'>
         <Title order={1} size='h2'>
           プライバシーポリシー

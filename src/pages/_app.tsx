@@ -67,6 +67,7 @@ export default function App(props: AppProps) {
         <meta content='minimum-scale=1, initial-scale=1, width=device-width' name='viewport' />
       </Head>
       <DefaultSeo
+        canonical={`${siteMetadata.url}/`}
         defaultTitle={siteMetadata.title}
         description={siteMetadata.description}
         openGraph={{
