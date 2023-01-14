@@ -1,4 +1,4 @@
-import { Button, useMantineColorScheme } from '@mantine/core';
+import { Button, MediaQuery, useMantineColorScheme } from '@mantine/core';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons';
 import Link from 'next/link';
 import React, { FC } from 'react';
@@ -15,29 +15,33 @@ export const SideArticleButton: FC<Props> = ({ prevEntry, nextEntry }: Props) =>
   return (
     <Button.Group>
       {prevEntry?.id && (
-        <Button
-          compact
-          component={Link}
-          href={`/articles/${prevEntry?.id}`}
-          leftIcon={<IconChevronLeft />}
-          mr={nextEntry?.id ? 10 : 0}
-          type='button'
-          variant={colorScheme === 'light' ? 'light' : 'default'}
-        >
-          {nextEntry?.title || '前の記事'}
-        </Button>
+        <MediaQuery query='(max-width: 767px)' styles={{ maxWidth: '12rem' }}>
+          <Button
+            compact
+            component={Link}
+            href={`/articles/${prevEntry?.id}`}
+            leftIcon={<IconChevronLeft />}
+            mr={nextEntry?.id ? 10 : 0}
+            type='button'
+            variant={colorScheme === 'light' ? 'light' : 'default'}
+          >
+            {nextEntry?.title || '前の記事'}
+          </Button>
+        </MediaQuery>
       )}
       {nextEntry?.id && (
-        <Button
-          compact
-          component={Link}
-          href={`/articles/${nextEntry?.id}`}
-          rightIcon={<IconChevronRight />}
-          type='button'
-          variant={colorScheme === 'light' ? 'light' : 'default'}
-        >
-          {prevEntry?.title || '次の記事'}
-        </Button>
+        <MediaQuery query='(max-width: 767px)' styles={{ maxWidth: '12rem' }}>
+          <Button
+            compact
+            component={Link}
+            href={`/articles/${nextEntry?.id}`}
+            rightIcon={<IconChevronRight />}
+            type='button'
+            variant={colorScheme === 'light' ? 'light' : 'default'}
+          >
+            {prevEntry?.title || '次の記事'}
+          </Button>
+        </MediaQuery>
       )}
     </Button.Group>
   );
