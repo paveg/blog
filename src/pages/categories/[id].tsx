@@ -73,7 +73,7 @@ const Category: NextPage<Props> = ({ category, articles }: Props) => {
   return (
     <>
       <PageSeo
-        description={`${category.name}のページです。関連するカテゴリーの記事が一覧になっています。`}
+        description={`${category.name}のページです。関連するカテゴリの記事が一覧になっています。`}
         title={`${category.name}`}
       />
       <Container>
