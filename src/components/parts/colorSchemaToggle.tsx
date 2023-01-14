@@ -10,7 +10,7 @@ export const ColorSchemaToggle: FC<Props> = ({ position }: Props) => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
-    <Group my='xl' position={position ? position : 'center'}>
+    <Group my='md' position={position ? position : 'center'}>
       <ActionIcon
         aria-label='Change color scheme.'
         onClick={() => toggleColorScheme()}

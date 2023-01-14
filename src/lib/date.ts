@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 
 export const TimezonedDate = (date: string): Date => {
@@ -5,9 +6,10 @@ export const TimezonedDate = (date: string): Date => {
   return utcToZonedTime(d, 'Asia/Tokyo');
 };
 
-export const FormattedDate = (date: string): string => {
+export const FormattedDate = (date: string, fmt?: string): string => {
+  const orderFmt = fmt ? fmt : 'yyyy/MM/dd';
   const d = new Date(date);
-  return utcToZonedTime(d, 'Asia/Tokyo').toDateString();
+  return format(utcToZonedTime(d, 'Asia/Tokyo'), orderFmt);
 };
 
 export const FormattedISODate = (date: string): string => {

@@ -29,7 +29,7 @@ const Preview: NextPage<Props> = ({ article, mdSource }: Props) => {
   return (
     <>
       <Container>
-        <CategoryBadge category={article.category} />
+        <CategoryBadge bottomOffset category={article.category} />
         <Box mb={20}>
           <Alert
             color='red'

@@ -5,6 +5,7 @@ import { Category, Categories } from '@/types/category';
 type Props = {
   category?: Category;
   small?: boolean;
+  bottomOffset?: boolean;
 };
 
 const CategoryColors = (categoryId: Categories): MantineColor => {
@@ -24,7 +25,7 @@ const CategoryColors = (categoryId: Categories): MantineColor => {
   }
 };
 
-export const CategoryBadge: FC<Props> = ({ category }: Props) => {
+export const CategoryBadge: FC<Props> = ({ small, category, bottomOffset }: Props) => {
   const { colorScheme } = useMantineColorScheme();
 
   if (!category) return null;
@@ -32,7 +33,13 @@ export const CategoryBadge: FC<Props> = ({ category }: Props) => {
 
   return (
     <>
-      <Badge color={color} mb={10} radius='lg' variant='dot'>
+      <Badge
+        color={color}
+        mb={bottomOffset ? 10 : 0}
+        radius='lg'
+        size={small ? 'sm' : 'md'}
+        variant='dot'
+      >
         <Text color={colorScheme == 'light' ? 'gray.7' : 'gray.4'} size='xs' weight={100}>
           {category.name}
         </Text>

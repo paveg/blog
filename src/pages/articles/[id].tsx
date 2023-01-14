@@ -57,7 +57,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
         url={articleUrl}
       />
       <Container>
-        <CategoryBadge category={article.category} />
+        <CategoryBadge bottomOffset category={article.category} />
         <Box mb={20}>
           <Text align='center' color={colorScheme == 'light' ? 'gray.7' : 'gray.4'} mb={5}>
             {date}
