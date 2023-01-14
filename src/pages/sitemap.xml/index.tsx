@@ -4,6 +4,7 @@ import { siteMetadata } from '@/config/siteMetadata';
 import { FormattedISODate, FormattedTodayISODate } from '@/lib/date';
 import { cmsClient } from '@/lib/microcms';
 import { Article } from '@/types/article';
+import { Category } from '@/types/category';
 
 const generateSiteMap = (articles: Article[], categories: Category[]) => {
   const today = FormattedTodayISODate();
