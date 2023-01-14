@@ -1,12 +1,12 @@
 import '@/styles/globals.css';
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
 import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ErrorBoundary } from '@/components/errorBoundary';
 import { GoogleTagManager, GoogleTagManagerId } from '@/components/google/googleTagManager';
 import { Layout } from '@/components/layout';
@@ -18,6 +18,9 @@ import * as gtm from '@/lib/gtm';
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
   const router = useRouter();
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   useEffect(() => {
     import('zenn-embed-elements');
@@ -82,22 +85,24 @@ export default function App(props: AppProps) {
         }}
       />
 
-      <MantineProvider
-        theme={{
-          /** Put your mantine theme override here */
-          colorScheme: 'light',
-          loader: 'dots'
-        }}
-        withGlobalStyles
-        withNormalizeCSS
-      >
-        <ErrorBoundary>
-          <Layout>
-            <Component {...pageProps} />
-            <Analytics />
-          </Layout>
-        </ErrorBoundary>
-      </MantineProvider>
+      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+        <MantineProvider
+          theme={{
+            /** Put your mantine theme override here */
+            colorScheme: colorScheme,
+            loader: 'dots'
+          }}
+          withGlobalStyles
+          withNormalizeCSS
+        >
+          <ErrorBoundary>
+            <Layout>
+              <Component {...pageProps} />
+              <Analytics />
+            </Layout>
+          </ErrorBoundary>
+        </MantineProvider>
+      </ColorSchemeProvider>
     </>
   );
 }

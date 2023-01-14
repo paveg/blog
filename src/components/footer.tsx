@@ -1,4 +1,4 @@
-import { createStyles, Container, Group, Anchor, Text } from '@mantine/core';
+import { createStyles, Container, Group, Anchor, Text, useMantineColorScheme } from '@mantine/core';
 import {
   IconBrandGithub,
   IconBrandInstagram,
@@ -43,8 +43,16 @@ interface FooterProps {
 
 export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
   const { classes } = useStyles();
+  const { colorScheme } = useMantineColorScheme();
+
   const items = links.map((link) => (
-    <Anchor color='gray.7' component={Link} href={link.link} key={link.label} size='xs'>
+    <Anchor
+      color={colorScheme == 'light' ? 'gray.7' : 'gray.5'}
+      component={Link}
+      href={link.link}
+      key={link.label}
+      size='xs'
+    >
       {link.label}
     </Anchor>
   ));
@@ -84,7 +92,7 @@ export const Footer: FC<FooterProps> = ({ links }: FooterProps) => {
           />
         </Group>
       </Container>
-      <Text align='center' color='gray.7' mb={20} size='xs'>
+      <Text align='center' color={colorScheme == 'light' ? 'gray.7' : 'gray.5'} mb={20} size='xs'>
         © 2022 フナイログ
       </Text>
     </div>
