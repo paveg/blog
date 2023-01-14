@@ -15,6 +15,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 import { siteMetadata } from '../config/siteMetadata';
+import { ColorSchemaToggle } from './parts/colorSchemaToggle';
 
 const HEADER_HEIGHT = 60;
 
@@ -136,6 +137,7 @@ export const Header: FC<HeaderProps> = ({ links }: HeaderProps) => {
         <Group>
           <Group className={classes.links} spacing={5}>
             {items}
+            <ColorSchemaToggle />
           </Group>
           {/* TODO: Implement search functionality
             <Autocomplete

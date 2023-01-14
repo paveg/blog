@@ -1,5 +1,14 @@
 import { ParsedUrlQuery } from 'querystring';
-import { Container, Divider, Group, Loader, Text, Title, Box } from '@mantine/core';
+import {
+  Container,
+  Divider,
+  Group,
+  Loader,
+  Text,
+  Title,
+  Box,
+  useMantineColorScheme
+} from '@mantine/core';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -28,6 +37,7 @@ interface Params extends ParsedUrlQuery {
 
 const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: Props) => {
   const router = useRouter();
+  const { colorScheme } = useMantineColorScheme();
 
   if (router.isFallback) {
     return <Loader />;
@@ -49,7 +59,7 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
       <Container>
         <CategoryBadge category={article.category} />
         <Box mb={20}>
-          <Text align='center' color='gray.7' mb={5}>
+          <Text align='center' color={colorScheme == 'light' ? 'gray.7' : 'gray.4'} mb={5}>
             {date}
           </Text>
           <Title align='center' mb={20} order={1} size='h2'>

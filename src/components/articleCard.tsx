@@ -1,4 +1,4 @@
-import { createStyles, Card, Text, Group } from '@mantine/core';
+import { createStyles, Card, Text, Group, useMantineColorScheme } from '@mantine/core';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { FormattedDate } from '@/lib/date';
@@ -42,6 +42,8 @@ export const ArticleCard: FC<ArticleCardProps> = ({
   date
 }: ArticleCardProps) => {
   const { classes } = useStyles();
+  const { colorScheme } = useMantineColorScheme();
+
   const d = FormattedDate(date);
   return (
     <Card
@@ -68,7 +70,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({
             {title}
           </Text>
           <Group noWrap spacing='xs'>
-            <Text color='gray.7' size='xs'>
+            <Text color={colorScheme == 'light' ? 'gray.7' : 'gray.4'} size='xs'>
               {d}
             </Text>
           </Group>
