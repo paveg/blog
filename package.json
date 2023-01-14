@@ -22,6 +22,8 @@
     ]
   },
   "dependencies": {
+    "@bugsnag/js": "^7.18.0",
+    "@bugsnag/plugin-react": "^7.18.0",
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@emotion/serialize": "^1.1.1",
@@ -74,7 +76,8 @@
     "postcss": "^8.4.18",
     "prettier": "^2.8.1",
     "tailwindcss": "^3.2.4",
-    "typescript": "*"
+    "typescript": "*",
+    "webpack-bugsnag-plugins": "^1.8.0"
   },
   "packageManager": "yarn@3.2.4"
 }

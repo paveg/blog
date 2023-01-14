@@ -7,6 +7,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 import React, { useEffect } from 'react';
+import { ErrorBoundary } from '@/components/errorBoundary';
 import { GoogleTagManager, GoogleTagManagerId } from '@/components/google/googleTagManager';
 import { Layout } from '@/components/layout';
 import { siteMetadata } from '@/config/siteMetadata';
@@ -90,10 +91,12 @@ export default function App(props: AppProps) {
         withGlobalStyles
         withNormalizeCSS
       >
-        <Layout>
-          <Component {...pageProps} />
-          <Analytics />
-        </Layout>
+        <ErrorBoundary>
+          <Layout>
+            <Component {...pageProps} />
+            <Analytics />
+          </Layout>
+        </ErrorBoundary>
       </MantineProvider>
     </>
   );
