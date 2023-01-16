@@ -59,7 +59,7 @@ const Home: NextPage<Props> = ({ articles, categories, popularData }: Props) => 
         order={2}
         size={'h3'}
         title={
-          <Text aria-label='Popular articles link' component={Link} href='/articles/popular'>
+          <Text aria-label='Popular articles link' component={Link} href='/popular'>
             人気の記事
           </Text>
         }
