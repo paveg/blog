@@ -1,9 +1,7 @@
 import {
   Center,
-  Group,
   List,
   Paper,
-  SimpleGrid,
   Text,
   Title,
   createStyles,
@@ -12,17 +10,20 @@ import {
 import { NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
-import { ArticleCard } from '@/components/articleCard';
+import { ListPaper } from '@/components/article/listPaper';
 import { CategoryBadge } from '@/components/category/badge';
 import { FormattedDate } from '@/lib/date';
+import { fetchPopularPosts } from '@/lib/ga';
 import { cmsClient } from '@/lib/microcms';
 import { objGroupBy } from '@/lib/utils';
 import { Article } from '@/types/article';
 import { Category } from '@/types/category';
+import { PopularData } from '@/types/popularData';
 
 type Props = {
   articles: Article[];
   categories: Category[];
+  popularData: PopularData[];
 };
 
 const useStyles = createStyles(() => ({
@@ -31,44 +32,39 @@ const useStyles = createStyles(() => ({
   }
 }));
 
-const Home: NextPage<Props> = ({ articles, categories }: Props) => {
+const Home: NextPage<Props> = ({ articles, categories, popularData }: Props) => {
   const { classes } = useStyles();
   const { colorScheme } = useMantineColorScheme();
 
   const groupedArticles = objGroupBy(articles, (article: Article) => article.category.id);
   const newerArticles = articles.slice(0, 3);
+  const popularArticles: Article[] = popularData
+    .map((pd: PopularData) => {
+      return articles.find((article: Article) => `/articles/${article.id}` === pd.path);
+    })
+    .filter((article): article is Exclude<typeof article, undefined> => article !== undefined)
+    .slice(0, 3);
   return (
     <>
-      <Paper mb={20} p='lg' radius='lg' shadow='lg'>
-        <Center mb={10}>
-          <Title order={2} size='h3'>
-            新着記事
-          </Title>
-        </Center>
-        <Group position='center'>
-          <SimpleGrid
-            breakpoints={[
-              { maxWidth: 980, cols: 3, spacing: 'md' },
-              { maxWidth: 820, cols: 2, spacing: 'sm' },
-              { maxWidth: 600, cols: 1, spacing: 'xs' }
-            ]}
-            cols={3}
-            verticalSpacing='xs'
-          >
-            {newerArticles.map((item: Article) => (
-              <ArticleCard
-                category={item.category}
-                date={item.publishedAt}
-                id={item.id}
-                image={item.eyecatch?.url}
-                key={item.id}
-                title={item.title}
-              />
-            ))}
-          </SimpleGrid>
-        </Group>
-      </Paper>
-      <Paper mb={20} p='lg' radius='lg' shadow='lg'>
+      <ListPaper
+        articles={newerArticles}
+        id='newer-articles'
+        order={2}
+        size={'h3'}
+        title='新着記事'
+      />
+      <ListPaper
+        articles={popularArticles}
+        id='popular-articles'
+        order={2}
+        size={'h3'}
+        title={
+          <Text aria-label='Popular articles link' component={Link} href='/articles/popular'>
+            人気の記事
+          </Text>
+        }
+      />
+      <Paper id='articles' mb={20} p='lg' radius='lg' shadow='lg'>
         <Center mb={20}>
           <Title order={2} size='h3'>
             記事一覧
@@ -94,7 +90,7 @@ const Home: NextPage<Props> = ({ articles, categories }: Props) => {
           ))}
         </List>
       </Paper>
-      <Paper mb={20} p='lg' radius='lg' shadow='lg'>
+      <Paper id='categories' mb={20} p='lg' radius='lg' shadow='lg'>
         <Center mb={20}>
           <Title order={2} size='h3'>
             カテゴリ一覧
@@ -126,11 +122,13 @@ const Home: NextPage<Props> = ({ articles, categories }: Props) => {
 export const getStaticProps = async () => {
   const data = await cmsClient.getList({ endpoint: 'articles' });
   const categoryData = await cmsClient.getList({ endpoint: 'categories' });
+  const popularData = await fetchPopularPosts('14daysAgo', 15);
 
   return {
     props: {
       articles: data.contents,
-      categories: categoryData.contents
+      categories: categoryData.contents,
+      popularData
     }
   };
 };
