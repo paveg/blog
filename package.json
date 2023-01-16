@@ -31,7 +31,7 @@
     "@emotion/utils": "^1.2.0",
     "@google-analytics/data": "^3.1.2",
     "@mantine/core": "^5.9.5",
-    "@mantine/hooks": "^5.9.5",
+    "@mantine/hooks": "^5.10.0",
     "@mantine/next": "^5.9.5",
     "@mantine/nprogress": "^5.9.5",
     "@mantine/prism": "^5.9.5",
