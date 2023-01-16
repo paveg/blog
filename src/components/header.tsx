@@ -14,8 +14,8 @@ import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
-import { siteMetadata } from '../config/siteMetadata';
-import { ColorSchemaToggle } from './parts/colorSchemaToggle';
+import { ColorSchemaToggle } from '@/components/parts/colorSchemaToggle';
+import { siteMetadata } from '@/config/siteMetadata';
 
 const HEADER_HEIGHT = 60;
 

@@ -1,9 +1,9 @@
 import { ParsedUrlQuery } from 'querystring';
-import { Box, Container, Group, Loader, SimpleGrid, Title } from '@mantine/core';
+import { Loader } from '@mantine/core';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { ArticleCard } from '@/components/articleCard';
+import { ListPaper } from '@/components/article/listPaper';
 import { PageSeo } from '@/components/seo';
 import { cmsClient } from '@/lib/microcms';
 import { Article } from '@/types/article';
@@ -76,34 +76,7 @@ const Category: NextPage<Props> = ({ category, articles }: Props) => {
         description={`${category.name}のページです。関連するカテゴリの記事が一覧になっています。`}
         title={`${category.name}`}
       />
-      <Container>
-        <Box>
-          <Title align='center' mb={20} order={1} size='h2'>
-            {category.name}
-          </Title>
-        </Box>
-        <Group position='center'>
-          <SimpleGrid
-            breakpoints={[
-              { maxWidth: 980, cols: 3, spacing: 'md' },
-              { maxWidth: 820, cols: 2, spacing: 'sm' },
-              { maxWidth: 600, cols: 1, spacing: 'xs' }
-            ]}
-            cols={3}
-            verticalSpacing='xs'
-          >
-            {articles.map((item: Article) => (
-              <ArticleCard
-                date={item.publishedAt}
-                id={item.id}
-                image={item.eyecatch?.url}
-                key={item.id}
-                title={item.title}
-              />
-            ))}
-          </SimpleGrid>
-        </Group>
-      </Container>
+      <ListPaper articles={articles} id={`${category.id}-articles`} noBadge title={category.name} />
     </>
   );
 };
