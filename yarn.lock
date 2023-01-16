@@ -455,20 +455,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:^5.9.5":
-  version: 5.9.5
-  resolution: "@mantine/core@npm:5.9.5"
+"@mantine/core@npm:^5.10.0":
+  version: 5.10.0
+  resolution: "@mantine/core@npm:5.10.0"
   dependencies:
     "@floating-ui/react-dom-interactions": ^0.10.1
-    "@mantine/styles": 5.9.5
-    "@mantine/utils": 5.9.5
+    "@mantine/styles": 5.10.0
+    "@mantine/utils": 5.10.0
     "@radix-ui/react-scroll-area": 1.0.2
     react-textarea-autosize: 8.3.4
   peerDependencies:
-    "@mantine/hooks": 5.9.5
+    "@mantine/hooks": 5.10.0
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 207214e9eed4715ae2618586f27fa24fae621c2a71359fa6ec94768e57a571301dade98c4b16d08d54ea19fbfe283e80f12090a21e8f048dffe1897655193711
+  checksum: 433c10ce47b2697303f562c4c83f824ebf6903fce0da90ab8ad0abd320e9ee651bc6332a54a9254472a65ef669b090b027aa033c8ff2cda7a27842c84f180cb5
   languageName: node
   linkType: hard
 
@@ -539,6 +539,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/styles@npm:5.10.0":
+  version: 5.10.0
+  resolution: "@mantine/styles@npm:5.10.0"
+  dependencies:
+    clsx: 1.1.1
+    csstype: 3.0.9
+  peerDependencies:
+    "@emotion/react": ">=11.9.0"
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 2e9f603ddde1a174cc611035786b44c4bddd3012da8ec66003e2d091371d26f154cfcac013a210091ced0fd82198649cc8682cc61d6ab55f1a6407f7c3af1aee
+  languageName: node
+  linkType: hard
+
 "@mantine/styles@npm:5.9.5":
   version: 5.9.5
   resolution: "@mantine/styles@npm:5.9.5"
@@ -550,6 +564,15 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: 97ff1de2fa908910f335e54c28b442a6a5dc10a70199934e583c992ed7f11803ee9f3c455bf2f9ee5237d7960574bc403a5af604c2e48e25bad7024fcd9c8f91
+  languageName: node
+  linkType: hard
+
+"@mantine/utils@npm:5.10.0":
+  version: 5.10.0
+  resolution: "@mantine/utils@npm:5.10.0"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 7fece92e1356af1237154c60b7179c2ce422502df2c968f6ff670f6eba757f2742400aebc7c07f1dd71668dc6c8f87f9036a7c1f0e02fdad48db05ab895cf506
   languageName: node
   linkType: hard
 
@@ -1733,7 +1756,7 @@ __metadata:
     "@emotion/server": ^11.10.0
     "@emotion/utils": ^1.2.0
     "@google-analytics/data": ^3.1.2
-    "@mantine/core": ^5.9.5
+    "@mantine/core": ^5.10.0
     "@mantine/hooks": ^5.9.5
     "@mantine/next": ^5.9.5
     "@mantine/nprogress": ^5.9.5
