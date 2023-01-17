@@ -18,7 +18,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   body: {
-    padding: theme.spacing.md
+    paddingLeft: theme.spacing.sm,
+    paddingRight: theme.spacing.sm
   }
 }));
 
