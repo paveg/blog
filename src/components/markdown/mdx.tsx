@@ -5,7 +5,7 @@ type Props = {
   content: string;
 };
 
-export const Mdx: FC<Props> = ({ content }: Props) => {
+export const OldMdx: FC<Props> = ({ content }: Props) => {
   return (
     <div
       className='znc'

@@ -22,7 +22,7 @@ type GetSourcesArgs = {
   height?: number;
   quality?: number;
   formats?: string[];
-  artDirevtives?: ArtDirective[];
+  artDirectives?: ArtDirective[];
   preloadFormat: typeof WEBP | typeof AVIF;
 };
 type GetSourcesResult = {
@@ -36,7 +36,7 @@ export const getSources = ({
   height,
   quality = 75,
   formats = FORMATS,
-  artDirevtives,
+  artDirectives,
   preloadFormat
 }: GetSourcesArgs): GetSourcesResult => {
   const getFormatParam = (format: string): string => format.replace(/^image\//, '');
@@ -53,12 +53,12 @@ export const getSources = ({
       )
       .join(', ');
 
-  if (artDirevtives !== undefined) {
-    if (!Array.isArray(artDirevtives)) {
-      throw Error('Please specify Array to `artDirevtives`');
+  if (artDirectives !== undefined) {
+    if (!Array.isArray(artDirectives)) {
+      throw Error('Please specify Array to `artDirectives`');
     }
 
-    const artDirectivesSources = artDirevtives.map(({ src, media, width, height }) => [
+    const artDirectivesSources = artDirectives.map(({ src, media, width, height }) => [
       ...formats.map((format) => ({
         srcSet: getSrcSet(src, format),
         type: format,
@@ -75,7 +75,7 @@ export const getSources = ({
       height
     }));
 
-    const artDirectivesPreloadLinks = artDirevtives.map(({ src, media }) => ({
+    const artDirectivesPreloadLinks = artDirectives.map(({ src, media }) => ({
       srcSet: getSrcSet(src, getFormatParam(preloadFormat)),
       type: preloadFormat,
       media
@@ -163,7 +163,7 @@ type Props = Omit<ImageProps, 'src' | 'width' | 'height' | 'blurDataURL' | 'load
   width: number;
   height: number;
   alt: string;
-  artDirevtives?: ArtDirective[];
+  artDirectives?: ArtDirective[];
   preloadFormat?: typeof WEBP | typeof AVIF;
 };
 
@@ -174,7 +174,7 @@ export const MicroCMSPicture: FC<Props> = ({
   quality,
   alt,
   priority,
-  artDirevtives,
+  artDirectives,
   preloadFormat = 'image/webp',
   ...props
 }: Props) => {
@@ -191,7 +191,7 @@ export const MicroCMSPicture: FC<Props> = ({
     height,
     quality: Number(quality),
     deviceSizes,
-    artDirevtives,
+    artDirectives,
     preloadFormat
   });
 

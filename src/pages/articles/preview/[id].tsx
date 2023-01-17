@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import m2h from 'zenn-markdown-html';
 import { CategoryBadge } from '@/components/category/badge';
-import { Mdx } from '@/components/markdown/mdx';
+import { OldMdx } from '@/components/markdown/mdx';
 import { cmsClient } from '@/lib/microcms';
 import { Article as ArticleType } from '@/types/article';
 
@@ -45,7 +45,7 @@ const Preview: NextPage<Props> = ({ article, mdSource }: Props) => {
             {article.title}
           </Title>
         </Box>
-        <Mdx content={mdSource} />
+        <OldMdx content={mdSource} />
       </Container>
     </>
   );

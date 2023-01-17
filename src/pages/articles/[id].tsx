@@ -10,23 +10,27 @@ import {
   useMantineColorScheme
 } from '@mantine/core';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
 import React from 'react';
 import m2h from 'zenn-markdown-html';
 import { SideArticleButton } from '@/components/article/sideArticleButton';
 import { CategoryBadge } from '@/components/category/badge';
-import { Mdx } from '@/components/markdown/mdx';
+import { OldMdx } from '@/components/markdown/mdx';
+import { Mdx } from '@/components/mdx';
 import { MicroCMSPicture } from '@/components/parts/microCmsPicture';
 import { ArticleSeo } from '@/components/seo';
 import { ShareButtons } from '@/components/shareButtons';
 import { siteMetadata } from '@/config/siteMetadata';
 import { FormattedDate } from '@/lib/date';
+import { mdx2html } from '@/lib/mdx2html';
 import { cmsClient } from '@/lib/microcms';
 import { Article as ArticleType } from '@/types/article';
 
 type Props = {
   article: ArticleType;
   mdSource: string;
+  mdxResult: MDXRemoteSerializeResult;
   prevEntry: ArticleType;
   nextEntry: ArticleType;
 };
@@ -35,7 +39,13 @@ interface Params extends ParsedUrlQuery {
   id: string;
 }
 
-const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: Props) => {
+const Article: NextPage<Props> = ({
+  article,
+  mdSource,
+  mdxResult,
+  prevEntry,
+  nextEntry
+}: Props) => {
   const router = useRouter();
   const { colorScheme } = useMantineColorScheme();
 
@@ -75,7 +85,8 @@ const Article: NextPage<Props> = ({ article, mdSource, prevEntry, nextEntry }: P
             />
           )}
         </Box>
-        <Mdx content={mdSource} />
+        <OldMdx content={mdSource} />
+        <Mdx {...mdxResult} lazy />
         <Divider mb={20} mt={40} variant='dashed' />
         <ShareButtons articleTitle={article.title} articleUrl={articleUrl} centered />
         <Group position='center'>
@@ -129,11 +140,13 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const nextEntry = next.contents[0] || {};
 
   const mdSource = m2h(String(article.content));
+  const mdxResult = await mdx2html(article.content);
 
   return {
     props: {
       article,
       mdSource,
+      mdxResult,
       prevEntry,
       nextEntry
     }
