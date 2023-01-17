@@ -23,7 +23,6 @@ export default function App(props: AppProps) {
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   useEffect(() => {
-    import('zenn-embed-elements');
     const handleRouteChange = (url: string) => {
       gtag.pageview(url);
     };

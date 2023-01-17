@@ -50,9 +50,7 @@
     "react-dom": "18.2.0",
     "react-share": "^4.4.1",
     "remark-gfm": "^3.0.1",
-    "zenn-content-css": "^0.1.134",
-    "zenn-embed-elements": "^0.1.134",
-    "zenn-markdown-html": "^0.1.135"
+    "remark-mdx-code-meta": "^2.0.0"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^13.1.1",
