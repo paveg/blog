@@ -46,6 +46,67 @@ yarn run dev
 npx vercel dev
 ```
 
+## Markdown
+
+This mdx blog is supported as follows notation:
+
+````mdx
+# H1
+
+## H2
+
+### H3
+
+#### H4
+
+##### H5
+
+###### H6
+
+**Bold text**
+
+_Italic text_
+
+**_Bold and italic text_**
+
+~~Strike text~~
+
+[Some Link](https://www.google.com/)
+
+```tsx
+import React, { FC } from 'react';
+
+type Props = {
+  name: 'sample';
+};
+
+const SampleComponent: FC<Props> = ({ name }: Props) => {
+  return (
+    <>
+      <title>{name}</title>
+    </>
+  );
+};
+```
+
+:::notice{.success}
+Success message
+:::
+
+:::notice{.warning title='abc'}
+Warning message
+:::
+
+:::notice{.error}
+Error message
+:::
+
+**YouTube** iframe
+
+::youtube[Four by four.]{#id}
+
+```
+
 ## Lighthouse CI
 
 ![Lighthouse Report Image](docs/images/LighthouseReport.jpg)
@@ -55,3 +116,5 @@ npx vercel dev
 Copyright © 2022 Ryota Ikezawa (@paveg)
 
 The source code is licensed [MIT](https://github.com/paveg/blog/blob/main/LICENSE).
+```
+````

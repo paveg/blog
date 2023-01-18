@@ -10,7 +10,7 @@ export const TooltipLink: FC<TooltipLinkProps> = ({ children, href }: TooltipLin
   }
 
   return (
-    <Tooltip inline label={href} transition='pop' withArrow>
+    <Tooltip color='blue' inline label={href} offset={10} transition='pop' withArrow>
       {href.startsWith('/') || href === '' ? (
         <Link href={href}>{children ?? ''}</Link>
       ) : (

@@ -46,7 +46,7 @@ const Preview: NextPage<Props> = ({ article, mdxSource }: Props) => {
             {article.title}
           </Title>
         </Box>
-        <Mdx {...mdxSource} lazy />
+        <Mdx {...mdxSource} />
       </Container>
     </>
   );
