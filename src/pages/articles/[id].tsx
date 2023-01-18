@@ -130,7 +130,75 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const prevEntry = prev.contents[0] || {};
   const nextEntry = next.contents[0] || {};
 
-  const mdxSource = await m2h(article.content);
+  const code =
+    '```python\n# 1+2+3+...+1000000 の実行時間を計測\n\n%%time\nk = 0\nfor x in range(10**6):\n    k += x\n\nprint(k)\n```';
+  const mdxSource = await m2h(
+    `
+# h1
+
+## h2
+
+### h3
+
+#### h4
+
+##### h5
+
+> 引用文 ref:https://github.com/tkc310/microCMS_blog/commit/a9e02da32d07ed5c8b82ca6e1955bfc4ce6908d5
+
+${code}
+*abcdefg*
+**higklmn**
+~opqrstu~
+_vwxyz_
+
+---
+| Beep |   No.  |   Boop |
+| :--- | :----: | -----: |
+| beep |  1024  |    xyz |
+| boop | 338845 |    tuv |
+| foo  |  10106 | qrstuv |
+| bar  |   45   |   lmno |
+
+---
+
+- a
+  - a1
+- b
+
+1. a
+2. b
+
+![test](https://images.microcms-assets.io/assets/3ab7834809eb4654a5239e79fba895de/667a731fceea4f1b9aa1478134ce8fae/service-account-step1.jpg?format=auto)
+
+https://twitter.com/paveg_/
+
+https://twitter.com/paveg_/status/1615250728871919616?s=20
+
+::warning
+2022/11/03 現在、MacOS のみの対応となっています
+::
+
+::error
+2022/11/03 現在、MacOS のみの対応となっています
+::
+
+::success
+2022/11/03 現在、MacOS のみの対応となっています
+::
+
+1
+
+2
+
+
+3
+
+
+
+4
+    `
+  );
 
   return {
     props: {

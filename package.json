@@ -24,6 +24,7 @@
   "dependencies": {
     "@bugsnag/js": "^7.18.0",
     "@bugsnag/plugin-react": "^7.18.0",
+    "@dhaiwat10/react-link-preview": "^1.14.2",
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@emotion/serialize": "^1.1.1",
@@ -35,6 +36,7 @@
     "@mantine/next": "^5.9.5",
     "@mantine/nprogress": "^5.9.5",
     "@mantine/prism": "^5.9.5",
+    "@next/font": "^13.1.2",
     "@tabler/icons": "^1.119.0",
     "@vercel/analytics": "^0.1.6",
     "date-fns": "^2.29.3",
@@ -49,8 +51,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-share": "^4.4.1",
-    "remark-gfm": "^3.0.1",
-    "remark-mdx-code-meta": "^2.0.0"
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^13.1.1",

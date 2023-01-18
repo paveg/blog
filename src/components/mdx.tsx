@@ -1,19 +1,33 @@
-import { Image, ImageProps, Title, TitleProps } from '@mantine/core';
+import { Image, Table, Blockquote } from '@mantine/core';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
 import React, { FC } from 'react';
-import { Code } from '@/components/parts/mdx/code';
+import { TooltipLink } from '@/components/atoms/mdx/tooltipLink';
+import { CodeBlock } from '@/components/molecules/mdx/codeBlock';
+import { Heading } from '@/components/molecules/mdx/heading';
+import { Paragraph } from '@/components/molecules/mdx/paragraph';
 
 const mdxComponents = {
-  // TODO: Fix types
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  code: (props: any) => <Code {...props} />,
-  img: (props: ImageProps) => {
-    return <Image alt={props.alt} {...props} />;
-  },
-  h2: (props: TitleProps) => <Title {...props} order={2} />,
-  h3: (props: TitleProps) => <Title {...props} order={3} />,
-  h4: (props: TitleProps) => <Title {...props} order={4} />,
-  h5: (props: TitleProps) => <Title {...props} order={5} />
+  blockquote: (props) => (
+    <Blockquote
+      sx={(theme) => ({
+        borderRadius: theme.radius.md,
+        backgroundColor: theme.colorScheme === 'light' ? theme.colors.gray[0] : theme.colors.gray[9]
+      })}
+      {...props}
+    />
+  ),
+  code: CodeBlock,
+  a: TooltipLink,
+  img: (props) => <Image {...props} radius='md' />,
+  h1: (props) => <Heading {...props} order={1} />,
+  h2: (props) => <Heading {...props} order={2} />,
+  h3: (props) => <Heading {...props} order={3} />,
+  h4: (props) => <Heading {...props} order={4} />,
+  h5: (props) => <Heading {...props} order={5} />,
+  p: Paragraph,
+  table: (props) => (
+    <Table {...props} highlightOnHover m={10} striped verticalSpacing='sm' withColumnBorders />
+  )
 };
 
 export const Mdx: FC<MDXRemoteProps> = (props: MDXRemoteProps) => {

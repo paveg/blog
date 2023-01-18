@@ -191,6 +191,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dhaiwat10/react-link-preview@npm:^1.14.2":
+  version: 1.14.2
+  resolution: "@dhaiwat10/react-link-preview@npm:1.14.2"
+  dependencies:
+    react-loading-skeleton: ^3.1.0
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0
+    react-dom: ^16.0.0 || ^17.0.0
+  checksum: 109040f5bd9af149d11c12237ddb1e3b273363765da232603f036887491e1b99ea17c8674c0cb4bb407d9b8f23b42037355a7442e041183b6dba3eec17ebc991
+  languageName: node
+  linkType: hard
+
 "@emotion/babel-plugin@npm:^11.10.5":
   version: 11.10.5
   resolution: "@emotion/babel-plugin@npm:11.10.5"
@@ -612,6 +624,13 @@ __metadata:
   version: 13.1.1
   resolution: "@next/env@npm:13.1.1"
   checksum: e265b9b9e7c28023b33ba99b95e84abdfa501507e2f1b7d7b6469ab93d21edbb59fe4378f0557d12864508b747ff1fbc2f9c7de3d704ba51a37c7295fddb0ec1
+  languageName: node
+  linkType: hard
+
+"@next/font@npm:^13.1.2":
+  version: 13.1.2
+  resolution: "@next/font@npm:13.1.2"
+  checksum: 36fa827f95076d49b6a7d6e42cea7848412135f880d953d94416eae997d7880e30a88dfab3a4512b2496a4f69b77ce070ab11dc2d7c0f3eab035517de10e1adc
   languageName: node
   linkType: hard
 
@@ -1853,6 +1872,7 @@ __metadata:
   dependencies:
     "@bugsnag/js": ^7.18.0
     "@bugsnag/plugin-react": ^7.18.0
+    "@dhaiwat10/react-link-preview": ^1.14.2
     "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/serialize": ^1.1.1
@@ -1865,6 +1885,7 @@ __metadata:
     "@mantine/nprogress": ^5.9.5
     "@mantine/prism": ^5.9.5
     "@next/bundle-analyzer": ^13.1.1
+    "@next/font": ^13.1.2
     "@tabler/icons": ^1.119.0
     "@types/gtag.js": ^0.0.12
     "@types/marked": ^4.0.8
@@ -1902,7 +1923,6 @@ __metadata:
     react-dom: 18.2.0
     react-share: ^4.4.1
     remark-gfm: ^3.0.1
-    remark-mdx-code-meta: ^2.0.0
     tailwindcss: ^3.2.4
     typescript: "*"
     webpack-bugsnag-plugins: ^1.8.0
@@ -4390,15 +4410,6 @@ __metadata:
     unist-util-position: ^4.0.0
     zwitch: ^2.0.0
   checksum: f899431df8bb3d7a1178cf57e6eb5c1d52f460357101bc8b113770281b81a015dca693ee2ef8dfced69191cfa752458bbe4b7bce7ec3e154521a01ea7398c3d7
-  languageName: node
-  linkType: hard
-
-"hast-util-to-string@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "hast-util-to-string@npm:2.0.0"
-  dependencies:
-    "@types/hast": ^2.0.0
-  checksum: 0c087f8dee4238741cbad65d28adb8bf800252c763a3c643df2fcb4ef97232056837928c2ae73f841f310e4d336c3b183ee380a5e6eb24bda5c117f78ed600d4
   languageName: node
   linkType: hard
 
@@ -7808,6 +7819,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-loading-skeleton@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "react-loading-skeleton@npm:3.1.0"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 53d257c88e442e979fb9148ae826fc998a5a54c08a01e894395cf1ebb1e1c83e426f9c4884800e5564ba3308cf33e32d3abc75e07589ae0b48e4a2ed544fda2a
+  languageName: node
+  linkType: hard
+
 "react-property@npm:2.0.0":
   version: 2.0.0
   resolution: "react-property@npm:2.0.0"
@@ -8042,21 +8062,6 @@ __metadata:
     micromark-extension-gfm: ^2.0.0
     unified: ^10.0.0
   checksum: 02254f74d67b3419c2c9cf62d799ec35f6c6cd74db25c001361751991552a7ce86049a972107bff8122d85d15ae4a8d1a0618f3bc01a7df837af021ae9b2a04e
-  languageName: node
-  linkType: hard
-
-"remark-mdx-code-meta@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "remark-mdx-code-meta@npm:2.0.0"
-  dependencies:
-    "@types/mdast": ^3.0.0
-    acorn: ^8.0.0
-    acorn-jsx: ^5.0.0
-    estree-util-is-identifier-name: ^2.0.0
-    hast-util-to-string: ^2.0.0
-    unified: ^10.0.0
-    unist-util-visit: ^4.0.0
-  checksum: 2f3dd0b7e312aa41fa8f80007c62d2a07353dd577811e60f391b157b7341e83b6ef40f2a6411ae1d9eb846a2f3288b8fc199fe7c8feb651cbce04610d92f0241
   languageName: node
   linkType: hard
 

@@ -1,5 +1,6 @@
 import '@/styles/globals.css';
 import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
+import { Noto_Sans_JP } from '@next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
@@ -13,6 +14,8 @@ import { Layout } from '@/components/layout';
 import { siteMetadata } from '@/config/siteMetadata';
 import * as gtag from '@/lib/gtag';
 import * as gtm from '@/lib/gtm';
+
+const font = Noto_Sans_JP({ subsets: ['latin'], weight: ['400', '300', '500', '700'] });
 
 // eslint-disable-next-line import/no-default-export
 export default function App(props: AppProps) {
@@ -90,16 +93,28 @@ export default function App(props: AppProps) {
           theme={{
             /** Put your mantine theme override here */
             colorScheme: colorScheme,
-            loader: 'dots'
+            loader: 'dots',
+            headings: {
+              sizes: {
+                h1: { fontSize: '3.0em', lineHeight: 1.3 },
+                h2: { fontSize: '1.6em', lineHeight: 1.3 },
+                h3: { lineHeight: 1.3 },
+                h4: { lineHeight: 1.7 },
+                h5: { lineHeight: 1.7 },
+                h6: { lineHeight: 1.7 }
+              }
+            }
           }}
           withGlobalStyles
           withNormalizeCSS
         >
           <ErrorBoundary>
-            <Layout>
-              <Component {...pageProps} />
-              <Analytics />
-            </Layout>
+            <main className={font.className}>
+              <Layout>
+                <Component {...pageProps} />
+                <Analytics />
+              </Layout>
+            </main>
           </ErrorBoundary>
         </MantineProvider>
       </ColorSchemeProvider>
