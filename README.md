@@ -104,6 +104,8 @@ Error message
 
 ::youtube[Four by four.]{#id}
 
+::googlemap{.googlemap src='url'}
+
 ## Lighthouse CI
 
 ![Lighthouse Report Image](docs/images/LighthouseReport.jpg)

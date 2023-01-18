@@ -20,6 +20,17 @@ export function customRemarkPlugin() {
 
           data.hName = hast.tagName;
           data.hProperties = hast.properties;
+        } else if (node.name === 'googlemap') {
+          const data = node.data || (node.data = {});
+          const attributes = node.attributes || {};
+          const src = attributes.src;
+
+          if (!src) file.fail('Missing video id', node);
+
+          data.hName = 'googlemap';
+          data.hProperties = {
+            src: src
+          };
         } else {
           const data = node.data || (node.data = {});
           const attributes = node.attributes || {};

@@ -13,7 +13,13 @@ export const YouTube: FC<Props> = ({ id, children }: Props) => {
   return (
     <>
       <AspectRatio id={id} m={10} ratio={16 / 9}>
-        <iframe allow='picture-in-picture' allowFullScreen frameBorder={0} src={src} />
+        <iframe
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+          frameBorder={0}
+          src={src}
+          title='YouTube video player'
+        />
       </AspectRatio>
       {children && (
         <Text align='center' color={colorScheme == 'light' ? 'gray.7' : 'gray.4'} inline italic>

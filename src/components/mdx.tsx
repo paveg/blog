@@ -17,6 +17,8 @@ import { CodeBlock } from '@/components/molecules/mdx/codeBlock';
 import { Heading, HeadingProps } from '@/components/molecules/mdx/heading';
 import { NoticeCard } from '@/components/molecules/mdx/noticeCard';
 import { Paragraph } from '@/components/molecules/mdx/paragraph';
+import { DetailArea } from './molecules/mdx/detailArea';
+import { GoogleMap } from './molecules/mdx/GoogleMap';
 import { YouTube } from './molecules/mdx/YouTube';
 
 const mdxComponents = {
@@ -51,6 +53,8 @@ const mdxComponents = {
   p: Paragraph,
   notice: NoticeCard,
   youtube: YouTube,
+  googlemap: GoogleMap,
+  details: DetailArea,
   table: (props: TableProps) => (
     <Table {...props} highlightOnHover m={10} striped verticalSpacing='sm' withColumnBorders />
   )
