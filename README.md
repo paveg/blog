@@ -50,7 +50,6 @@ npx vercel dev
 
 This mdx blog is supported as follows notation:
 
-````mdx
 # H1
 
 ## H2
@@ -105,16 +104,12 @@ Error message
 
 ::youtube[Four by four.]{#id}
 
-```
-
 ## Lighthouse CI
 
 ![Lighthouse Report Image](docs/images/LighthouseReport.jpg)
 
 ## License
 
-Copyright © 2022 Ryota Ikezawa (@paveg)
+Copyright © 2022 Ryota Ikezawa ([@paveg](https://twitter.com/paveg_))
 
 The source code is licensed [MIT](https://github.com/paveg/blog/blob/main/LICENSE).
-```
-````
