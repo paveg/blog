@@ -13,12 +13,12 @@ export const DetailArea: FC<Props> = ({ summary, children }: Props) => {
   return (
     <Accordion
       defaultValue={value}
-      onChange={() => (value === null ? setValue(summary) : setValue(null))}
+      onChange={() => (value === null ? setValue(summary ?? '') : setValue(null))}
       radius='md'
-      value={value}
+      value={value ?? ''}
       variant='contained'
     >
-      <Accordion.Item value={summary}>
+      <Accordion.Item value={summary ?? ''}>
         <Accordion.Control icon={<IconNote />}>
           <Text fw={600} fz='md'>
             {summary}
