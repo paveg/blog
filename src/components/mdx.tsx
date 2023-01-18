@@ -7,7 +7,8 @@ import {
   ListProps,
   ListItemProps,
   BlockquoteProps,
-  TableProps
+  TableProps,
+  Text
 } from '@mantine/core';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
 import React, { FC } from 'react';
@@ -19,15 +20,23 @@ import { Paragraph } from '@/components/molecules/mdx/paragraph';
 import { YouTube } from './molecules/mdx/YouTube';
 
 const mdxComponents = {
-  blockquote: (props: BlockquoteProps) => (
-    <Blockquote
-      sx={(theme) => ({
-        borderRadius: theme.radius.md,
-        backgroundColor: theme.colorScheme === 'light' ? theme.colors.gray[0] : theme.colors.gray[9]
-      })}
-      {...props}
-    />
-  ),
+  blockquote: (props: BlockquoteProps) => {
+    console.info(props);
+    return (
+      <Blockquote
+        sx={(theme) => ({
+          borderRadius: theme.radius.md,
+          backgroundColor:
+            theme.colorScheme === 'light' ? theme.colors.gray[0] : theme.colors.gray[9]
+        })}
+        {...props}
+      >
+        <Text italic size='sm' span underline variant='text' weight={500}>
+          {props.children}
+        </Text>
+      </Blockquote>
+    );
+  },
   code: CodeBlock,
   a: TooltipLink,
   img: (props: ImageProps) => <Image {...props} radius='md' />,
