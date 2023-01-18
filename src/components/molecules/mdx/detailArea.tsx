@@ -13,6 +13,7 @@ export const DetailArea: FC<Props> = ({ summary, children }: Props) => {
   return (
     <Accordion
       defaultValue={value}
+      m={10}
       onChange={() => (value === null ? setValue(summary ?? '') : setValue(null))}
       radius='md'
       value={value ?? ''}
