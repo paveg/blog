@@ -25,7 +25,7 @@ export const SideArticleButton: FC<Props> = ({ prevEntry, nextEntry }: Props) =>
             type='button'
             variant={colorScheme === 'light' ? 'light' : 'default'}
           >
-            {nextEntry?.title || '前の記事'}
+            {prevEntry?.title || '前の記事'}
           </Button>
         </MediaQuery>
       )}
@@ -39,7 +39,7 @@ export const SideArticleButton: FC<Props> = ({ prevEntry, nextEntry }: Props) =>
             type='button'
             variant={colorScheme === 'light' ? 'light' : 'default'}
           >
-            {prevEntry?.title || '次の記事'}
+            {nextEntry?.title || '次の記事'}
           </Button>
         </MediaQuery>
       )}

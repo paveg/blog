@@ -1,7 +1,5 @@
 /**
  * @type {import('next').NextConfig}
- *
- * @removed https://zenn.dev/d_suke/articles/30925e50d5503f
  */
 const withPlugins = require('next-compose-plugins');
 const { BugsnagSourceMapUploaderPlugin } = require('webpack-bugsnag-plugins');
@@ -15,7 +13,7 @@ const appVersion = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || 'latest';
 module.exports = withPlugins([withBundleAnalyzer], {
   productionBrowserSourceMaps: true,
   publicRuntimeConfig: {
-    version: appVersion,
+    version: appVersion
   },
   webpack: (config) => {
     if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
@@ -24,9 +22,9 @@ module.exports = withPlugins([withBundleAnalyzer], {
           apiKey: process.env.NEXT_PUBLIC_BUGSNAG_API_KEY,
           appVersion: appVersion,
           overwrite: true,
-          publicPath: "*/",
+          publicPath: '*/'
         })
-      )
+      );
     }
 
     return config;
@@ -36,10 +34,10 @@ module.exports = withPlugins([withBundleAnalyzer], {
       beforeFiles: [
         {
           source: '/:path*.map',
-          destination: '/404',
-        },
-      ],
-    }
+          destination: '/404'
+        }
+      ]
+    };
   },
   images: {
     domains: ['images.microcms-assets.io']

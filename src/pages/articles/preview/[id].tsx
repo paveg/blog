@@ -2,24 +2,25 @@ import { ParsedUrlQuery } from 'querystring';
 import { Alert, Box, Container, Loader, Title } from '@mantine/core';
 import { IconAlertCircle } from '@tabler/icons';
 import { NextPage, GetStaticPaths, GetStaticPropsContext, GetStaticProps } from 'next';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
 import React from 'react';
-import m2h from 'zenn-markdown-html';
 import { CategoryBadge } from '@/components/category/badge';
-import { Mdx } from '@/components/markdown/mdx';
+import { Mdx } from '@/components/mdx';
+import { m2h } from '@/lib/mdx2html';
 import { cmsClient } from '@/lib/microcms';
 import { Article as ArticleType } from '@/types/article';
 
 type Props = {
   article: ArticleType;
-  mdSource: string;
+  mdxSource: MDXRemoteSerializeResult;
 };
 
 interface Params extends ParsedUrlQuery {
   id: string;
 }
 
-const Preview: NextPage<Props> = ({ article, mdSource }: Props) => {
+const Preview: NextPage<Props> = ({ article, mdxSource }: Props) => {
   const router = useRouter();
 
   if (router.isFallback || !article) {
@@ -45,7 +46,7 @@ const Preview: NextPage<Props> = ({ article, mdSource }: Props) => {
             {article.title}
           </Title>
         </Box>
-        <Mdx content={mdSource} />
+        <Mdx {...mdxSource} />
       </Container>
     </>
   );
@@ -81,12 +82,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({
       }
     })
     .catch((err) => console.error(err));
-  const mdSource = m2h(String(article.content));
+  const mdxSource = await m2h(article.content);
 
   return {
     props: {
       article: article,
-      mdSource: mdSource
+      mdxSource: mdxSource
     },
     revalidate: 5
   };
