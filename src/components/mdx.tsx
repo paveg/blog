@@ -21,7 +21,6 @@ import { YouTube } from './molecules/mdx/YouTube';
 
 const mdxComponents = {
   blockquote: (props: BlockquoteProps) => {
-    console.info(props);
     return (
       <Blockquote
         sx={(theme) => ({
@@ -31,7 +30,7 @@ const mdxComponents = {
         })}
         {...props}
       >
-        <Text italic size='sm' span underline variant='text' weight={500}>
+        <Text fz='sm' inherit={false} italic underline variant='text' weight={500}>
           {props.children}
         </Text>
       </Blockquote>
