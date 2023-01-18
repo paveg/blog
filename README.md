@@ -102,9 +102,19 @@ Error message
 
 **YouTube** iframe
 
-::youtube[Four by four.]{#id}
+:::youtube[Four by four.]{#id}
+:::
 
-::googlemap{.googlemap src='url'}
+**GoogleMap** iframe
+
+:::googlemap{.googlemap src='url'}
+:::
+
+**details** information
+
+:::details{summary='description'}
+Note
+:::
 
 ## Lighthouse CI
 
