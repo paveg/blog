@@ -8,7 +8,6 @@ type ParagraphProps = {
 export const Paragraph: FC<ParagraphProps> = ({ children }: ParagraphProps) => {
   return (
     <Text
-      component='p'
       sx={{
         lineHeight: 1.9
       }}
