@@ -24,7 +24,7 @@ export const CustomLink: FC<CustomLinkProps> = ({ children, href, id }: CustomLi
       </a>
     ) : (
       <Tooltip color='blue' label={href} offset={10} transition='pop' withArrow>
-        <Link component={Link} href={href} rel='noopener noreferrer' target='_blank'>
+        <Link href={href} rel='noopener noreferrer' target='_blank'>
           {children}
         </Link>
       </Tooltip>

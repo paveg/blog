@@ -17,7 +17,7 @@ import { CodeBlock } from '@/components/molecules/mdx/codeBlock';
 import { DetailArea } from '@/components/molecules/mdx/detailArea';
 import { GoogleMap } from '@/components/molecules/mdx/GoogleMap';
 import { Heading, HeadingProps } from '@/components/molecules/mdx/heading';
-import { LinkWidget } from '@/components/molecules/mdx/linkWidget';
+import { LinkWidget, LinkWidgetProps } from '@/components/molecules/mdx/linkWidget';
 import { NoticeCard } from '@/components/molecules/mdx/noticeCard';
 import { Paragraph } from '@/components/molecules/mdx/paragraph';
 import { YouTube } from '@/components/molecules/mdx/YouTube';

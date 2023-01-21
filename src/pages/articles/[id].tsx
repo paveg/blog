@@ -117,7 +117,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       limit: 1,
       orders: 'publishedAt',
       fields,
-      filters: `publishedAt[greater_than]${article.publishedAt}`g
+      filters: `publishedAt[greater_than]${article.publishedAt}`
     }
   });
 

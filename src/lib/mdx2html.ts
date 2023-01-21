@@ -13,6 +13,7 @@ import { customRemarkPlugin, extLinkHandler, remarkLinkWidget } from '@/lib/mdx/
 
 export const m2h = async (mdxSource: string): Promise<MDXRemoteSerializeResult> => {
   return await serialize(mdxSource, {
+    parseFrontmatter: true,
     mdxOptions: {
       remarkPlugins: [
         remarkParse,
@@ -32,8 +33,7 @@ export const m2h = async (mdxSource: string): Promise<MDXRemoteSerializeResult> 
         handlers: {
           extlink: extLinkHandler
         }
-      },
-      parseFrontmatter: true
+      }
     }
   });
 };

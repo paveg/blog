@@ -28,7 +28,10 @@ export const LinkWidget: FC<LinkWidgetProps> = ({
         sx={(theme) => ({
           maxWidth: '600px',
           height: '105px',
-          borderRadius: theme.radius.md
+          borderRadius: theme.radius.md,
+          '&:hover': {
+            color: theme.colors.blue[6]
+          }
           // margin: 'auto' // Centering
         })}
         withBorder
