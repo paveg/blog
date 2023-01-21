@@ -8,7 +8,7 @@ export type HeadingProps = {
 
 export const Heading: FC<HeadingProps> = ({ order, children, ...props }: HeadingProps) => {
   return (
-    <Title order={order || 2} {...props}>
+    <Title order={order || 2} pb={10} pt={10} {...props}>
       {children}
     </Title>
   );

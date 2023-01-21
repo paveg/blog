@@ -12,14 +12,21 @@ import {
 } from '@mantine/core';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
 import React, { FC } from 'react';
-import { TooltipLink } from '@/components/atoms/mdx/tooltipLink';
+import { CustomLink, CustomLinkProps } from '@/components/atoms/mdx/customLink';
 import { CodeBlock } from '@/components/molecules/mdx/codeBlock';
+import { DetailArea } from '@/components/molecules/mdx/detailArea';
+import { GoogleMap } from '@/components/molecules/mdx/GoogleMap';
 import { Heading, HeadingProps } from '@/components/molecules/mdx/heading';
+import { LinkWidget, LinkWidgetProps } from '@/components/molecules/mdx/linkWidget';
 import { NoticeCard } from '@/components/molecules/mdx/noticeCard';
 import { Paragraph } from '@/components/molecules/mdx/paragraph';
-import { DetailArea } from './molecules/mdx/detailArea';
-import { GoogleMap } from './molecules/mdx/GoogleMap';
-import { YouTube } from './molecules/mdx/YouTube';
+import { YouTube } from '@/components/molecules/mdx/YouTube';
+import type { MDXComponents } from 'mdx/types';
+
+type ProvidedComponents = MDXComponents & {
+  a?: typeof CustomLink;
+  extlink?: typeof LinkWidget;
+};
 
 const mdxComponents = {
   blockquote: (props: BlockquoteProps) => {
@@ -28,7 +35,9 @@ const mdxComponents = {
         sx={(theme) => ({
           borderRadius: theme.radius.md,
           backgroundColor:
-            theme.colorScheme === 'light' ? theme.colors.gray[0] : theme.colors.gray[9]
+            theme.colorScheme === 'light' ? theme.colors.gray[0] : theme.colors.gray[9],
+          marginTop: '16px',
+          marginBottom: '16px'
         })}
         {...props}
       >
@@ -39,7 +48,8 @@ const mdxComponents = {
     );
   },
   code: CodeBlock,
-  a: TooltipLink,
+  extlink: (props: LinkWidgetProps) => <LinkWidget {...props} />,
+  a: (props: CustomLinkProps) => <CustomLink {...props} />,
   img: (props: ImageProps) => <Image {...props} radius='md' />,
   h1: (props: HeadingProps) => <Heading {...props} order={1} />,
   h2: (props: HeadingProps) => <Heading {...props} order={2} />,
@@ -58,7 +68,7 @@ const mdxComponents = {
   table: (props: TableProps) => (
     <Table {...props} highlightOnHover m={10} striped verticalSpacing='sm' withColumnBorders />
   )
-} as never;
+} as never & ProvidedComponents;
 
 export const Mdx: FC<MDXRemoteProps> = (props: MDXRemoteProps) => {
   return (
