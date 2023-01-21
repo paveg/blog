@@ -24,7 +24,6 @@
   "dependencies": {
     "@bugsnag/js": "^7.18.0",
     "@bugsnag/plugin-react": "^7.18.0",
-    "@dhaiwat10/react-link-preview": "^1.14.2",
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@emotion/serialize": "^1.1.1",

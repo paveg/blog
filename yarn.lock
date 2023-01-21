@@ -191,18 +191,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dhaiwat10/react-link-preview@npm:^1.14.2":
-  version: 1.14.2
-  resolution: "@dhaiwat10/react-link-preview@npm:1.14.2"
-  dependencies:
-    react-loading-skeleton: ^3.1.0
-  peerDependencies:
-    react: ^16.0.0 || ^17.0.0
-    react-dom: ^16.0.0 || ^17.0.0
-  checksum: 109040f5bd9af149d11c12237ddb1e3b273363765da232603f036887491e1b99ea17c8674c0cb4bb407d9b8f23b42037355a7442e041183b6dba3eec17ebc991
-  languageName: node
-  linkType: hard
-
 "@emotion/babel-plugin@npm:^11.10.5":
   version: 11.10.5
   resolution: "@emotion/babel-plugin@npm:11.10.5"
@@ -1925,7 +1913,6 @@ __metadata:
   dependencies:
     "@bugsnag/js": ^7.18.0
     "@bugsnag/plugin-react": ^7.18.0
-    "@dhaiwat10/react-link-preview": ^1.14.2
     "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/serialize": ^1.1.1
@@ -8106,15 +8093,6 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
-  languageName: node
-  linkType: hard
-
-"react-loading-skeleton@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "react-loading-skeleton@npm:3.1.0"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 53d257c88e442e979fb9148ae826fc998a5a54c08a01e894395cf1ebb1e1c83e426f9c4884800e5564ba3308cf33e32d3abc75e07589ae0b48e4a2ed544fda2a
   languageName: node
   linkType: hard
 
