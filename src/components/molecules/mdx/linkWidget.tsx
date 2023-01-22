@@ -24,6 +24,11 @@ export const LinkWidget: FC<LinkWidgetProps> = ({
     const tweetId = md[1] as string;
     return <TwitterTweetEmbed placeholder={<Skeleton />} tweetId={tweetId} />;
   }
+  const isInternal = (): boolean => {
+    return (
+      url.startsWith('/') || url === '' || url.startsWith('#user-content') || url.startsWith('#')
+    );
+  };
   return (
     <>
       <Paper
@@ -31,6 +36,7 @@ export const LinkWidget: FC<LinkWidgetProps> = ({
         href={url}
         mb={20}
         mt={20}
+        rel={isInternal() ? '' : 'noopener noreferrer'}
         sx={(theme) => ({
           maxWidth: '600px',
           height: '105px',
@@ -40,6 +46,7 @@ export const LinkWidget: FC<LinkWidgetProps> = ({
           }
           // margin: 'auto' // Centering
         })}
+        target={isInternal() ? '' : '_blank'}
         withBorder
       >
         <Grid columns={24}>
