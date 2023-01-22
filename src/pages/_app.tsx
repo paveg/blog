@@ -17,7 +17,6 @@ import * as gtm from '@/lib/gtm';
 
 const font = Noto_Sans_JP({ subsets: ['latin'], weight: ['400', '300', '500', '700'] });
 
-// eslint-disable-next-line import/no-default-export
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
   const router = useRouter();

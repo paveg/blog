@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-// eslint-disable-next-line import/no-default-export
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (!req.query.slug) {
     return res.status(404).end();

@@ -52,5 +52,5 @@ const Popular: NextPage<Props> = ({ articles, popularData }: Props) => {
   );
 };
 
-// eslint-disable-next-line import/no-default-export
+
 export default Popular;

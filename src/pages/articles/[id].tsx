@@ -153,5 +153,4 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return { paths, fallback: true };
 };
 
-// eslint-disable-next-line import/no-default-export
 export default React.memo(Article);

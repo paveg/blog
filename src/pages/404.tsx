@@ -65,5 +65,4 @@ const Custom404: NextPage = () => {
   return <NotFoundTitle />;
 };
 
-// eslint-disable-next-line import/no-default-export
 export default Custom404;
