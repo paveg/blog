@@ -19,7 +19,7 @@ export const LinkWidget: FC<LinkWidgetProps> = ({
   og,
   icon
 }: LinkWidgetProps) => {
-  const md = url.match(/^https:\/\/twitter.com\/[0-9a-zA-Z_]{1,15}\/status\/(\d+)\?/);
+  const md = url.match(/^https:\/\/twitter.com\/[0-9a-zA-Z_]{1,15}\/status\/(\d+)\??.+$/);
   if (md && md[1]) {
     const tweetId = md[1] as string;
     return <TwitterTweetEmbed placeholder={<Skeleton />} tweetId={tweetId} />;
