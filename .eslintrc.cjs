@@ -22,14 +22,15 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:storybook/recommended'
   ],
   parser: '@typescript-eslint/parser',
   overrides: [
     {
-      'files': ['./src/pages/**/*.tsx', './src/pages/**/*.ts'],
-      'rules': {
-        'import/no-default-export': 'off',
+      files: ['./src/pages/**/*.tsx', './src/pages/**/*.ts', './src/stories/**/*.tsx'],
+      rules: {
+        'import/no-default-export': 'off'
       }
     }
   ],

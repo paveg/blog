@@ -12,7 +12,13 @@
     "prettier": "prettier --write --cache -c src",
     "prepare": "husky install",
     "compile": "npx tsc",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "resolutions": {
+    "@mdx-js/mdx": "latest",
+    "@mdx-js/react": "latest"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
@@ -35,6 +41,7 @@
     "@mantine/next": "^5.9.5",
     "@mantine/nprogress": "^5.9.5",
     "@mantine/prism": "^5.9.5",
+    "@mdx-js/mdx": "^2.2.1",
     "@next/font": "^13.1.2",
     "@tabler/icons": "^1.119.0",
     "@vercel/analytics": "^0.1.6",
@@ -70,7 +77,19 @@
     "vfile": "^5.3.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@mdx-js/react": "^2.2.1",
     "@next/bundle-analyzer": "^13.1.1",
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-docs": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-interactions": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/react": "^6.5.15",
+    "@storybook/testing-library": "^0.0.13",
     "@types/gtag.js": "^0.0.12",
     "@types/marked": "^4.0.8",
     "@types/node": "18.11.18",
@@ -79,6 +98,7 @@
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.47.0",
     "autoprefixer": "^10.4.12",
+    "babel-loader": "^8.3.0",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
@@ -86,6 +106,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.10",
     "eslint-plugin-unused-imports": "^2.0.0",
     "gitmoji-cli": "^7.0.3",
     "husky": "^8.0.2",

@@ -1,6 +1,6 @@
+import { useRouter } from 'next/router';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
 import { OpenGraphMedia } from 'next-seo/lib/types';
-import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 import { siteMetadata } from '@/config/siteMetadata';
 import { FormattedISODate } from '@/lib/date';

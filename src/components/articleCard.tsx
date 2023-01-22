@@ -1,10 +1,10 @@
 import { createStyles, Card, Text, Group, useMantineColorScheme } from '@mantine/core';
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { CategoryBadge } from '@/components/category/badge';
+import { MicroCMSPicture } from '@/components/parts/microCmsPicture';
 import { FormattedDate } from '@/lib/date';
 import { Category } from '@/types/category';
-import { CategoryBadge } from './category/badge';
-import { MicroCMSPicture } from './parts/microCmsPicture';
 
 const useStyles = createStyles((theme) => ({
   card: {
