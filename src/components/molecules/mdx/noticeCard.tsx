@@ -39,10 +39,10 @@ export const NoticeCard: FC<Props> = ({ title, children, className, ...props }: 
     <Alert
       color={props.color || noticeColor()}
       icon={props.icon || noticeIcon()}
-      m={props.m || 'xl'}
+      m={props.m || 'md'}
       radius={props.radius || 'md'}
       title={title ?? ''}
-      variant={props.variant || 'filled'}
+      variant={props.variant || 'light'}
       {...props}
     >
       {children}

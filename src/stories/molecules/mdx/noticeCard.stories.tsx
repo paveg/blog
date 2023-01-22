@@ -2,7 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 import { NoticeCard } from '../../../components/molecules/mdx/noticeCard';
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: 'NoticeCard',
   component: NoticeCard

@@ -28,9 +28,9 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   overrides: [
     {
-      'files': ['./src/pages/**/*.tsx', './src/pages/**/*.ts'],
-      'rules': {
-        'import/no-default-export': 'off',
+      files: ['./src/pages/**/*.tsx', './src/pages/**/*.ts', './src/stories/**/*.tsx'],
+      rules: {
+        'import/no-default-export': 'off'
       }
     }
   ],
