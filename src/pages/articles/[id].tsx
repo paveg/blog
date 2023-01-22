@@ -70,6 +70,7 @@ const Article: NextPage<Props> = ({ article, mdxSource, prevEntry, nextEntry }: 
             <MicroCMSPicture
               alt='eyecatch'
               height={article.eyecatch.height ?? 0}
+              priority
               src={article.eyecatch.url}
               style={{ width: '100%', height: 'auto', display: 'block' }}
               width={article.eyecatch.width ?? 0}
