@@ -80,6 +80,7 @@ const Article: NextPage<Props> = ({ article, mdxSource, prevEntry, nextEntry }: 
         <Mdx {...mdxSource} />
         <Divider mb={20} mt={40} variant='dashed' />
         <ShareButtons articleTitle={article.title} articleUrl={articleUrl} centered />
+        <Divider mb={20} mt={10} variant='dashed' />
         <Group position='center'>
           <SideArticleButton nextEntry={nextEntry} prevEntry={prevEntry} />
         </Group>
