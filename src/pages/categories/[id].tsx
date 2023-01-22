@@ -81,5 +81,4 @@ const Category: NextPage<Props> = ({ category, articles }: Props) => {
   );
 };
 
-// eslint-disable-next-line import/no-default-export
 export default React.memo(Category);

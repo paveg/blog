@@ -86,7 +86,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-// eslint-disable-next-line import/no-default-export
 export default function SitemapIndex() {
   return <></>;
 }

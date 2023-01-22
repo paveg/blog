@@ -93,5 +93,4 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   };
 };
 
-// eslint-disable-next-line import/no-default-export
 export default Preview;

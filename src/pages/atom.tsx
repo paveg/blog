@@ -15,5 +15,4 @@ export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => 
 };
 const Atom = () => null;
 
-// eslint-disable-next-line import/no-default-export
 export default Atom;

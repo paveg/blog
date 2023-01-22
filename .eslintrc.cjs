@@ -25,7 +25,14 @@ module.exports = {
     'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
-  overrides: [],
+  overrides: [
+    {
+      'files': ['./src/pages/**/*.tsx', './src/pages/**/*.ts'],
+      'rules': {
+        'import/no-default-export': 'off',
+      }
+    }
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true

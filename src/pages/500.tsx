@@ -68,5 +68,4 @@ const Custom500: NextPage = () => {
   return <ServerError />;
 };
 
-// eslint-disable-next-line import/no-default-export
 export default Custom500;
