@@ -12,11 +12,11 @@ export const NoticeCard: FC<Props> = ({ title, children, className, ...props }: 
   const noticeColor = (): MantineColor => {
     switch (className) {
       case 'success':
-        return 'green';
+        return 'green.8';
       case 'warning':
-        return 'yellow';
+        return 'yellow.6';
       case 'error':
-        return 'red';
+        return 'red.5';
       default:
         return 'blue';
     }
@@ -37,12 +37,12 @@ export const NoticeCard: FC<Props> = ({ title, children, className, ...props }: 
 
   return (
     <Alert
-      color={noticeColor() || props.color}
-      icon={noticeIcon()}
-      m='sm'
-      radius='md'
+      color={props.color || noticeColor()}
+      icon={props.icon || noticeIcon()}
+      m={props.m || 'xl'}
+      radius={props.radius || 'md'}
       title={title ?? ''}
-      variant='filled'
+      variant={props.variant || 'filled'}
       {...props}
     >
       {children}
