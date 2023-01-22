@@ -61,6 +61,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({
             alt='eyecatch'
             className='overflow-clip object-cover'
             height={200}
+            priority
             src={image ? image : DEFAULT_EYECATCH}
             width={140}
           />
