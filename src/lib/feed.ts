@@ -1,10 +1,10 @@
 import { Feed, Author } from 'feed';
 import { marked } from 'marked';
 import { siteMetadata } from '@/config/siteMetadata';
+import { TimezonedDate } from '@/lib/date';
+import { cmsClient } from '@/lib/microcms';
 import { Article } from '@/types/article';
 import { FeedType } from '@/types/feed';
-import { TimezonedDate } from './date';
-import { cmsClient } from './microcms';
 
 export const generateRssFeed = async (type: FeedType): Promise<string> => {
   const author: Author = {

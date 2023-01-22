@@ -10,8 +10,8 @@ import {
   useMantineColorScheme
 } from '@mantine/core';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import React from 'react';
 import { SideArticleButton } from '@/components/article/sideArticleButton';
 import { CategoryBadge } from '@/components/category/badge';

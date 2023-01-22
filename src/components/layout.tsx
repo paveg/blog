@@ -1,7 +1,7 @@
 import { Container } from '@mantine/core';
 import React, { FC, ReactNode } from 'react';
-import { Footer } from './footer';
-import { Header } from './header';
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
 
 export const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   const headerLinks = [

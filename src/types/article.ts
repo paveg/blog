@@ -1,5 +1,5 @@
-import { Category } from './category';
-import { Image } from './image';
+import { Category } from '@/types/category';
+import { Image } from '@/types/image';
 
 export type Article = {
   id: string;
