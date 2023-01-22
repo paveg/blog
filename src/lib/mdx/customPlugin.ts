@@ -23,8 +23,6 @@ interface ExtLink extends Literal {
 }
 
 export function customRemarkPlugin() {
-  // TODO: implement some embeds
-  // e.g. GitHub, Twitter, GoogleMap and something similar websites.
   return (tree, file) => {
     visit(tree, (node) => {
       if (
@@ -32,12 +30,19 @@ export function customRemarkPlugin() {
         node.type === 'leafDirective' ||
         node.type === 'containerDirective'
       ) {
-        if (node.name !== 'youtube') {
+        if (node.name === 'youtube') {
           const data = node.data || (node.data = {});
-          const hast = h(node.name, node.attributes);
+          const attributes = node.attributes || {};
+          const id = attributes.id;
 
-          data.hName = hast.tagName;
-          data.hProperties = hast.properties;
+          if (node.type === 'textDirective')
+            file.fail('Text directives for `youtube` not supported', node);
+          if (!id) file.fail('Missing video id', node);
+          data.hName = 'youtube';
+          data.hProperties = {
+            src: 'https://www.youtube.com/embed/' + id,
+            id: id
+          };
         } else if (node.name === 'googlemap') {
           const data = node.data || (node.data = {});
           const attributes = node.attributes || {};
@@ -51,17 +56,10 @@ export function customRemarkPlugin() {
           };
         } else {
           const data = node.data || (node.data = {});
-          const attributes = node.attributes || {};
-          const id = attributes.id;
+          const hast = h(node.name, node.attributes);
 
-          if (node.type === 'textDirective')
-            file.fail('Text directives for `youtube` not supported', node);
-          if (!id) file.fail('Missing video id', node);
-          data.hName = 'youtube';
-          data.hProperties = {
-            src: 'https://www.youtube.com/embed/' + id,
-            id: id
-          };
+          data.hName = hast.tagName;
+          data.hProperties = hast.properties;
         }
       }
     });

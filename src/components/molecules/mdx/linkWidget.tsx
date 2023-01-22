@@ -1,7 +1,8 @@
-import { Grid, Group, Paper, Text, Col, Flex } from '@mantine/core';
+import { Grid, Group, Paper, Text, Col, Flex, Skeleton } from '@mantine/core';
 import { IconLink } from '@tabler/icons';
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 export type LinkWidgetProps = {
   url: string;
@@ -18,6 +19,11 @@ export const LinkWidget: FC<LinkWidgetProps> = ({
   og,
   icon
 }: LinkWidgetProps) => {
+  const md = url.match(/^https:\/\/twitter.com\/[0-9a-zA-Z_]{1,15}\/status\/(\d+)$/);
+  if (md && md[1]) {
+    const tweetId = md[1] as string;
+    return <TwitterTweetEmbed placeholder={<Skeleton />} tweetId={tweetId} />;
+  }
   return (
     <>
       <Paper
