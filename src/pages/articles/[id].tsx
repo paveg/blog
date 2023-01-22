@@ -12,7 +12,7 @@ import {
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
 import { useRouter } from 'next/router';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import React from 'react';
+import React, { memo } from 'react';
 import { SideArticleButton } from '@/components/article/sideArticleButton';
 import { CategoryBadge } from '@/components/category/badge';
 import { Mdx } from '@/components/mdx';
@@ -154,4 +154,4 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return { paths, fallback: true };
 };
 
-export default React.memo(Article);
+export default memo(Article);

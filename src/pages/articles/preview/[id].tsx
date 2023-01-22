@@ -4,7 +4,7 @@ import { IconAlertCircle } from '@tabler/icons';
 import { NextPage, GetStaticPaths, GetStaticPropsContext, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import React from 'react';
+import React, { memo } from 'react';
 import { CategoryBadge } from '@/components/category/badge';
 import { Mdx } from '@/components/mdx';
 import { m2h } from '@/lib/mdx2html';
@@ -93,4 +93,4 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   };
 };
 
-export default Preview;
+export default memo(Preview);
