@@ -81,5 +81,4 @@ const Category: NextPage<Props> = ({ category, articles }: Props) => {
   );
 };
 
-
 export default React.memo(Category);

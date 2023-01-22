@@ -68,5 +68,4 @@ const Custom500: NextPage = () => {
   return <ServerError />;
 };
 
-
 export default Custom500;

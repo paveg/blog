@@ -52,5 +52,4 @@ const Popular: NextPage<Props> = ({ articles, popularData }: Props) => {
   );
 };
 
-
 export default Popular;

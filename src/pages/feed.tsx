@@ -15,5 +15,4 @@ export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => 
 };
 const Feed = () => null;
 
-
 export default Feed;

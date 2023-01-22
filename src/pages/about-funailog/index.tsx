@@ -31,5 +31,4 @@ const AboutFunailog: NextPage = () => {
   );
 };
 
-
 export default AboutFunailog;

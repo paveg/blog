@@ -65,5 +65,4 @@ const PrivacyPolicy: NextPage = () => {
   );
 };
 
-
 export default PrivacyPolicy;
