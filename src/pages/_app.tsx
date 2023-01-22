@@ -95,12 +95,12 @@ export default function App(props: AppProps) {
             loader: 'dots',
             headings: {
               sizes: {
-                h1: { fontSize: '3.0em', lineHeight: 1.3 },
-                h2: { fontSize: '1.6em', lineHeight: 1.3 },
-                h3: { lineHeight: 1.3 },
-                h4: { lineHeight: 1.7 },
-                h5: { lineHeight: 1.7 },
-                h6: { lineHeight: 1.7 }
+                h1: { fontSize: 'calc( 32 / 16 * 1rem )', fontWeight: 700, lineHeight: 1.3 },
+                h2: { fontSize: 'calc( 24 / 16 * 1rem )', fontWeight: 700, lineHeight: 1.3 },
+                h3: { fontSize: 'calc( 20 / 16 * 1rem )', fontWeight: 700, lineHeight: 1.3 },
+                h4: { fontSize: 'calc( 16 / 16 * 1rem )', fontWeight: 700, lineHeight: 1.8 },
+                h5: { fontSize: 'calc( 13 / 16 * 1rem )', fontWeight: 700, lineHeight: 1.8 },
+                h6: { fontSize: 'calc( 11 / 16 * 1rem )', fontWeight: 700, lineHeight: 1.8 }
               }
             }
           }}
