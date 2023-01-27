@@ -5,8 +5,8 @@ import { NextPage, GetStaticPaths, GetStaticPropsContext, GetStaticProps } from 
 import { useRouter } from 'next/router';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import React, { memo } from 'react';
-import { CategoryBadge } from '@/components/molecules/category/badge';
 import { Mdx } from '@/components/mdx';
+import { CategoryBadge } from '@/components/molecules/category/badge';
 import { m2h } from '@/lib/mdx2html';
 import { cmsClient } from '@/lib/microcms';
 import { Article as ArticleType } from '@/types/article';
