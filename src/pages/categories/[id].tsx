@@ -3,7 +3,7 @@ import { Loader } from '@mantine/core';
 import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
 import { useRouter } from 'next/router';
 import React, { memo } from 'react';
-import { ListPaper } from '@/components/article/listPaper';
+import { ListPaper } from '@/components/molecules/article/listPaper';
 import { PageSeo } from '@/components/seo';
 import { cmsClient } from '@/lib/microcms';
 import { Article } from '@/types/article';

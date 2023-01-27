@@ -1,6 +1,6 @@
 import { Center, Group, Paper, SimpleGrid, Title, TitleProps } from '@mantine/core';
 import React, { FC } from 'react';
-import { ArticleCard } from '@/components/articleCard';
+import { ArticleCard } from '@/components/molecules/articleCard';
 import { Article } from '@/types/article';
 
 type Props = {

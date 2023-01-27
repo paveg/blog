@@ -9,7 +9,7 @@ import Script from 'next/script';
 import { DefaultSeo } from 'next-seo';
 import React, { useEffect, useState } from 'react';
 import { ErrorBoundary } from '@/components/errorBoundary';
-import { GoogleTagManager, GoogleTagManagerId } from '@/components/google/googleTagManager';
+import { GoogleTagManager, GoogleTagManagerId } from '@/components/atoms/google/googleTagManager';
 import { Layout } from '@/components/layout';
 import { siteMetadata } from '@/config/siteMetadata';
 import * as gtag from '@/lib/gtag';

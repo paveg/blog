@@ -2,7 +2,7 @@ import { Loader } from '@mantine/core';
 import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { ListPaper } from '@/components/article/listPaper';
+import { ListPaper } from '@/components/molecules/article/listPaper';
 import { PageSeo } from '@/components/seo';
 import { fetchPopularPosts } from '@/lib/ga';
 import { cmsClient } from '@/lib/microcms';

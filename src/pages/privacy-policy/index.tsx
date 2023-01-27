@@ -1,7 +1,7 @@
 import { Title, Group, Text, Flex, useMantineColorScheme } from '@mantine/core';
 import { NextPage } from 'next';
 import React from 'react';
-import { TextLink } from '@/components/parts/textLink';
+import { TextLink } from '@/components/atoms/textLink';
 import { PageSeo } from '@/components/seo';
 
 const PrivacyPolicy: NextPage = () => {
