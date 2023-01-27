@@ -13,12 +13,12 @@ import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from '
 import { useRouter } from 'next/router';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import React, { memo } from 'react';
-import { SideArticleButton } from '@/components/article/sideArticleButton';
-import { CategoryBadge } from '@/components/category/badge';
 import { Mdx } from '@/components/mdx';
-import { MicroCMSPicture } from '@/components/parts/microCmsPicture';
+import { SideArticleButton } from '@/components/molecules/article/sideArticleButton';
+import { CategoryBadge } from '@/components/molecules/category/badge';
+import { MicroCMSPicture } from '@/components/molecules/microCmsPicture';
+import { ShareButtons } from '@/components/molecules/shareButtons';
 import { ArticleSeo } from '@/components/seo';
-import { ShareButtons } from '@/components/shareButtons';
 import { siteMetadata } from '@/config/siteMetadata';
 import { FormattedDate } from '@/lib/date';
 import { m2h } from '@/lib/mdx2html';

@@ -7,7 +7,7 @@ import {
 } from '@tabler/icons';
 import Link from 'next/link';
 import React, { FC } from 'react';
-import { CustomActionIcon } from '@/components/parts/customActionIcon';
+import { CustomActionIcon } from '@/components/atoms/customActionIcon';
 import { siteMetadata } from '@/config/siteMetadata';
 
 const useStyles = createStyles((theme) => ({

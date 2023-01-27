@@ -10,8 +10,8 @@ import {
 import { NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
-import { ListPaper } from '@/components/article/listPaper';
-import { CategoryBadge } from '@/components/category/badge';
+import { ListPaper } from '@/components/molecules/article/listPaper';
+import { CategoryBadge } from '@/components/molecules/category/badge';
 import { FormattedDate } from '@/lib/date';
 import { fetchPopularPosts } from '@/lib/ga';
 import { cmsClient } from '@/lib/microcms';
