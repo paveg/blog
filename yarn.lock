@@ -6119,7 +6119,7 @@ __metadata:
     lint-staged: ^13.1.0
     marked: ^4.2.5
     mdast: ^3.0.0
-    mdast-util-to-hast: ^12.2.5
+    mdast-util-to-hast: ^12.2.6
     metadata-scraper: ^0.2.61
     microcms-js-sdk: ^2.3.2
     next: latest
@@ -13143,7 +13143,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdast-util-to-hast@npm:^12.1.0, mdast-util-to-hast@npm:^12.2.5":
+"mdast-util-to-hast@npm:^12.1.0":
   version: 12.2.5
   resolution: "mdast-util-to-hast@npm:12.2.5"
   dependencies:
@@ -13157,6 +13157,23 @@ __metadata:
     unist-util-position: ^4.0.0
     unist-util-visit: ^4.0.0
   checksum: 06337d66b369d9bf16f484cb31943c4e3c0ea9c20138589c256ad3400122fc9d64baf4d087349c042d37074408a24a4856e9ac45cb3356647bbe24d6dcdd42e1
+  languageName: node
+  linkType: hard
+
+"mdast-util-to-hast@npm:^12.2.6":
+  version: 12.2.6
+  resolution: "mdast-util-to-hast@npm:12.2.6"
+  dependencies:
+    "@types/hast": ^2.0.0
+    "@types/mdast": ^3.0.0
+    mdast-util-definitions: ^5.0.0
+    micromark-util-sanitize-uri: ^1.1.0
+    trim-lines: ^3.0.0
+    unist-builder: ^3.0.0
+    unist-util-generated: ^2.0.0
+    unist-util-position: ^4.0.0
+    unist-util-visit: ^4.0.0
+  checksum: abc3ab03ed00715df58f87b3b5abaeb5ed01d1bf92940a9856c35a022ef6a41a220b3543a8c1238804a63b602057817de16666aaae177efa07e4d65d8ca6e13d
   languageName: node
   linkType: hard
 
