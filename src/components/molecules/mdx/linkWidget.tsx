@@ -30,7 +30,6 @@ export const LinkWidget: FC<LinkWidgetProps> = ({
       url.startsWith('/') || url === '' || url.startsWith('#user-content') || url.startsWith('#')
     );
   };
-  console.info(url);
   return (
     <>
       <Paper
