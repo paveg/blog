@@ -2101,6 +2101,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jsdevtools/rehype-toc@npm:3.0.2":
+  version: 3.0.2
+  resolution: "@jsdevtools/rehype-toc@npm:3.0.2"
+  checksum: 80c5a898431d2ab3deceb187334fea1d71f217d6ebc6d65289208ebe0bf003d82cf5cdbd85180787b14a87e0357e4fc77063343dea9ec743eadfe565c34337fa
+  languageName: node
+  linkType: hard
+
 "@mantine/core@npm:^5.9.5":
   version: 5.10.1
   resolution: "@mantine/core@npm:5.10.1"
@@ -6114,10 +6121,12 @@ __metadata:
     prettier: ^2.8.1
     react: 18.2.0
     react-dom: 18.2.0
+    react-scroll: ^1.8.9
     react-share: ^4.4.1
     react-twitter-embed: ^4.0.4
     rehype-autolink-headings: ^6.1.1
     rehype-slug: ^5.1.0
+    rehype-toc: ^3.0.2
     remark-breaks: ^3.0.2
     remark-directive: ^2.0.1
     remark-gemoji: ^7.0.1
@@ -12633,6 +12642,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.throttle@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.throttle@npm:4.1.1"
+  checksum: 129c0a28cee48b348aef146f638ef8a8b197944d4e9ec26c1890c19d9bf5a5690fe11b655c77a4551268819b32d27f4206343e30c78961f60b561b8608c8c805
+  languageName: node
+  linkType: hard
+
 "lodash@npm:^4.17.15, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
@@ -16364,6 +16380,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-scroll@npm:^1.8.9":
+  version: 1.8.9
+  resolution: "react-scroll@npm:1.8.9"
+  dependencies:
+    lodash.throttle: ^4.1.1
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 534ea65713a59ef7ddf623e38058220b654730352b624371cb2250bcf99784806b4564f3fa9295c969980e227e3de15903d95e069f9a3ca520ff0c0c1fb2e362
+  languageName: node
+  linkType: hard
+
 "react-share@npm:^4.4.1":
   version: 4.4.1
   resolution: "react-share@npm:4.4.1"
@@ -16730,6 +16759,15 @@ __metadata:
     unified: ^10.0.0
     unist-util-visit: ^4.0.0
   checksum: 2a7c17fd74d83040e2f2ed2085b0a3274c19feb2c29eba6553fe007ff887c31f21b8aa6e07eaf59f4de610a5293c6339c59fafa8e231c43949a2f136e6ab6187
+  languageName: node
+  linkType: hard
+
+"rehype-toc@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "rehype-toc@npm:3.0.2"
+  dependencies:
+    "@jsdevtools/rehype-toc": 3.0.2
+  checksum: b8498f694163dab93150be8df69c2385ec62881e784c75d87c5fd2ea7211a83385c457b1a02489530b963cf3df9ce762bd885bf83bd7d054196a3a492fee7148
   languageName: node
   linkType: hard
 

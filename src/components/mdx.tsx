@@ -10,8 +10,10 @@ import {
   TableProps,
   Text
 } from '@mantine/core';
+import { IconBlockquote } from '@tabler/icons';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
 import React, { FC } from 'react';
+import type { MDXComponents } from 'mdx/types';
 import { CustomLink, CustomLinkProps } from '@/components/atoms/mdx/customLink';
 import { CodeBlock } from '@/components/molecules/mdx/codeBlock';
 import { DetailArea } from '@/components/molecules/mdx/detailArea';
@@ -20,8 +22,8 @@ import { Heading, HeadingProps } from '@/components/molecules/mdx/heading';
 import { LinkWidget, LinkWidgetProps } from '@/components/molecules/mdx/linkWidget';
 import { NoticeCard } from '@/components/molecules/mdx/noticeCard';
 import { Paragraph } from '@/components/molecules/mdx/paragraph';
+import { Toc } from '@/components/molecules/mdx/toc';
 import { YouTube } from '@/components/molecules/mdx/YouTube';
-import type { MDXComponents } from 'mdx/types';
 
 type ProvidedComponents = MDXComponents & {
   a?: typeof CustomLink;
@@ -32,10 +34,11 @@ const mdxComponents = {
   blockquote: (props: BlockquoteProps) => {
     return (
       <Blockquote
+        icon={<IconBlockquote />}
         sx={(theme) => ({
           borderRadius: theme.radius.md,
           backgroundColor:
-            theme.colorScheme === 'light' ? theme.colors.gray[0] : theme.colors.gray[9],
+            theme.colorScheme === 'light' ? theme.colors.gray[1] : theme.colors.gray[9],
           marginTop: '16px',
           marginBottom: '16px'
         })}
@@ -65,6 +68,7 @@ const mdxComponents = {
   youtube: YouTube,
   googlemap: GoogleMap,
   details: DetailArea,
+  nav: (props) => <Toc {...props} />,
   table: (props: TableProps) => (
     <Table {...props} highlightOnHover m={10} striped verticalSpacing='sm' withColumnBorders />
   )

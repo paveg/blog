@@ -77,7 +77,6 @@ const Article: NextPage<Props> = ({ article, mdxSource, prevEntry, nextEntry }: 
             />
           )}
         </Box>
-
         <Mdx {...mdxSource} />
         <Divider mb={20} mt={40} variant='dashed' />
         <ShareButtons articleTitle={article.title} articleUrl={articleUrl} centered />
