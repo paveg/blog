@@ -25,15 +25,17 @@ export const LinkWidget: FC<LinkWidgetProps> = ({
     return <TwitterTweetEmbed placeholder={<Skeleton />} tweetId={tweetId} />;
   }
   const isInternal = (): boolean => {
+    if (!url) return true;
     return (
       url.startsWith('/') || url === '' || url.startsWith('#user-content') || url.startsWith('#')
     );
   };
+  console.info(url);
   return (
     <>
       <Paper
         component={Link}
-        href={url}
+        href={url ?? ''}
         mb={20}
         mt={20}
         rel={isInternal() ? '' : 'noopener noreferrer'}
