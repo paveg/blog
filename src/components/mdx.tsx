@@ -68,7 +68,7 @@ const mdxComponents = {
   youtube: YouTube,
   googlemap: GoogleMap,
   details: DetailArea,
-  nav: (props) => <Toc {...props} />,
+  nav: Toc,
   table: (props: TableProps) => (
     <Table {...props} highlightOnHover m={10} striped verticalSpacing='sm' withColumnBorders />
   )

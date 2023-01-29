@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 
 export type Props = {
   children: React.ReactNode;
-} & Omit<TitleProps, 'children'>;
+};
 
 export const Toc: FC<Props> = ({ children, ...props }: Props) => {
   return (
