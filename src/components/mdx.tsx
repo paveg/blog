@@ -13,7 +13,6 @@ import {
 import { IconBlockquote } from '@tabler/icons';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
 import React, { FC } from 'react';
-import type { MDXComponents } from 'mdx/types';
 import { CustomLink, CustomLinkProps } from '@/components/atoms/mdx/customLink';
 import { CodeBlock } from '@/components/molecules/mdx/codeBlock';
 import { DetailArea } from '@/components/molecules/mdx/detailArea';
@@ -24,6 +23,7 @@ import { NoticeCard } from '@/components/molecules/mdx/noticeCard';
 import { Paragraph } from '@/components/molecules/mdx/paragraph';
 import { Toc } from '@/components/molecules/mdx/toc';
 import { YouTube } from '@/components/molecules/mdx/YouTube';
+import type { MDXComponents } from 'mdx/types';
 
 type ProvidedComponents = MDXComponents & {
   a?: typeof CustomLink;

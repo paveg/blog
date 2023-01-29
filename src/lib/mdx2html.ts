@@ -13,7 +13,7 @@ import remarkUnwrapImages from 'remark-unwrap-images';
 import { customRemarkPlugin, extLinkHandler, remarkLinkWidget } from '@/lib/mdx/customPlugin';
 
 const tocSettings = {
-  headings: 'h2 h3'.split(' '),
+  headings: 'h2 h3'.split(' ')
 };
 
 export const m2h = async (mdxSource: string): Promise<MDXRemoteSerializeResult> => {
@@ -33,7 +33,7 @@ export const m2h = async (mdxSource: string): Promise<MDXRemoteSerializeResult> 
       rehypePlugins: [
         rehypeSlug,
         [rehypeToc, tocSettings],
-        [rehypeAutolinkHeadings, { behavior: 'prepend' }],
+        [rehypeAutolinkHeadings, { behavior: 'prepend' }]
       ],
       remarkRehypeOptions: {
         handlers: {
