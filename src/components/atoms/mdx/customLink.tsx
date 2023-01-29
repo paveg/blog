@@ -1,6 +1,7 @@
-import { Tooltip } from '@mantine/core';
+import { Text, Tooltip } from '@mantine/core';
 import Link from 'next/link';
 import React, { ComponentProps, FC } from 'react';
+import { Link as Scroll } from 'react-scroll';
 
 export type CustomLinkProps = {
   children: React.ReactNode;
@@ -19,9 +20,16 @@ export const CustomLink: FC<CustomLinkProps> = ({ children, href, id }: CustomLi
         {children}
       </a>
     ) : href.startsWith('#') ? (
-      <a href={href} id={id}>
-        {children}
-      </a>
+      <nav>
+        <Scroll
+          className='hover:opacity-50 hover:cursor-pointer'
+          offset={-50}
+          smooth
+          to={href.replace('#', '')}
+        >
+          <Text variant='link'>{children}</Text>
+        </Scroll>
+      </nav>
     ) : (
       <Tooltip color='blue' label={href} offset={10} transition='pop' withArrow>
         <Link href={href} rel='noopener noreferrer' target='_blank'>
