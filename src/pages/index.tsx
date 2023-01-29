@@ -66,14 +66,10 @@ const Home: NextPage<Props> = ({ articles, categories, popularData }: Props) => 
       />
       <Paper id='articles' mb={20} p='lg' radius='lg' shadow='lg'>
         <Center mb={20}>
-          <Title
-            aria-label='All articles link'
-            component={Link}
-            href='/articles'
-            order={2}
-            size='h3'
-          >
-            記事一覧
+          <Title order={2} size='h3'>
+            <Text aria-label='All articles link' component={Link} href='/articles'>
+              記事一覧
+            </Text>
           </Title>
         </Center>
         <List center size='sm' spacing='sm'>

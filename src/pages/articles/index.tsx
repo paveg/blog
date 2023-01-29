@@ -33,7 +33,11 @@ const Articles: NextPage<Props> = ({ articles }: Props) => {
   const router = useRouter();
   const [activePage, setActivePage] = useState<number>(1);
 
-  const paginate = (array: Array<T>, pageNumber: number, pageSize: number): Array<T> => {
+  const paginate = <T,>(
+    array: Array<T>,
+    pageNumber: number,
+    pageSize: number
+  ): { pageTotal: number; items: Array<T> } => {
     return {
       pageTotal: Math.ceil(array.length / pageSize) || 1,
       items: array.slice((pageNumber - 1) * pageSize, pageNumber * pageSize)
