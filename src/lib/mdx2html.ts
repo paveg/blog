@@ -12,7 +12,7 @@ import remarkUnwrapImages from 'remark-unwrap-images';
 import { customRemarkPlugin, extLinkHandler, remarkLinkWidget } from '@/lib/mdx/customPlugin';
 
 const tocSettings = {
-  headings: 'h2 h3'.split(' ')
+  headings: 'h2'.split(' ')
 };
 
 export const m2h = async (mdxSource: string): Promise<MDXRemoteSerializeResult> => {

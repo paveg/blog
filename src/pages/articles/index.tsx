@@ -48,7 +48,7 @@ const Articles: NextPage<Props> = ({ articles }: Props) => {
     return <Loader />;
   }
 
-  const { pageTotal, items } = paginate(articles, activePage, 10);
+  const { pageTotal, items } = paginate(articles, activePage, 12);
 
   return (
     <>
