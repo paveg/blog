@@ -9,7 +9,6 @@ import remarkGemoji from 'remark-gemoji';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkUnwrapImages from 'remark-unwrap-images';
-
 import { customRemarkPlugin, extLinkHandler, remarkLinkWidget } from '@/lib/mdx/customPlugin';
 
 const tocSettings = {
@@ -38,6 +37,11 @@ export const m2h = async (mdxSource: string): Promise<MDXRemoteSerializeResult> 
       remarkRehypeOptions: {
         handlers: {
           extlink: extLinkHandler
+        },
+        footnoteLabel: '脚注',
+        footnoteLabelTagName: 'span',
+        footnoteLabelProperties: {
+          className: 'underline decoration-dashed mt-4 mb-2 inline-block font-bold text-lg'
         }
       }
     }
