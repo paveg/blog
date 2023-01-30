@@ -4370,7 +4370,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdast@npm:^3.0.0":
+"@types/mdast@npm:^3.0.0, @types/mdast@npm:^3.0.10":
   version: 3.0.10
   resolution: "@types/mdast@npm:3.0.10"
   dependencies:
@@ -6141,6 +6141,7 @@ __metadata:
     remark-directive: ^2.0.1
     remark-gemoji: ^7.0.1
     remark-gfm: ^3.0.1
+    remark-jaruby: ^0.1.0
     remark-parse: ^10.0.1
     remark-unwrap-images: ^3.0.1
     tailwindcss: ^3.2.4
@@ -13008,6 +13009,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mdast-util-from-markdown@npm:^1.2.0":
+  version: 1.3.0
+  resolution: "mdast-util-from-markdown@npm:1.3.0"
+  dependencies:
+    "@types/mdast": ^3.0.0
+    "@types/unist": ^2.0.0
+    decode-named-character-reference: ^1.0.0
+    mdast-util-to-string: ^3.1.0
+    micromark: ^3.0.0
+    micromark-util-decode-numeric-character-reference: ^1.0.0
+    micromark-util-decode-string: ^1.0.0
+    micromark-util-normalize-identifier: ^1.0.0
+    micromark-util-symbol: ^1.0.0
+    micromark-util-types: ^1.0.0
+    unist-util-stringify-position: ^3.0.0
+    uvu: ^0.5.0
+  checksum: cc971d1ad381150f6504fd753fbcffcc64c0abb527540ce343625c2bba76104505262122ef63d14ab66eb47203f323267017c6d09abfa8535ee6a8e14069595f
+  languageName: node
+  linkType: hard
+
 "mdast-util-gfm-autolink-literal@npm:^1.0.0":
   version: 1.0.2
   resolution: "mdast-util-gfm-autolink-literal@npm:1.0.2"
@@ -13075,6 +13096,18 @@ __metadata:
     mdast-util-gfm-task-list-item: ^1.0.0
     mdast-util-to-markdown: ^1.0.0
   checksum: 8b39e6694521094ae28d12cbeff074ef3ec3f7f7ec59fbddd4e8a45a275e092c6ba6ecee4c720938eb3ee072ebd41d743b08cc0ab9171612a5aeddc1e78ae882
+  languageName: node
+  linkType: hard
+
+"mdast-util-jaruby@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "mdast-util-jaruby@npm:0.1.1"
+  dependencies:
+    "@types/mdast": ^3.0.10
+    mdast-util-from-markdown: ^1.2.0
+    mdast-util-to-markdown: ^1.3.0
+    micromark-extension-jaruby: ^0.1.0
+  checksum: 984df3313654ce52727473faa376f1eb22bafc1d9830a0566ad58a1a19bb734f88c3f4b0a0fc8b32a60bd0b8a533f384d94e6c1e2baa0c9dcc461774db14f1fb
   languageName: node
   linkType: hard
 
@@ -13521,6 +13554,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"micromark-extension-jaruby@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "micromark-extension-jaruby@npm:0.1.0"
+  dependencies:
+    micromark-util-character: ^1.1.0
+    micromark-util-chunked: ^1.0.0
+    micromark-util-normalize-identifier: ^1.0.0
+    micromark-util-resolve-all: ^1.0.0
+    micromark-util-symbol: ^1.0.1
+    micromark-util-types: ^1.0.2
+    uvu: ^0.5.3
+  checksum: 3ee92c1bccd339d7a81eb2cdc6c9e291a1806d76046f3e912c9979091f8f7bebeabb75a6c75e7f62abda857788f0cadecc26d28c6de427b5a8898d2f672d683e
+  languageName: node
+  linkType: hard
+
 "micromark-extension-mdx-expression@npm:^1.0.0":
   version: 1.0.4
   resolution: "micromark-extension-mdx-expression@npm:1.0.4"
@@ -13668,7 +13716,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromark-util-character@npm:^1.0.0":
+"micromark-util-character@npm:^1.0.0, micromark-util-character@npm:^1.1.0":
   version: 1.1.0
   resolution: "micromark-util-character@npm:1.1.0"
   dependencies:
@@ -13799,14 +13847,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromark-util-symbol@npm:^1.0.0":
+"micromark-util-symbol@npm:^1.0.0, micromark-util-symbol@npm:^1.0.1":
   version: 1.0.1
   resolution: "micromark-util-symbol@npm:1.0.1"
   checksum: c6a3023b3a7432c15864b5e33a1bcb5042ac7aa097f2f452e587bef45433d42d39e0a5cce12fbea91e0671098ba0c3f62a2b30ce1cde66ecbb5e8336acf4391d
   languageName: node
   linkType: hard
 
-"micromark-util-types@npm:^1.0.0, micromark-util-types@npm:^1.0.1":
+"micromark-util-types@npm:^1.0.0, micromark-util-types@npm:^1.0.1, micromark-util-types@npm:^1.0.2":
   version: 1.0.2
   resolution: "micromark-util-types@npm:1.0.2"
   checksum: 08dc901b7c06ee3dfeb54befca05cbdab9525c1cf1c1080967c3878c9e72cb9856c7e8ff6112816e18ead36ce6f99d55aaa91560768f2f6417b415dcba1244df
@@ -16864,6 +16912,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"remark-jaruby@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "remark-jaruby@npm:0.1.0"
+  dependencies:
+    "@types/mdast": ^3.0.10
+    mdast-util-jaruby: ^0.1.1
+    micromark-extension-jaruby: ^0.1.0
+    unified: ^10.1.1
+  checksum: 2aeca1f95e455a102f03ee6ace0b961ec6ed4cd0bb6ae68834b4643e3efc4e2659113d08f49721c3a12ceba8b72216855bbd0a108c1b982aba4a62ceb135bcfc
+  languageName: node
+  linkType: hard
+
 "remark-mdx@npm:^2.0.0":
   version: 2.2.1
   resolution: "remark-mdx@npm:2.2.1"
@@ -19041,7 +19101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unified@npm:^10.0.0, unified@npm:^10.1.2":
+"unified@npm:^10.0.0, unified@npm:^10.1.1, unified@npm:^10.1.2":
   version: 10.1.2
   resolution: "unified@npm:10.1.2"
   dependencies:
@@ -19462,7 +19522,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uvu@npm:^0.5.0":
+"uvu@npm:^0.5.0, uvu@npm:^0.5.3":
   version: 0.5.6
   resolution: "uvu@npm:0.5.6"
   dependencies:

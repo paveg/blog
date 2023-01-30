@@ -116,6 +116,8 @@ Error message
 Note
 :::
 
+{本気}^(マジ)、{有難}^(アザ)っス…
+
 ## Lighthouse CI
 
 ![Lighthouse Report Image](docs/images/LighthouseReport.jpg)

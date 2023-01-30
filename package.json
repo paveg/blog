@@ -70,6 +70,7 @@
     "remark-directive": "^2.0.1",
     "remark-gemoji": "^7.0.1",
     "remark-gfm": "^3.0.1",
+    "remark-jaruby": "^0.1.0",
     "remark-parse": "^10.0.1",
     "remark-unwrap-images": "^3.0.1",
     "unified": "^10.1.2",

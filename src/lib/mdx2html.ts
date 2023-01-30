@@ -7,6 +7,7 @@ import remarkBreaks from 'remark-breaks';
 import remarkDirective from 'remark-directive';
 import remarkGemoji from 'remark-gemoji';
 import remarkGfm from 'remark-gfm';
+import remarkJaruby from 'remark-jaruby';
 import remarkParse from 'remark-parse';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import { customRemarkPlugin, extLinkHandler, remarkLinkWidget } from '@/lib/mdx/customPlugin';
@@ -21,6 +22,7 @@ export const m2h = async (mdxSource: string): Promise<MDXRemoteSerializeResult> 
     mdxOptions: {
       remarkPlugins: [
         remarkParse,
+        remarkJaruby,
         remarkDirective,
         remarkBreaks,
         remarkGfm,
