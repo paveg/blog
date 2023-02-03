@@ -37,7 +37,7 @@ const generateSiteMap = (articles: Article[], categories: Category[]) => {
       <lastmod>${today}</lastmod>
     </url>
     <url>
-    <loc>${siteMetadata.url}/articles</loc>
+      <loc>${siteMetadata.url}/articles</loc>
       <changefreq>daily</changefreq>
       <lastmod>${today}</lastmod>
     </url>
