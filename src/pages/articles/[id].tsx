@@ -13,6 +13,7 @@ import { NextPage, GetStaticPaths, GetStaticProps, GetStaticPropsResult } from '
 import { useRouter } from 'next/router';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import React, { memo } from 'react';
+import { Breadcrumbs } from '@/components/breadcrumbs';
 import { Mdx } from '@/components/mdx';
 import { SideArticleButton } from '@/components/molecules/article/sideArticleButton';
 import { CategoryBadge } from '@/components/molecules/category/badge';
@@ -58,6 +59,7 @@ const Article: NextPage<Props> = ({ article, mdxSource, prevEntry, nextEntry }: 
         url={articleUrl}
       />
       <Container>
+        <Breadcrumbs currentPageTitle={article.title} />
         <CategoryBadge bottomOffset category={article.category} />
         <Box mb={20}>
           <Text align='center' color={colorScheme == 'light' ? 'gray.7' : 'gray.4'} mb={5}>
@@ -80,6 +82,7 @@ const Article: NextPage<Props> = ({ article, mdxSource, prevEntry, nextEntry }: 
         <Mdx {...mdxSource} />
         <Divider mb={20} mt={40} variant='dashed' />
         <ShareButtons articleTitle={article.title} articleUrl={articleUrl} centered />
+        <Breadcrumbs currentPageTitle={article.title} />
         <Divider mb={20} mt={10} variant='dashed' />
         <Group position='center'>
           <SideArticleButton nextEntry={nextEntry} prevEntry={prevEntry} />
