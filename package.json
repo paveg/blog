@@ -42,7 +42,7 @@
     "@mantine/nprogress": "^5.9.5",
     "@mantine/prism": "^5.9.5",
     "@mdx-js/mdx": "^2.2.1",
-    "@next/font": "^13.1.5",
+    "@next/font": "^13.2.3",
     "@tabler/icons": "^1.119.0",
     "@vercel/analytics": "^0.1.6",
     "date-fns": "^2.29.3",
