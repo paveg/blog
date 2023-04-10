@@ -2278,10 +2278,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/font@npm:^13.1.5":
-  version: 13.1.5
-  resolution: "@next/font@npm:13.1.5"
-  checksum: f3e8425ca77e1c6f08153c0fe91ee6bac37b67487bb5c6c69624bd3c1901184a3db4bd9281abf4bce6dbc4d42bd744bdc160dd82660de92b1b7e743f6e120295
+"@next/font@npm:^13.3.0":
+  version: 13.3.0
+  resolution: "@next/font@npm:13.3.0"
+  checksum: 8b3ffee19a30e98050ae06bbf96655cce29b62de014f96d38512f914ec86a1f8319bdbdb5408f26e359d69b351585ac87002aa9faee6fe19ec1d06dd6bae5eae
   languageName: node
   linkType: hard
 
@@ -6078,7 +6078,7 @@ __metadata:
     "@mdx-js/mdx": ^2.2.1
     "@mdx-js/react": ^2.2.1
     "@next/bundle-analyzer": ^13.1.1
-    "@next/font": ^13.1.5
+    "@next/font": ^13.3.0
     "@storybook/addon-actions": ^6.5.15
     "@storybook/addon-docs": ^6.5.15
     "@storybook/addon-essentials": ^6.5.15
