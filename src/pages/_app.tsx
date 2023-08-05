@@ -1,8 +1,8 @@
 import '@/styles/globals.css';
 import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
-import { Noto_Sans_JP } from '@next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { AppProps } from 'next/app';
+import { Noto_Sans_JP } from 'next/font/google';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
