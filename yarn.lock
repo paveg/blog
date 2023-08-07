@@ -2472,12 +2472,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/bundle-analyzer@npm:13.1.4":
-  version: 13.1.4
-  resolution: "@next/bundle-analyzer@npm:13.1.4"
+"@next/bundle-analyzer@npm:13.4.13":
+  version: 13.4.13
+  resolution: "@next/bundle-analyzer@npm:13.4.13"
   dependencies:
     webpack-bundle-analyzer: 4.7.0
-  checksum: 018402530fce6d3f1b02b32a323f5649bf85f84f8252a69af66c5923ffd956d347a28d5726201de525d34f03a5d68fa01967d51f5c73c7b810bfbfc5d72e29df
+  checksum: 2e6f32410fbb98c497a6b52dbd201e35f35c3fc2cbbe935e04559f8dfc9011ccc6bf08608e40a115ac06562a0d14212b347b527729db228ff6db9daa3b238d71
   languageName: node
   linkType: hard
 
@@ -6828,7 +6828,7 @@ __metadata:
     "@mdx-js/mdx": 2.3.0
     "@mdx-js/react": 2.3.0
     "@microsoft/eslint-formatter-sarif": 3.0.0
-    "@next/bundle-analyzer": 13.1.4
+    "@next/bundle-analyzer": 13.4.13
     "@next/env": 13.4.12
     "@next/eslint-plugin-next": 13.4.12
     "@storybook/addon-actions": 7.2.1

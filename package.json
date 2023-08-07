@@ -81,7 +81,7 @@
     "@babel/core": "7.22.9",
     "@mdx-js/react": "2.3.0",
     "@microsoft/eslint-formatter-sarif": "3.0.0",
-    "@next/bundle-analyzer": "13.1.4",
+    "@next/bundle-analyzer": "13.4.13",
     "@next/env": "13.4.12",
     "@next/eslint-plugin-next": "13.4.12",
     "@storybook/addon-actions": "7.2.1",
