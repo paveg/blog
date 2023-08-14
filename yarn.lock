@@ -2356,17 +2356,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/nprogress@npm:5.10.1":
-  version: 5.10.1
-  resolution: "@mantine/nprogress@npm:5.10.1"
+"@mantine/nprogress@npm:6.0.19":
+  version: 6.0.19
+  resolution: "@mantine/nprogress@npm:6.0.19"
   dependencies:
-    "@mantine/utils": 5.10.1
+    "@mantine/utils": 6.0.19
   peerDependencies:
-    "@mantine/core": 5.10.1
-    "@mantine/hooks": 5.10.1
+    "@mantine/core": 6.0.19
+    "@mantine/hooks": 6.0.19
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: e602dd12d6ed524deac8e6138b8f086bcdf164aec6759618d34348babd540ea25b4bf835a04bbd09921baf7097e65f988f2d673f3f58d34da314f51a0f2eb454
+  checksum: bb10cbe549577cd297a721cb9fa9ac664a5fdc6e9b14c13a4978f41edd5c4b219670984d5d07b9f833c3c1771ed27e5e6eb3fa68b4921e8f0db71c70c1f60f63
   languageName: node
   linkType: hard
 
@@ -2420,6 +2420,15 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
   checksum: a5ab487a0b24cc12e0b4ef1e5c49439dfa03e29f8f631eb45565fb6991a31aa762816d520904f22a36eff849b7fa2c0996f35af7e1581e4a069c5a1c81b231d4
+  languageName: node
+  linkType: hard
+
+"@mantine/utils@npm:6.0.19":
+  version: 6.0.19
+  resolution: "@mantine/utils@npm:6.0.19"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: c33e2eba6d78e2b07c222c79a086da9d43a39a1fb8e409b10ab5775f6855325fd30c56b17fd67f9a827497eff2fdc22fff4b9190c2d7069b2c58565d63b3a450
   languageName: node
   linkType: hard
 
@@ -6823,7 +6832,7 @@ __metadata:
     "@mantine/core": 5.10.1
     "@mantine/hooks": 5.10.1
     "@mantine/next": 5.10.1
-    "@mantine/nprogress": 5.10.1
+    "@mantine/nprogress": 6.0.19
     "@mantine/prism": 5.10.1
     "@mdx-js/mdx": 2.3.0
     "@mdx-js/react": 2.3.0
